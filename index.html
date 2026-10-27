@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#090d16">
+  <meta name="description" content="IPE GRIND - Reels-style study app for Intermediate 2nd Year Physics & Chemistry (Telangana Board IPE)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="IPE GRIND">
+  
+  <title>IPE GRIND - TS Inter 2nd Year Physics & Chemistry</title>
+
+  <!-- PWA Manifest & App Icons -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+
+  <!-- KaTeX 100% Offline Standalone Formula Rendering Engine -->
+  <link rel="stylesheet" href="assets/katex/katex.min.css?v=7">
+  <script defer src="assets/katex/katex.min.js?v=7"></script>
+  <script defer src="assets/katex/auto-render.min.js?v=7"></script>
+
+  <!-- Core Styles -->
+  <link rel="stylesheet" href="css/style.css?v=9">
+  <link rel="stylesheet" href="css/themes.css?v=9">
+</head>
+<body>
+  <div id="app-root" class="app-shell">
+    <!-- Confetti Canvas for Gamification Celebrations -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Top App Header: Clean, Flat, Zero-Overflow (Part 2) -->
+    <header class="app-header">
+      <div class="header-inner">
+        <!-- Left: Small Clean Logo + Title -->
+        <div class="brand-group" onclick="window.IPE_APP.switchTab('feed')" title="IPE Grind">
+          <svg class="brand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+          <span class="brand-title">IPE Grind</span>
+        </div>
+
+        <!-- Right: Streak Badge + One Profile Icon -->
+        <div class="header-right">
+          <div class="streak-badge" id="header-streak-badge" onclick="window.IPE_APP.openProfileModal()" title="Daily Practice Streak">
+            <span class="streak-icon">🔥</span>
+            <span class="streak-count" id="header-streak-val">1d</span>
+          </div>
+
+          <button class="profile-icon-btn" id="header-profile-btn" onclick="window.IPE_APP.openProfileModal()" aria-label="Student Profile & Settings" title="Profile & Settings">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Preserved Anchors for Compatibility with all Scripts, Tests & Badges -->
+      <div class="legacy-hidden-anchors" style="display: none;" aria-hidden="true">
+        <button id="header-user-btn" onclick="window.IPE_APP.openProfileModal()"><span id="header-user-name">Guest</span></button>
+        <span id="header-xp-val">0</span>
+        <button id="header-badges-pill" onclick="window.IPE_APP.openBadgesModal()"></button>
+        <button id="header-qotd-btn" onclick="window.IPE_APP.openQOTDModal()"></button>
+        <button id="open-filter-btn" onclick="window.IPE_APP.openFilterModal()"></button>
+        <button id="theme-toggle-btn" onclick="window.IPE_APP.toggleTheme()"></button>
+      </div>
+    </header>
+
+    <!-- Top Feed Scroll Progress Bar (Subtle) -->
+    <div class="feed-progress-bar-container" style="height: 2px; background: transparent;">
+      <div class="feed-progress-bar-fill" id="feed-progress-bar-fill" style="height: 2px; background: var(--accent); width: 0%; transition: width var(--transition-fast);"></div>
+    </div>
+
+    <!-- Main Viewport containing 5 Tab Sections -->
+    <main class="main-viewport">
+
+      <!-- ==========================================
+           TAB 1: HIGH-PERFORMANCE VIRTUAL FEED (Part 3)
+           ========================================== -->
+      <section class="view-section active" id="section-feed">
+        <!-- Sticky Feed Filters (Maximum 2 filter controls visible) -->
+        <div class="feed-sticky-filters">
+          <!-- 1. Segmented Subject Control: All / Physics / Chemistry -->
+          <div class="segmented-subject-control">
+            <button class="global-sub-pill active" id="global-sub-all" onclick="window.IPE_APP.setGlobalSubject('all')">All</button>
+            <button class="global-sub-pill" id="global-sub-physics" onclick="window.IPE_APP.setGlobalSubject('physics')">Physics</button>
+            <button class="global-sub-pill" id="global-sub-chemistry" onclick="window.IPE_APP.setGlobalSubject('chemistry')">Chemistry</button>
+          </div>
+
+          <!-- 2. Question Type Chips in ONE scrollable row without visible scrollbar -->
+          <div class="feed-marks-scroll-row">
+            <button class="marks-pill active" data-type="all" onclick="window.IPE_FEED.setMarksFilter('all', this)">All</button>
+            <button class="marks-pill" data-type="VSAQ" onclick="window.IPE_FEED.setMarksFilter('VSAQ', this)">2M</button>
+            <button class="marks-pill" data-type="SAQ" onclick="window.IPE_FEED.setMarksFilter('SAQ', this)">4M</button>
+            <button class="marks-pill" data-type="LAQ" onclick="window.IPE_FEED.setMarksFilter('LAQ', this)">8M</button>
+            <button class="marks-pill" data-type="Numerical" onclick="window.IPE_FEED.setMarksFilter('Numerical', this)">Numericals</button>
+            <button class="marks-pill" data-type="MCQ" onclick="window.IPE_FEED.setMarksFilter('MCQ', this)">MCQs</button>
+          </div>
+        </div>
+
+        <!-- Feed Sub-Bar (Chapter Caption + Search / Chapter Filter icons + Counter) -->
+        <div class="feed-sub-bar">
+          <div class="feed-sub-bar-left">
+            <span class="feed-chapter-tag" id="feed-chapter-caption" style="display: none;"></span>
+          </div>
+
+          <div class="feed-sub-bar-right">
+            <!-- Mobile PWA Download / Install App Button -->
+            <button class="sub-bar-icon-btn pwa-install-badge" id="pwa-download-btn" onclick="window.IPE_APP.installPWA()" aria-label="Download Mobile App" title="Download & Install Mobile App (PWA)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            </button>
+
+            <!-- Search Icon Button -->
+            <button class="sub-bar-icon-btn" onclick="window.IPE_APP.openFilterModal()" aria-label="Search questions" title="Search">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </button>
+
+            <!-- Chapter Filter Icon Button (Opens Chapter Filter Bottom Sheet) -->
+            <button class="sub-bar-icon-btn" onclick="window.IPE_APP.openChapterFilterModal()" aria-label="Filter chapter" title="Choose Chapter">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+            </button>
+
+            <!-- Small Progress Indicator (e.g. 12 / 40) -->
+            <span class="feed-progress-indicator" id="feed-progress-counter">1 / 40</span>
+          </div>
+        </div>
+
+        <!-- Virtual Question Card Viewport (Only 1 Card in DOM at once) -->
+        <div class="reels-feed-container" id="reels-feed-container">
+          <!-- Dynamic Virtual Card rendered by js/feed.js -->
+        </div>
+
+        <!-- Discrete Next / Prev Chevrons Bar -->
+        <div class="feed-nav-bar">
+          <button class="feed-nav-btn" id="feed-prev-btn" onclick="window.IPE_FEED.prevQuestion()" aria-label="Previous question">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg>
+            <span>Prev</span>
+          </button>
+
+          <button class="feed-nav-btn" id="feed-next-btn" onclick="window.IPE_FEED.nextQuestion()" aria-label="Next question">
+            <span>Next</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           TAB 2: CHAPTERS SYLLABUS GRID (Rebuilt Clean 1px Design System)
+           ========================================== -->
+      <section class="view-section" id="section-chapters">
+        <div class="chapters-view-container">
+
+          <!-- 1. Top Segmented Control: Physics / Chemistry / All (counts as small text) -->
+          <div class="segmented-subject-control chapters-segmented-control">
+            <button class="global-sub-pill active" id="ch-pill-physics" onclick="window.IPE_APP.setGlobalSubject('physics')">
+              <span>Physics</span> <span class="ch-count-badge">16</span>
+            </button>
+            <button class="global-sub-pill" id="ch-pill-chemistry" onclick="window.IPE_APP.setGlobalSubject('chemistry')">
+              <span>Chemistry</span> <span class="ch-count-badge">15</span>
+            </button>
+            <button class="global-sub-pill" id="ch-pill-all" onclick="window.IPE_APP.setGlobalSubject('all')">
+              <span>All</span> <span class="ch-count-badge">31</span>
+            </button>
+          </div>
+
+          <!-- Hidden anchors for backward-compatibility with tests & scripts -->
+          <div style="display: none;" aria-hidden="true">
+            <button id="ch-picker-physics"></button>
+            <button id="ch-picker-chemistry"></button>
+            <div id="physics-chapters-count-badge"></div>
+            <div id="chemistry-chapters-count-badge"></div>
+          </div>
+
+          <!-- 2. Subject Summary as ONE Compact Card -->
+          <div class="chapters-summary-card" id="chapters-summary-card">
+            <!-- Populated dynamically by renderChaptersGrid() -->
+          </div>
+
+          <!-- 3. Physics Chapters Group (Part I and Part II) -->
+          <div class="chapters-subject-group" id="group-physics-chapters">
+            <div class="chapters-grid" id="physics-chapters-grid">
+              <!-- Dynamic Physics chapters grouped by Part I & Part II -->
+            </div>
+          </div>
+
+          <!-- 4. Chemistry Chapters Group (Part I and Part II) -->
+          <div class="chapters-subject-group" id="group-chemistry-chapters" style="display: none;">
+            <div class="chapters-grid" id="chemistry-chapters-grid">
+              <!-- Dynamic Chemistry chapters grouped by Part I & Part II -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================
+           TAB 3: TIMED RAPID-FIRE QUIZ
+           ========================================== -->
+      <section class="view-section" id="section-quiz">
+        <div class="quiz-viewport">
+          <div class="quiz-setup-card" id="quiz-setup-card">
+            <div class="quiz-icon-wrap">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <h2 class="quiz-setup-title">10-Question Rapid Fire</h2>
+            <p class="quiz-setup-desc">
+              15 seconds per question. Test your recall speed on high-yield IPE questions from active chapters!
+            </p>
+            <div class="quiz-stat-pill-row">
+              <div class="stat-pill xp">+50 XP on completion</div>
+              <div class="stat-pill streak">Instant solutions</div>
+            </div>
+            <button class="btn-primary" style="max-width: 260px; margin: 0 auto; width: 100%;" onclick="window.IPE_QUIZ.startQuiz()">
+              Start Rapid-Fire Now
+            </button>
+          </div>
+
+          <div id="quiz-game-container" style="display: none; width: 100%;">
+            <!-- Rendered by js/quiz.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           TAB 4: FORMULAS & FLASHCARDS
+           ========================================== -->
+      <section class="view-section" id="section-formulas">
+        <div class="formulas-view-scroll">
+          <div class="section-hero-title">Quick Revision Flashcards</div>
+          <div class="section-hero-sub">159 Essential Board Formulas, Reactions & Exam Tips</div>
+
+          <!-- Mode Toggle: 3D Deck Mode vs Browse List -->
+          <div class="fc-mode-toggle-bar">
+            <button class="fc-mode-pill active" onclick="window.IPE_FLASHCARDS.setMode('deck', this)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+              <span>3D Deck Mode</span>
+            </button>
+            <button class="fc-mode-pill" onclick="window.IPE_FLASHCARDS.setMode('list', this)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" x2="21" y1="6" y2="6"/><line x1="8" x2="21" y1="12" y2="12"/><line x1="8" x2="21" y1="18" y2="18"/><line x1="3" x2="3.01" y1="6" y2="6"/><line x1="3" x2="3.01" y1="12" y2="12"/><line x1="3" x2="3.01" y1="18" y2="18"/></svg>
+              <span>Browse All (159)</span>
+            </button>
+          </div>
+
+          <!-- Filter Pills -->
+          <div class="formula-filter-tabs">
+            <button class="formula-filter-pill active" data-subj="all" onclick="window.IPE_APP.setGlobalSubject('all')">All (159)</button>
+            <button class="formula-filter-pill" data-subj="physics" onclick="window.IPE_APP.setGlobalSubject('physics')">Physics (90)</button>
+            <button class="formula-filter-pill" data-subj="chemistry" onclick="window.IPE_APP.setGlobalSubject('chemistry')">Chemistry (69)</button>
+          </div>
+
+          <!-- Chapter Dropdown & Fast Search -->
+          <div class="fc-filters-row">
+            <div class="fc-dropdown-wrap">
+              <select id="flashcard-chapter-select" onchange="window.IPE_FLASHCARDS.selectChapter(this.value)">
+                <option value="all">All Chapters (Full Syllabus)</option>
+              </select>
+            </div>
+            <div class="fc-search-wrap">
+              <svg class="fc-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <input type="text" id="flashcard-search-input" placeholder="Search formula or topic..." oninput="window.IPE_FLASHCARDS.handleSearch(this.value)">
+            </div>
+          </div>
+
+          <!-- Dynamic Container for 3D Deck or List View -->
+          <div id="flashcards-view-content">
+            <!-- Rendered by js/flashcards.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           TAB 5: SAVED & REVISION QUEUE
+           ========================================== -->
+      <section class="view-section" id="section-saved">
+        <div class="saved-view-scroll">
+          <div class="section-hero-title">Saved & Revision</div>
+          <div class="section-hero-sub">Your personal high-yield questions for last-minute review</div>
+
+          <div class="saved-tabs-row">
+            <button class="saved-tab-btn active" data-sub="bookmarked" onclick="window.IPE_APP.setSavedSubTab('bookmarked')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>
+              <span>Bookmarked</span>
+            </button>
+            <button class="saved-tab-btn" data-sub="revise" onclick="window.IPE_APP.setSavedSubTab('revise')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+              <span>Revise Again</span>
+            </button>
+          </div>
+
+          <div id="saved-questions-list">
+            <!-- Rendered by js/app.js -->
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Navigation Bar (Part 4: Lucide SVG icons, 44px min tap targets, safe-area inset) -->
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-tab="feed" aria-label="Feed">
+        <svg class="nav-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+        <span class="nav-label">Feed</span>
+      </button>
+
+      <button class="nav-item" data-tab="chapters" aria-label="Chapters">
+        <svg class="nav-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg>
+        <span class="nav-label">Chapters</span>
+      </button>
+
+      <button class="nav-item" data-tab="quiz" aria-label="Quiz">
+        <svg class="nav-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <span class="nav-label">Quiz</span>
+      </button>
+
+      <button class="nav-item" data-tab="formulas" aria-label="Flashcards">
+        <svg class="nav-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+        <span class="nav-label">Flashcards</span>
+      </button>
+
+      <button class="nav-item" data-tab="saved" aria-label="Saved">
+        <svg class="nav-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>
+        <span class="nav-label">Saved</span>
+      </button>
+    </nav>
+
+    <!-- ==========================================
+         MODALS
+         ========================================== -->
+
+    <!-- Search & Filter Bottom Sheet Modal -->
+    <div class="modal-overlay" id="filter-modal">
+      <div class="modal-sheet">
+        <div class="modal-header">
+          <div class="modal-title">Search & Filter Feed</div>
+          <button class="close-modal-btn" onclick="window.IPE_APP.closeFilterModal()">✕</button>
+        </div>
+
+        <input type="text" class="search-input-box" id="modal-search-input" placeholder="Search keywords (e.g. Doppler, Schottky, beats)...">
+
+        <div class="filter-group">
+          <div class="filter-group-title">Subject</div>
+          <div class="filter-chips-row">
+            <button class="filter-chip-btn active" onclick="window.IPE_FEED.setFilter({ subject: 'all' }); this.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active')); this.classList.add('active');">All</button>
+            <button class="filter-chip-btn" onclick="window.IPE_FEED.setFilter({ subject: 'physics' }); this.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active')); this.classList.add('active');">Physics ⚡</button>
+            <button class="filter-chip-btn" onclick="window.IPE_FEED.setFilter({ subject: 'chemistry' }); this.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active')); this.classList.add('active');">Chemistry 🧪</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-group-title">Question Type (Marks)</div>
+          <div class="filter-chips-row">
+            <button class="filter-chip-btn active" onclick="window.IPE_FEED.setFilter({ type: 'all' }); this.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active')); this.classList.add('active');">All Types</button>
+            <button class="filter-chip-btn" onclick="window.IPE_FEED.setFilter({ type: 'VSAQ' }); this.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active')); this.classList.add('active');">VSAQ (2M)</button>
+            <button class="filter-chip-btn" onclick="window.IPE_FEED.setFilter({ type: 'SAQ' }); this.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active')); this.classList.add('active');">SAQ (4M)</button>
+            <button class="filter-chip-btn" onclick="window.IPE_FEED.setFilter({ type: 'LAQ' }); this.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active')); this.classList.add('active');">LAQ (8M)</button>
+            <button class="filter-chip-btn" onclick="window.IPE_FEED.setFilter({ type: 'Numerical' }); this.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active')); this.classList.add('active');">Numericals</button>
+            <button class="filter-chip-btn" onclick="window.IPE_FEED.setFilter({ type: 'MCQ' }); this.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active')); this.classList.add('active');">Quick MCQs</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-group-title">Priority</div>
+          <div class="filter-chips-row">
+            <button class="filter-chip-btn" onclick="this.classList.toggle('active'); window.IPE_FEED.setFilter({ importantOnly: this.classList.contains('active') });">⭐ Important Only (IMP)</button>
+          </div>
+        </div>
+
+        <div style="margin-top: 18px; display: flex; gap: 8px;">
+          <button class="btn-primary" style="flex: 1;" onclick="window.IPE_APP.closeFilterModal()">Apply & Close</button>
+          <button class="btn-primary" style="background: var(--bg-subtle); border: 1px solid var(--border); color: var(--text-primary);" onclick="window.IPE_FEED.resetFilters(); window.IPE_APP.closeFilterModal();">Reset All</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter Selection Bottom Sheet Modal -->
+    <div class="modal-overlay" id="chapter-filter-modal">
+      <div class="modal-sheet">
+        <div class="modal-header">
+          <div class="modal-title">Select Chapter to Practice</div>
+          <button class="close-modal-btn" onclick="window.IPE_APP.closeChapterFilterModal()">✕</button>
+        </div>
+        <p style="color: var(--text-secondary); font-size: var(--text-caption);">Choose a specific chapter to jump straight into its high-yield questions:</p>
+        <div id="chapter-filter-list" style="display: flex; flex-direction: column; gap: var(--space-2); max-height: 55vh; overflow-y: auto;">
+          <!-- Dynamically populated by js/app.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Achievement Badges Modal -->
+    <div class="modal-overlay" id="badges-modal">
+      <div class="modal-sheet">
+        <div class="modal-header">
+          <div class="modal-title">🏆 Your Achievements</div>
+          <button class="close-modal-btn" onclick="window.IPE_APP.closeBadgesModal()">✕</button>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Unlock badges by practicing regularly, hitting streaks, and mastering chapters.</p>
+        <div class="badges-grid" id="badges-grid-container">
+          <!-- Rendered by js/app.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Question of the Day Modal -->
+    <div class="modal-overlay" id="qotd-modal">
+      <div class="modal-sheet">
+        <div class="modal-header">
+          <div class="modal-title">💡 Question of the Day</div>
+          <button class="close-modal-btn" onclick="window.IPE_APP.closeQOTDModal()">✕</button>
+        </div>
+        <div id="qotd-card-content">
+          <!-- Rendered by js/app.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Student Profile & Settings Screen (Part 2: All settings, XP, streak, theme in Profile) -->
+    <div class="modal-overlay" id="modal-auth">
+      <div class="modal-sheet auth-sheet">
+        <div class="modal-header">
+          <div class="modal-title">Student Profile & Settings</div>
+          <button class="close-modal-btn" onclick="window.IPE_APP.closeAuthModal()">✕</button>
+        </div>
+        
+        <div class="auth-modal-body">
+          <!-- Quick Stats Grid in Profile -->
+          <div class="profile-stats-grid" style="margin-bottom: var(--space-3);">
+            <div class="profile-stat-box" onclick="window.IPE_GAME.showStreakModal()">
+              <div class="profile-stat-val" id="profile-streak-val">1d</div>
+              <div class="profile-stat-lbl">🔥 Daily Streak</div>
+            </div>
+            <div class="profile-stat-box" onclick="window.IPE_GAME.showXPModal()">
+              <div class="profile-stat-val" id="profile-xp-val">0</div>
+              <div class="profile-stat-lbl">⚡ Total XP</div>
+            </div>
+          </div>
+
+          <div id="auth-status-note" class="auth-status-box" style="margin-bottom: var(--space-3);"></div>
+
+          <!-- Direct PWA Mobile Download / Install Button -->
+          <button type="button" class="btn-primary" id="profile-install-btn" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: var(--space-3); background: var(--accent);" onclick="window.IPE_APP.installPWA()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            <span>📲 Download Mobile App (PWA)</span>
+          </button>
+
+          <form id="auth-profile-form" onsubmit="window.IPE_APP.saveUserProfile(event)">
+            <div class="auth-form-field" style="margin-bottom: var(--space-2);">
+              <label for="auth-input-name" class="profile-input-label">Student Name / Nickname</label>
+              <input type="text" id="auth-input-name" class="profile-input-field" placeholder="e.g. Sai Krishna" required maxlength="32">
+            </div>
+
+            <div class="auth-form-field" style="margin-bottom: var(--space-2);">
+              <label for="auth-input-mobile" class="profile-input-label">Mobile Number (10 digits)</label>
+              <input type="tel" id="auth-input-mobile" class="profile-input-field" placeholder="9876543210" pattern="[0-9]{10}" maxlength="10">
+            </div>
+
+            <div class="auth-form-field" style="margin-bottom: var(--space-3);">
+              <label for="auth-select-aim" class="profile-input-label">IPE Exam Target Goal</label>
+              <select id="auth-select-aim" class="profile-input-field">
+                <option value="60/60 Topper">🎯 60/60 Topper (Aiming State Top Rank)</option>
+                <option value="55+ Distinction">🌟 55+ Distinction (Solid Preparation)</option>
+                <option value="50+ First Class">⚡ 50+ First Class (Safe & Strong)</option>
+                <option value="Fast Revision">🚀 Fast Revision & Pass Guarantee</option>
+              </select>
+            </div>
+
+            <div class="auth-btn-actions" style="display: flex; gap: var(--space-2); margin-bottom: var(--space-3);">
+              <button type="submit" class="btn-primary" style="flex: 1;">
+                Save Profile
+              </button>
+              <button type="button" class="btn-primary" style="background: var(--bg-subtle); border: 1px solid var(--border); color: var(--text-primary);" onclick="window.IPE_APP.loginAsGuest()">
+                Guest Mode
+              </button>
+            </div>
+          </form>
+
+          <!-- Profile Settings & Quick Tools -->
+          <div style="display: flex; flex-direction: column; gap: var(--space-2); border-top: 1px solid var(--border); padding-top: var(--space-3);">
+            <button class="vcard-action-btn" style="width: 100%; text-align: left; justify-content: flex-start; padding: 0 var(--space-3);" onclick="window.IPE_APP.openBadgesModal()">
+              <span>🏆 Badges & Achievements</span>
+            </button>
+            <button class="vcard-action-btn" style="width: 100%; text-align: left; justify-content: flex-start; padding: 0 var(--space-3);" onclick="window.IPE_APP.openQOTDModal()">
+              <span>💡 Question of the Day</span>
+            </button>
+            <button class="vcard-action-btn" style="width: 100%; text-align: left; justify-content: flex-start; padding: 0 var(--space-3);" onclick="window.IPE_APP.toggleTheme()">
+              <span id="profile-theme-label">☀️ Toggle Dark / Light Theme</span>
+            </button>
+            <button class="vcard-action-btn" style="width: 100%; text-align: left; justify-content: flex-start; padding: 0 var(--space-3);" onclick="window.IPE_AI.openChat()">
+              <span>🤖 Open IPE GURU AI Tutor</span>
+            </button>
+          </div>
+
+          <!-- Offline Status Badge -->
+          <div style="margin-top: var(--space-3); padding: var(--space-2) var(--space-3); border-radius: var(--radius-sm); background: var(--bg-subtle); border: 1px solid var(--border); font-size: var(--text-caption); color: var(--text-secondary); text-align: center;">
+            📶 <strong>100% Offline Capable:</strong> All 31 chapters, 362 questions and 159 formulas run without mobile data.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Tutor Chat Drawer Modal (Groq Powered) -->
+    <div class="modal-overlay ai-chat-modal-overlay" id="ai-chat-modal">
+      <div class="modal-sheet ai-chat-sheet">
+        <div class="modal-drag-handle"></div>
+
+        <div class="ai-chat-header">
+          <div class="ai-header-info">
+            <div class="ai-avatar-badge">🤖</div>
+            <div>
+              <div class="ai-title-row">
+                <span class="ai-title">IPE GURU</span>
+                <span class="ai-status-pill"><span class="ai-status-pulse"></span> Active • Groq LPUs</span>
+              </div>
+              <div class="ai-sub">Deep Concepts • Tenglish • TS Board 60/60 Master</div>
+            </div>
+          </div>
+          <div class="ai-header-controls">
+            <button class="ai-tool-btn" onclick="window.IPE_AI.clearChat()" title="Reset Chat">🔄 Reset</button>
+            <button class="ai-tool-btn" id="ai-fullscreen-btn" onclick="window.IPE_AI.toggleFullscreen()" title="Fullscreen / Expand">⛶</button>
+            <button class="close-modal-btn" onclick="window.IPE_AI.closeChat()">✕</button>
+          </div>
+        </div>
+
+        <!-- Quick Concept Prompt Chips -->
+        <div class="ai-prompt-chips-bar">
+          <button class="ai-chip-prompt" onclick="window.IPE_AI.sendMessage('Sir, Doppler effect concept and apparent frequency formula scratch nundi explain cheyyandi')">
+            ⚡ Doppler Effect
+          </button>
+          <button class="ai-chip-prompt" onclick="window.IPE_AI.sendMessage('Schottky defect vs Frenkel defect scratch nundi easy ga gurthundela cheppandi')">
+            🧪 Schottky vs Frenkel
+          </button>
+          <button class="ai-chip-prompt" onclick="window.IPE_AI.sendMessage('Young double slit experiment fringe width beta = lambda D / d derivation steps cheppandi')">
+            ⚡ Wave Optics YDSE
+          </button>
+          <button class="ai-chip-prompt" onclick="window.IPE_AI.sendMessage('Raoult law derivation and ideal vs non-ideal solutions with examples explain cheyyandi')">
+            🧪 Raoult's Law
+          </button>
+          <button class="ai-chip-prompt" onclick="window.IPE_AI.sendMessage('Nernst equation formula derivation and EMF calculation numericals ela cheyyali?')">
+            🧪 Nernst Equation
+          </button>
+          <button class="ai-chip-prompt" onclick="window.IPE_AI.sendMessage('Faraday laws of induction real-world generator example tho explain cheyyandi')">
+            ⚡ Faraday's Laws
+          </button>
+          <button class="ai-chip-prompt" onclick="window.IPE_AI.sendMessage('Cannizzaro reaction vs Aldol condensation mechanism easy ga explain cheyyandi')">
+            🧪 Aldol & Cannizzaro
+          </button>
+        </div>
+
+        <!-- Chat Messages Container -->
+        <div class="ai-messages-viewport" id="ai-chat-messages">
+          <!-- Messages will be injected by js/ai.js -->
+        </div>
+
+        <!-- Live Typing Indicator -->
+        <div class="ai-typing-indicator" id="ai-typing-indicator" style="display: none;">
+          <span class="ai-typing-dot"></span>
+          <span class="ai-typing-dot"></span>
+          <span class="ai-typing-dot"></span>
+          <span class="ai-typing-text">IPE GURU is thinking & crafting explanation...</span>
+        </div>
+
+        <!-- AI Chat Input Bar -->
+        <div class="ai-input-bar">
+          <input type="text" id="ai-chat-input" class="ai-chat-input-field" placeholder="Ask any physics/chemistry doubt in Tenglish..." onkeydown="if(event.key === 'Enter') window.IPE_AI.sendMessage()">
+          <button id="ai-chat-send-btn" class="ai-send-btn" onclick="window.IPE_AI.sendMessage()" title="Send">
+            <span>➔</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Data Scripts (Modular Registry pattern for zero-CORS file:// support) -->
+  <script src="data/manifest.js"></script>
+  <!-- Physics Chapters 1 to 16 -->
+  <script src="data/physics/ch01-waves.js"></script>
+  <script src="data/physics/ch02-ray-optics.js"></script>
+  <script src="data/physics/ch03-wave-optics.js"></script>
+  <script src="data/physics/ch04-electric-charges.js"></script>
+  <script src="data/physics/ch05-potential-capacitance.js"></script>
+  <script src="data/physics/ch06-current-electricity.js"></script>
+  <script src="data/physics/ch07-moving-charges.js"></script>
+  <script src="data/physics/ch08-magnetism-matter.js"></script>
+  <script src="data/physics/ch09-induction.js"></script>
+  <script src="data/physics/ch10-ac.js"></script>
+  <script src="data/physics/ch11-em-waves.js"></script>
+  <script src="data/physics/ch12-dual-nature.js"></script>
+  <script src="data/physics/ch13-atoms.js"></script>
+  <script src="data/physics/ch14-nuclei.js"></script>
+  <script src="data/physics/ch15-semiconductors.js"></script>
+  <script src="data/physics/ch16-communication.js"></script>
+  <!-- Chemistry Chapters 1 to 15 -->
+  <script src="data/chemistry/ch01-solid-state.js"></script>
+  <script src="data/chemistry/ch02-solutions.js"></script>
+  <script src="data/chemistry/ch03-electrochemistry.js"></script>
+  <script src="data/chemistry/ch04-chemical-kinetics.js"></script>
+  <script src="data/chemistry/ch05-surface-chemistry.js"></script>
+  <script src="data/chemistry/ch06-metallurgy.js"></script>
+  <script src="data/chemistry/ch07-p-block.js"></script>
+  <script src="data/chemistry/ch08-df-block.js"></script>
+  <script src="data/chemistry/ch09-coordination.js"></script>
+  <script src="data/chemistry/ch10-haloalkanes.js"></script>
+  <script src="data/chemistry/ch11-oxygen-organics.js"></script>
+  <script src="data/chemistry/ch12-amines.js"></script>
+  <script src="data/chemistry/ch13-biomolecules.js"></script>
+  <script src="data/chemistry/ch14-polymers.js"></script>
+  <script src="data/chemistry/ch15-everyday-life.js"></script>
+
+  <!-- App Architecture Scripts -->
+  <script src="js/storage.js?v=9"></script>
+  <script src="js/speech.js?v=9"></script>
+  <script src="js/gamification.js?v=9"></script>
+  <script src="js/quiz.js?v=9"></script>
+  <script src="js/feed.js?v=9"></script>
+  <script src="js/flashcards.js?v=9"></script>
+  <script src="js/ai.js?v=9"></script>
+  <script src="js/app.js?v=9"></script>
+</body>
+</html>

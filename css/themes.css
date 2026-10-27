@@ -1,0 +1,41 @@
+/* IPE GRIND - KaTeX & Typography Enhancements */
+
+/* KaTeX styling overrides for crisp mobile readability */
+.katex-display {
+  margin: 0.4em 0 !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  padding: 2px 0 !important;
+}
+
+.katex {
+  font-size: 1.05em !important;
+  color: inherit !important;
+}
+
+/* Fallback math formatting when offline or KaTeX isn't loaded */
+.math-fallback {
+  font-family: var(--font-mono);
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+/* Transitions strictly 150-200ms opacity / transform */
+body, #app-root, .vcard-item, .app-header, .bottom-nav {
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+/* Custom Minimal Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: var(--radius-full);
+}
