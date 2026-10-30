@@ -315,22 +315,61 @@ Key Teaching Guidelines:
         ...conversationHistory.slice(-8)
       ];
 
-      const response = await fetch(GROQ_CONFIG.endpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + GROQ_CONFIG.apiKey
-        },
-        body: JSON.stringify({
-          model: GROQ_CONFIG.model,
-          messages: messages,
-          temperature: 0.7,
-          max_tokens: 900
-        })
-      });
+      let response = null;
+      let usedServerless = false;
 
-      if (!response.ok) {
-        throw new Error(`Groq HTTP error: ${response.status}`);
+      // 1. Check if serverless /api/chat is available (e.g. Vercel deployment)
+      try {
+        const testRes = await fetch('/api/chat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            ...(GROQ_CONFIG.apiKey ? { 'x-groq-key': GROQ_CONFIG.apiKey } : {})
+          },
+          body: JSON.stringify({
+            messages: messages,
+            model: GROQ_CONFIG.model
+          })
+        });
+
+        if (testRes.ok) {
+          response = testRes;
+          usedServerless = true;
+        }
+      } catch (e) {
+        // Not on serverless, fallback to direct client call
+      }
+
+      // 2. Direct client call to Groq API
+      if (!usedServerless) {
+        if (!GROQ_CONFIG.apiKey) {
+          if (typingIndicator) typingIndicator.style.display = 'none';
+          showApiKeyBanner(false);
+          return;
+        }
+
+        response = await fetch(GROQ_CONFIG.endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + GROQ_CONFIG.apiKey
+          },
+          body: JSON.stringify({
+            model: GROQ_CONFIG.model,
+            messages: messages,
+            temperature: 0.7,
+            max_tokens: 900
+          })
+        });
+      }
+
+      if (!response || !response.ok) {
+        if (response && response.status === 401) {
+          if (typingIndicator) typingIndicator.style.display = 'none';
+          showApiKeyBanner(true);
+          return;
+        }
+        throw new Error(`Groq HTTP error: ${response ? response.status : 'No response'}`);
       }
 
       const data = await response.json();
@@ -354,13 +393,70 @@ Key Teaching Guidelines:
       console.error('Groq AI error:', err);
       if (typingIndicator) typingIndicator.style.display = 'none';
       appendAssistantMessage(
-        "Oops! Network issue ochindi bhayya. Koddiga sepu tarwatha malli try cheyyandi, or check your internet connection.",
+        "Oops! Network issue ochindi bhayya. Koddiga sepu tarwatha malli try cheyyandi, or check your API key / internet connection.",
         false
       );
     } finally {
       isGenerating = false;
       updateSendButtonState(false);
     }
+  }
+
+  function showApiKeyBanner(isInvalid = false) {
+    const container = document.getElementById('ai-chat-messages');
+    if (!container) return;
+
+    const existing = document.getElementById('ai-key-banner');
+    if (existing) {
+      document.getElementById('ai-groq-key-input')?.focus();
+      return;
+    }
+
+    const banner = document.createElement('div');
+    banner.className = 'ai-key-banner';
+    banner.id = 'ai-key-banner';
+    banner.innerHTML = `
+      <div class="ai-key-title">🔑 ${isInvalid ? 'Invalid Groq API Key' : 'Groq API Key Setup'}</div>
+      <div class="ai-key-desc">
+        ${isInvalid
+          ? 'API key authenticate avvaledu. Please enter a valid Groq API key.'
+          : 'To chat with IPE GURU, enter your free Groq API key (starts with <code>gsk_...</code>):'}
+      </div>
+      <div class="ai-key-input-row">
+        <input type="password" id="ai-groq-key-input" placeholder="gsk_..." class="ai-key-input" value="${escapeHtml(GROQ_CONFIG.apiKey || '')}" />
+        <button class="ai-key-save-btn" onclick="window.IPE_AI.saveApiKeyFromInput()">Save</button>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;">
+        <a href="https://console.groq.com/keys" target="_blank" class="ai-key-link">Get free key at console.groq.com ↗</a>
+        ${GROQ_CONFIG.apiKey ? '<button onclick="window.IPE_AI.clearApiKey()" style="background:none; border:none; color:var(--text-muted); font-size:11px; cursor:pointer;">Clear Key</button>' : ''}
+      </div>
+    `;
+    container.appendChild(banner);
+    container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
+    document.getElementById('ai-groq-key-input')?.focus();
+  }
+
+  function saveApiKeyFromInput() {
+    const input = document.getElementById('ai-groq-key-input');
+    if (!input) return;
+    const key = input.value.trim();
+    if (!key) {
+      alert('Please enter a valid Groq API key (starts with gsk_)');
+      return;
+    }
+    GROQ_CONFIG.apiKey = key;
+    localStorage.setItem('ipe_groq_key', key);
+    const banner = document.getElementById('ai-key-banner');
+    if (banner) banner.remove();
+    appendAssistantMessage("Awesome! Me Groq API key successfully save ayindi. Ippudu me doubts adagandi, chuddam! 🚀", false);
+  }
+
+  function clearApiKey() {
+    GROQ_CONFIG.apiKey = '';
+    localStorage.removeItem('ipe_groq_key');
+    const banner = document.getElementById('ai-key-banner');
+    if (banner) banner.remove();
+    appendAssistantMessage("API key cleared. Click 🔑 Key to enter a new one whenever you're ready.", false);
   }
 
   function updateSendButtonState(loading) {
@@ -403,6 +499,9 @@ Key Teaching Guidelines:
     explainFormula: explainFormula,
     clearChat: clearChat,
     copyMessage: copyMessage,
-    speakMessage: speakMessage
+    speakMessage: speakMessage,
+    showApiKeyBanner: showApiKeyBanner,
+    saveApiKeyFromInput: saveApiKeyFromInput,
+    clearApiKey: clearApiKey
   };
 })();
