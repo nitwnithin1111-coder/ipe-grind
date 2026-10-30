@@ -1,5 +1,7 @@
 # ⚡ IPE GRIND - TS Inter 2nd Year (Class 12)
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/nitwnithin1111-coder/ipe-grind)
+
 > **Reels-Style Learning Platform for Telangana Board (TS BIE) Intermediate 2nd Year Physics & Chemistry.**  
 > Built for students studying on their phones while travelling in buses, trains, or in spare minutes.
 
