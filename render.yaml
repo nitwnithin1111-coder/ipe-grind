@@ -1,7 +1,7 @@
 services:
   - type: static
     name: ipe-grind
-    branch: main
+    branch: prod
     buildCommand: ""
     staticPublishPath: .
     routes:
