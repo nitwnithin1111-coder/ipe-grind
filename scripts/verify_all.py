@@ -15,7 +15,8 @@ missing = []
 for s in scripts:
     if s.startswith("http"):
         continue
-    full_path = os.path.join(base_dir, s.replace("/", os.sep))
+    clean_s = s.split("?")[0]
+    full_path = os.path.join(base_dir, clean_s.replace("/", os.sep))
     if not os.path.exists(full_path):
         missing.append(s)
 

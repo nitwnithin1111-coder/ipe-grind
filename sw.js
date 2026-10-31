@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ipe-grind-v9';
+const CACHE_NAME = 'ipe-grind-v10';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -13,6 +13,11 @@ const ASSETS_TO_CACHE = [
   './js/storage.js',
   './js/gamification.js',
   './js/speech.js',
+  './js/countdown.js',
+  './js/ambient_audio.js',
+  './js/commute.js',
+  './js/simulators.js',
+  './js/mock_exam.js',
   './data/manifest.js',
   './data/physics/ch01-waves.js',
   './data/physics/ch02-ray-optics.js',
@@ -117,7 +122,7 @@ self.addEventListener('fetch', (event) => {
 
   if (isStatic) {
     event.respondWith(
-      caches.match(event.request).then((cachedResponse) => {
+      caches.match(event.request, { ignoreSearch: true }).then((cachedResponse) => {
         if (cachedResponse) {
           // In background, fetch fresh copy if online to keep cache up to date
           fetch(event.request).then((networkResponse) => {
@@ -156,10 +161,10 @@ self.addEventListener('fetch', (event) => {
         return networkResponse;
       })
       .catch(() => {
-        return caches.match(event.request).then((cachedResponse) => {
+        return caches.match(event.request, { ignoreSearch: true }).then((cachedResponse) => {
           if (cachedResponse) return cachedResponse;
           if (event.request.mode === 'navigate') {
-            return caches.match('./index.html');
+            return caches.match('./index.html', { ignoreSearch: true });
           }
         });
       })

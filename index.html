@@ -43,6 +43,18 @@
 
         <!-- Right: Streak Badge + One Profile Icon -->
         <div class="header-right">
+          <button class="header-mock-btn" onclick="window.IPE_MOCK.openModal('physics')" title="Official 60-Mark Board Mock Exam Generator" aria-label="Mock Exam">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            <span>60M Mock</span>
+          </button>
+          <button class="header-audio-btn" id="header-audio-btn" onclick="window.IPE_AMBIENT.openModal()" title="Binaural & Focus Audio Synthesizer" aria-label="Focus Audio">
+            <span class="audio-eq-icon"><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span></span>
+            <span>Focus Audio</span>
+          </button>
+          <button class="header-blueprint-btn" onclick="window.IPE_APP.openBlueprintModal()" title="Official TS Board Blueprint & PYQ Trends" aria-label="Official Blueprint">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+            <span>Blueprint & PYQs</span>
+          </button>
           <div class="streak-badge" id="header-streak-badge" onclick="window.IPE_APP.openProfileModal()" title="Daily Practice Streak">
             <span class="streak-icon">🔥</span>
             <span class="streak-count" id="header-streak-val">1d</span>
@@ -80,6 +92,43 @@
            TAB 1: HIGH-PERFORMANCE VIRTUAL FEED (Part 3)
            ========================================== -->
       <section class="view-section active" id="section-feed">
+        <!-- Live IPE Exam Countdown & Daily Study Goal Banner -->
+        <div class="countdown-goal-banner" id="countdown-goal-banner">
+          <div class="banner-top-bar">
+            <div class="banner-label-group">
+              <span class="banner-exam-tag">TS IPE 2027</span>
+              <span>Senior Inter Public Exams</span>
+            </div>
+            <button class="banner-collapse-btn" onclick="window.IPE_COUNTDOWN.toggleCollapse()" title="Collapse / Expand Countdown" aria-label="Toggle Countdown">
+              <span>▼</span>
+            </button>
+          </div>
+          <div class="banner-expanded-content">
+            <div class="countdown-digits-wrap" title="Time remaining until Board Examination">
+              <div class="countdown-box"><span class="countdown-val" id="countdown-days">00</span><span class="countdown-unit">Days</span></div>
+              <span class="countdown-sep">:</span>
+              <div class="countdown-box"><span class="countdown-val" id="countdown-hours">00</span><span class="countdown-unit">Hours</span></div>
+              <span class="countdown-sep">:</span>
+              <div class="countdown-box"><span class="countdown-val" id="countdown-mins">00</span><span class="countdown-unit">Mins</span></div>
+              <span class="countdown-sep">:</span>
+              <div class="countdown-box"><span class="countdown-val" id="countdown-secs">00</span><span class="countdown-unit">Secs</span></div>
+            </div>
+            <div class="daily-goal-group" title="Daily study goal progress">
+              <div class="daily-goal-svg-wrap">
+                <svg class="daily-goal-svg" viewBox="0 0 44 44">
+                  <circle class="daily-goal-bg-circle" cx="22" cy="22" r="20"></circle>
+                  <circle class="daily-goal-fill-circle" id="daily-goal-ring-fill" cx="22" cy="22" r="20"></circle>
+                </svg>
+                <span class="daily-goal-center-text" id="daily-goal-pct">0%</span>
+              </div>
+              <div class="daily-goal-meta">
+                <span class="daily-goal-title">Daily Goal 🔥</span>
+                <span class="daily-goal-val" id="daily-goal-text">0 / 20 Qs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Sticky Feed Filters (Maximum 2 filter controls visible) -->
         <div class="feed-sticky-filters">
           <!-- 1. Segmented Subject Control: All / Physics / Chemistry -->
@@ -92,6 +141,7 @@
           <!-- 2. Question Type Chips in ONE scrollable row without visible scrollbar -->
           <div class="feed-marks-scroll-row">
             <button class="marks-pill active" data-type="all" onclick="window.IPE_FEED.setMarksFilter('all', this)">All</button>
+            <button class="marks-pill" data-type="PYQ" onclick="window.IPE_FEED.setMarksFilter('PYQ', this)">🔥 PYQs</button>
             <button class="marks-pill" data-type="VSAQ" onclick="window.IPE_FEED.setMarksFilter('VSAQ', this)">2M</button>
             <button class="marks-pill" data-type="SAQ" onclick="window.IPE_FEED.setMarksFilter('SAQ', this)">4M</button>
             <button class="marks-pill" data-type="LAQ" onclick="window.IPE_FEED.setMarksFilter('LAQ', this)">8M</button>
@@ -107,6 +157,12 @@
           </div>
 
           <div class="feed-sub-bar-right">
+            <!-- Commute Mode Button -->
+            <button class="sub-bar-icon-btn commute-btn" id="feed-commute-btn" onclick="window.IPE_COMMUTE.toggleCommuteMode()" aria-label="Hands-Free Commute Mode" title="Hands-Free Commute Mode (Auto-Advance)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+              <span>Commute</span>
+            </button>
+
             <!-- Mobile PWA Download / Install App Button -->
             <button class="sub-bar-icon-btn pwa-install-badge" id="pwa-download-btn" onclick="window.IPE_APP.installPWA()" aria-label="Download Mobile App" title="Download & Install Mobile App (PWA)">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
@@ -124,6 +180,44 @@
 
             <!-- Small Progress Indicator (e.g. 12 / 40) -->
             <span class="feed-progress-indicator" id="feed-progress-counter">1 / 40</span>
+          </div>
+        </div>
+
+        <!-- Reels Hands-Free Commute HUD (Action Safe Zone Lower Third) -->
+        <div class="commute-hud-overlay" id="commute-hud-overlay" style="display: none;">
+          <div class="commute-hud-top">
+            <div class="commute-hud-title">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+              <span>Hands-Free Commute Flow</span>
+            </div>
+            <button class="commute-hud-close" onclick="window.IPE_COMMUTE.toggleCommuteMode(false)" aria-label="Exit Commute Mode">✕</button>
+          </div>
+          <div class="commute-controls-row">
+            <!-- Circular Pulsing Progress Ring (Tap to Pause/Resume) -->
+            <div class="commute-progress-wrap" id="commute-progress-ring" onclick="window.IPE_COMMUTE.togglePause()" title="Tap to Pause / Resume">
+              <svg class="commute-ring-svg" viewBox="0 0 46 46">
+                <circle class="commute-ring-bg" cx="23" cy="23" r="18"></circle>
+                <circle class="commute-ring-fill" id="commute-ring-fill" cx="23" cy="23" r="18"></circle>
+              </svg>
+              <div class="commute-ring-center">
+                <span class="commute-pause-icon" id="commute-pause-icon">⏸</span>
+                <span class="commute-timer-sec" id="commute-timer-sec">30s</span>
+              </div>
+            </div>
+            <!-- Speed Options -->
+            <div class="commute-speed-chips">
+              <button class="commute-spd-btn" id="commute-spd-15s" onclick="window.IPE_COMMUTE.setSpeed('15s')">15s</button>
+              <button class="commute-spd-btn active" id="commute-spd-30s" onclick="window.IPE_COMMUTE.setSpeed('30s')">30s</button>
+              <button class="commute-spd-btn" id="commute-spd-45s" onclick="window.IPE_COMMUTE.setSpeed('45s')">45s</button>
+              <button class="commute-spd-btn" id="commute-spd-audio" onclick="window.IPE_COMMUTE.setSpeed('audio')">🎙️ Audio</button>
+            </div>
+            <!-- TTS Narration Toggle -->
+            <button class="commute-tts-chip active" id="commute-tts-toggle" onclick="window.IPE_COMMUTE.toggleAutoTTS()" title="Auto Narration">
+              🔊 TTS
+            </button>
+          </div>
+          <div class="commute-status-note" id="commute-status-note">
+            Auto-advancing cards for bus/train revision. Tap circle to pause.
           </div>
         </div>
 
@@ -171,6 +265,21 @@
             <button id="ch-picker-chemistry"></button>
             <div id="physics-chapters-count-badge"></div>
             <div id="chemistry-chapters-count-badge"></div>
+          </div>
+
+          <!-- Official Blueprint & PYQ Banner Card -->
+          <div class="blueprint-banner-card" onclick="window.IPE_APP.openBlueprintModal()">
+            <div class="blueprint-banner-left">
+              <span class="blueprint-banner-icon">📊</span>
+              <div>
+                <div class="blueprint-banner-title">Official TSBIE Blueprint & PYQ Trends</div>
+                <div class="blueprint-banner-sub">60 Marks structure, chapter weightage & high-frequency repeated questions</div>
+              </div>
+            </div>
+            <button class="blueprint-banner-action" onclick="event.stopPropagation(); window.IPE_APP.openBlueprintModal();">
+              <span>View</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
           </div>
 
           <!-- 2. Subject Summary as ONE Compact Card -->
@@ -233,6 +342,21 @@
         <div class="formulas-view-scroll">
           <div class="section-hero-title">Quick Revision Flashcards</div>
           <div class="section-hero-sub">159 Essential Board Formulas, Reactions & Exam Tips</div>
+
+          <!-- Interactive Formula Lab Hero Card -->
+          <div class="formula-lab-hero-card" onclick="window.IPE_SIMULATORS.openModal('sonometer')">
+            <div class="lab-hero-left">
+              <span class="lab-hero-icon">🧪</span>
+              <div>
+                <div class="lab-hero-title">Interactive Formula Lab & Variable Simulators</div>
+                <div class="lab-hero-sub">Real-time sliders for Sonometer, Potentiometer, Nernst Cell & Kinetics</div>
+              </div>
+            </div>
+            <button class="lab-hero-action" onclick="event.stopPropagation(); window.IPE_SIMULATORS.openModal('sonometer');">
+              <span>Launch Simulators</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
 
           <!-- Mode Toggle: 3D Deck Mode vs Browse List -->
           <div class="fc-mode-toggle-bar">
@@ -418,6 +542,370 @@
       </div>
     </div>
 
+    <!-- ==========================================
+         INTERACTIVE FORMULA LAB & VARIABLE SIMULATORS MODAL
+         ========================================== -->
+    <div class="modal-overlay" id="formula-lab-modal">
+      <div class="modal-sheet formula-lab-sheet">
+        <div class="modal-header">
+          <div>
+            <div class="modal-title">🧪 Formula Lab & Variable Simulators</div>
+            <div style="font-size: 11px; color: var(--text-tertiary); margin-top: 2px;">Real-Time Physics & Chemistry Simulators with Animated Wave & Circuit Diagrams</div>
+          </div>
+          <button class="close-modal-btn" onclick="window.IPE_SIMULATORS.closeModal()">✕</button>
+        </div>
+
+        <!-- Simulator Switcher Tabs -->
+        <div class="sim-tabs-bar">
+          <button class="sim-tab-pill active" id="sim-tab-sonometer" onclick="window.IPE_SIMULATORS.switchSimulator('sonometer')">
+            <span>Sonometer (ν)</span>
+          </button>
+          <button class="sim-tab-pill" id="sim-tab-potentiometer" onclick="window.IPE_SIMULATORS.switchSimulator('potentiometer')">
+            <span>Potentiometer (r)</span>
+          </button>
+          <button class="sim-tab-pill" id="sim-tab-nernst" onclick="window.IPE_SIMULATORS.switchSimulator('nernst')">
+            <span>Daniell Cell (Nernst)</span>
+          </button>
+          <button class="sim-tab-pill" id="sim-tab-kinetics" onclick="window.IPE_SIMULATORS.switchSimulator('kinetics')">
+            <span>First-Order Kinetics</span>
+          </button>
+        </div>
+
+        <!-- PANE 1: SONOMETER TRANSVERSE VIBRATION -->
+        <div class="sim-pane" id="sim-pane-sonometer">
+          <div class="sim-canvas-wrap">
+            <canvas id="sonometer-canvas" width="600" height="220"></canvas>
+          </div>
+          <div class="sim-results-grid">
+            <div class="sim-result-box">
+              <div class="sim-result-val" id="sono-res-freq">98.0 Hz</div>
+              <div class="sim-result-lbl">Operating Frequency (ν)</div>
+            </div>
+            <div class="sim-result-box">
+              <div class="sim-result-val" id="sono-res-fund">98.0 Hz</div>
+              <div class="sim-result-lbl">Fundamental (ν₁)</div>
+            </div>
+            <div class="sim-result-box">
+              <div class="sim-result-val" id="sono-res-vel">114.3 m/s</div>
+              <div class="sim-result-lbl">Wave Velocity (v)</div>
+            </div>
+            <div class="sim-result-box">
+              <div class="sim-result-val" id="sono-res-tension">19.60 N</div>
+              <div class="sim-result-lbl">Tension (T = Mg)</div>
+            </div>
+          </div>
+          <div class="sim-controls-grid">
+            <div class="sim-control-row">
+              <span class="sim-control-lbl">Vibrating Length (L):</span>
+              <input type="range" class="sim-control-slider" min="0.10" max="1.00" step="0.01" value="0.50" oninput="window.IPE_SIMULATORS.setSonometerLength(this.value)">
+              <span class="sim-control-val" id="sono-val-length">50 cm</span>
+            </div>
+            <div class="sim-control-row">
+              <span class="sim-control-lbl">Hanging Mass (M):</span>
+              <input type="range" class="sim-control-slider" min="0.5" max="10.0" step="0.1" value="2.0" oninput="window.IPE_SIMULATORS.setSonometerMass(this.value)">
+              <span class="sim-control-val" id="sono-val-mass">2.0 kg</span>
+            </div>
+            <div class="sim-control-row">
+              <span class="sim-control-lbl">Linear Density (μ):</span>
+              <input type="range" class="sim-control-slider" min="0.0005" max="0.008" step="0.0001" value="0.0015" oninput="window.IPE_SIMULATORS.setSonometerMu(this.value)">
+              <span class="sim-control-val" id="sono-val-mu">1.50 g/m</span>
+            </div>
+            <div class="sim-control-row">
+              <span class="sim-control-lbl">Harmonic Mode (p):</span>
+              <div style="display: flex; gap: 6px;">
+                <button class="commute-spd-btn active" onclick="window.IPE_SIMULATORS.setSonometerMode(1); this.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('active')); this.classList.add('active');">p=1 (Fund)</button>
+                <button class="commute-spd-btn" onclick="window.IPE_SIMULATORS.setSonometerMode(2); this.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('active')); this.classList.add('active');">p=2 (1st Ov)</button>
+                <button class="commute-spd-btn" onclick="window.IPE_SIMULATORS.setSonometerMode(3); this.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('active')); this.classList.add('active');">p=3 (2nd Ov)</button>
+              </div>
+            </div>
+          </div>
+          <div class="sim-law-verify-box">
+            <strong>TS IPE Board Exam Laws Verification:</strong><br>
+            • 1st Law (Length): ν &times; L = <span id="sono-law1-val">49.00</span> (Const)<br>
+            • 2nd Law (Tension): ν / &radic;T = <span id="sono-law2-val">22.14</span> (Const)<br>
+            • 3rd Law (Mass): ν &times; &radic;μ = <span id="sono-law3-val">120.02</span> (Const)
+          </div>
+        </div>
+
+        <!-- PANE 2: POTENTIOMETER INTERNAL RESISTANCE -->
+        <div class="sim-pane" id="sim-pane-potentiometer" style="display: none;">
+          <div class="sim-canvas-wrap">
+            <canvas id="potentiometer-canvas" width="600" height="220"></canvas>
+          </div>
+          <div class="sim-results-grid">
+            <div class="sim-result-box">
+              <div class="sim-result-val" id="pot-res-r">5.00 Ω</div>
+              <div class="sim-result-lbl">Internal Resistance (r)</div>
+            </div>
+            <div class="sim-result-box">
+              <div class="sim-result-val" id="pot-res-v">1.000 V</div>
+              <div class="sim-result-lbl">Terminal Voltage (V)</div>
+            </div>
+            <div class="sim-result-box">
+              <div class="sim-result-val" id="pot-res-i">100.0 mA</div>
+              <div class="sim-result-lbl">Current Drawn (I)</div>
+            </div>
+            <div class="sim-result-box">
+              <div class="sim-result-val" id="pot-res-grad">2.000 mV/cm</div>
+              <div class="sim-result-lbl">Potential Grad (Φ)</div>
+            </div>
+          </div>
+          <div class="sim-controls-grid">
+            <div class="sim-control-row">
+              <span class="sim-control-lbl">Open Circuit (l₁):</span>
+              <input type="range" class="sim-control-slider" min="500" max="950" step="5" value="750" oninput="window.IPE_SIMULATORS.setPotentiometerL1(this.value)">
+              <span class="sim-control-val" id="pot-val-l1">750 cm</span>
+            </div>
+            <div class="sim-control-row">
+              <span class="sim-control-lbl">Resistance Box (R):</span>
+              <input type="range" class="sim-control-slider" min="1" max="50" step="0.5" value="10" oninput="window.IPE_SIMULATORS.setPotentiometerR(this.value)">
+              <span class="sim-control-val" id="pot-val-r">10.0 Ω</span>
+            </div>
+            <div class="sim-control-row">
+              <span class="sim-control-lbl">Closed Circuit (l₂):</span>
+              <input type="range" class="sim-control-slider" min="250" max="700" step="5" value="500" oninput="window.IPE_SIMULATORS.setPotentiometerL2(this.value)">
+              <span class="sim-control-val" id="pot-val-l2">500 cm</span>
+            </div>
+          </div>
+          <div class="sim-law-verify-box">
+            <strong>Formula:</strong> $r = R \left(\frac{l_1 - l_2}{l_2}\right)$<br>
+            Why Potentiometer is superior to Voltmeter: Draws zero current at null balance point ($G = 0$), acting as an ideal voltmeter with infinite internal resistance.
+          </div>
+        </div>
+
+        <!-- PANE 3: DANIELL CELL NERNST EQUATION -->
+        <div class="sim-pane" id="sim-pane-nernst" style="display: none;">
+          <div class="sim-canvas-wrap">
+            <canvas id="nernst-canvas" width="600" height="220"></canvas>
+          </div>
+          <div class="sim-results-grid">
+            <div class="sim-result-box">
+              <div class="sim-result-val" id="nernst-res-ecell">1.1296 V</div>
+              <div class="sim-result-lbl">Cell Potential (E_cell)</div>
+            </div>
+            <div class="sim-result-box">
+              <div class="sim-result-val" id="nernst-res-q">0.100</div>
+              <div class="sim-result-lbl">Quotient Q ([Zn²⁺]/[Cu²⁺])</div>
+            </div>
+            <div class="sim-result-box">
+              <div class="sim-result-val" id="nernst-res-corr">-29.55 mV</div>
+              <div class="sim-result-lbl">Nernst Correction Term</div>
+            </div>
+            <div class="sim-result-box">
+              <div class="sim-result-val" id="nernst-res-dg">-218.0 kJ/mol</div>
+              <div class="sim-result-lbl">ΔG = -nFE (Spontaneous)</div>
+            </div>
+          </div>
+          <div class="sim-controls-grid">
+            <div class="sim-control-row">
+              <span class="sim-control-lbl">Anode [Zn²⁺]:</span>
+              <input type="range" class="sim-control-slider" min="0.001" max="2.000" step="0.005" value="0.100" oninput="window.IPE_SIMULATORS.setNernstZn(this.value)">
+              <span class="sim-control-val" id="nernst-val-zn">0.100 M</span>
+            </div>
+            <div class="sim-control-row">
+              <span class="sim-control-lbl">Cathode [Cu²⁺]:</span>
+              <input type="range" class="sim-control-slider" min="0.001" max="2.000" step="0.005" value="1.000" oninput="window.IPE_SIMULATORS.setNernstCu(this.value)">
+              <span class="sim-control-val" id="nernst-val-cu">1.000 M</span>
+            </div>
+            <div class="sim-control-row">
+              <span class="sim-control-lbl">Temperature (T):</span>
+              <input type="range" class="sim-control-slider" min="273" max="350" step="1" value="298" oninput="window.IPE_SIMULATORS.setNernstTemp(this.value)">
+              <span class="sim-control-val" id="nernst-val-temp">298 K</span>
+            </div>
+          </div>
+          <div class="sim-law-verify-box">
+            <strong>Nernst Equation:</strong> $E_{cell} = E^\circ_{cell} - \frac{2.303 RT}{nF}\log_{10}\frac{[Zn^{2+}]}{[Cu^{2+}]} = 1.10 - \frac{0.0591}{2}\log_{10} Q$<br>
+            Decreasing $[Zn^{2+}]$ or increasing $[Cu^{2+}]$ increases cell voltage $E_{cell}$.
+          </div>
+        </div>
+
+        <!-- PANE 4: FIRST-ORDER KINETICS -->
+        <div class="sim-pane" id="sim-pane-kinetics" style="display: none;">
+          <div class="sim-canvas-wrap">
+            <canvas id="kinetics-canvas" width="600" height="220"></canvas>
+          </div>
+          <div class="sim-results-grid">
+            <div class="sim-result-box">
+              <div class="sim-result-val" id="kin-res-thalf">13.86 s</div>
+              <div class="sim-result-lbl">Half-Life (t½ = 0.693/k)</div>
+            </div>
+            <div class="sim-result-box">
+              <div class="sim-result-val" id="kin-res-rem">100.0</div>
+              <div class="sim-result-lbl">Remaining Amount [A]t</div>
+            </div>
+            <div class="sim-result-box">
+              <div class="sim-result-val" id="kin-res-pct">100.0%</div>
+              <div class="sim-result-lbl">Fraction Remaining</div>
+            </div>
+            <div class="sim-result-box">
+              <div class="sim-result-val" id="kin-res-rate">5.000 M/s</div>
+              <div class="sim-result-lbl">Instantaneous Rate (k[A])</div>
+            </div>
+          </div>
+          <div class="sim-controls-grid">
+            <div class="sim-control-row">
+              <span class="sim-control-lbl">Rate Constant (k or λ):</span>
+              <input type="range" class="sim-control-slider" min="0.01" max="0.30" step="0.005" value="0.05" oninput="window.IPE_SIMULATORS.setKineticsK(this.value)">
+              <span class="sim-control-val" id="kin-val-k">0.050 s⁻¹</span>
+            </div>
+            <div class="sim-control-row">
+              <span class="sim-control-lbl">Initial Amount [A]₀:</span>
+              <input type="range" class="sim-control-slider" min="20" max="500" step="10" value="100" oninput="window.IPE_SIMULATORS.setKineticsA0(this.value)">
+              <span class="sim-control-val" id="kin-val-a0">100</span>
+            </div>
+            <div class="sim-control-row">
+              <span class="sim-control-lbl">Elapsed Time (t):</span>
+              <input type="range" class="sim-control-slider" min="0" max="80" step="0.5" value="0" oninput="window.IPE_SIMULATORS.setKineticsTime(this.value)">
+              <span class="sim-control-val" id="kin-val-time">0.0 s</span>
+            </div>
+            <div style="display: flex; gap: 8px; justify-content: flex-end;">
+              <button class="commute-spd-btn" id="kin-btn-play" onclick="window.IPE_SIMULATORS.toggleKineticsPlay()">⏸ Pause</button>
+              <button class="commute-spd-btn" onclick="window.IPE_SIMULATORS.resetKinetics()">↺ Reset Time</button>
+            </div>
+          </div>
+          <div class="sim-law-verify-box">
+            <strong>Kinetics & Nuclear Law:</strong> $t_{1/2} = \frac{0.693}{k}$ (Half-life is independent of initial concentration $[A]_0$).<br>
+            Fraction remaining after $n$ half-lives: $\left(\frac{1}{2}\right)^n$. At $3t_{1/2}$, $12.5\%$ remains and $87.5\%$ is completed!
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ==========================================
+         FULL 60-MARK OFFICIAL BOARD MOCK EXAM MODAL
+         ========================================== -->
+    <div class="modal-overlay" id="mock-exam-modal">
+      <div class="modal-sheet mock-exam-sheet">
+        <div class="modal-header no-print">
+          <div>
+            <div class="modal-title">📝 60-Mark Official Board Mock Exam Generator</div>
+            <div style="font-size: 11px; color: var(--text-tertiary); margin-top: 2px;">Authentic Telangana Board Question Paper • 3-Hour Timer • PDF Print</div>
+          </div>
+          <button class="close-modal-btn" onclick="window.IPE_MOCK.closeMockModal()">✕</button>
+        </div>
+
+        <!-- Exam Controls Bar -->
+        <div class="mock-exam-controls-bar no-print">
+          <!-- Subject Choice -->
+          <div style="display: flex; gap: 6px;">
+            <button class="commute-spd-btn active" id="mock-subj-physics" onclick="window.IPE_MOCK.generatePaper('physics'); this.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('active')); this.classList.add('active');">Physics ⚡ (60M)</button>
+            <button class="commute-spd-btn" id="mock-subj-chemistry" onclick="window.IPE_MOCK.generatePaper('chemistry'); this.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('active')); this.classList.add('active');">Chemistry 🧪 (60M)</button>
+          </div>
+
+          <!-- 3-Hour Exam Timer -->
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="mock-timer-display" id="mock-timer-display">03:00:00</span>
+            <button class="commute-spd-btn" id="mock-timer-toggle-btn" onclick="window.IPE_MOCK.toggleTimer()">▶ Start Timer</button>
+            <button class="commute-spd-btn" onclick="window.IPE_MOCK.resetTimer()" title="Reset Timer">↺</button>
+          </div>
+
+          <!-- Print & Regenerate Actions -->
+          <div style="display: flex; gap: 6px;">
+            <button class="btn-primary" style="padding: 5px 12px; font-size: 11.5px; background: #0284c7;" onclick="window.IPE_MOCK.printExamPaper()" title="Print / Save Paper as PDF">
+              🖨️ Print / Save PDF
+            </button>
+            <button class="btn-primary" id="mock-toggle-key-btn" style="padding: 5px 12px; font-size: 11.5px; background: #475569;" onclick="window.IPE_MOCK.toggleAnswerKey()">
+              💡 Reveal Marking Scheme
+            </button>
+          </div>
+        </div>
+
+        <!-- Student Scorecard Banner (When evaluated) -->
+        <div class="mock-scorecard-banner no-print" id="mock-scorecard-banner"></div>
+
+        <!-- The Official Printable Paper Viewport -->
+        <div id="mock-exam-paper-container" style="overflow-y: auto; max-height: calc(90vh - 120px);">
+          <!-- Rendered dynamically by js/mock_exam.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         AMBIENT FOCUS AUDIO SYNTHESIZER MODAL
+         ========================================== -->
+    <div class="modal-overlay" id="ambient-audio-modal">
+      <div class="modal-sheet ambient-audio-sheet">
+        <div class="modal-header">
+          <div>
+            <div class="modal-title">🎧 Ambient Focus Audio Synthesizer</div>
+            <div style="font-size: 11px; color: var(--text-tertiary); margin-top: 2px;">Web Audio API Procedural Soundscapes (0 External Dependencies)</div>
+          </div>
+          <button class="close-modal-btn" onclick="window.IPE_AMBIENT.closeModal()">✕</button>
+        </div>
+
+        <!-- Animated Frequency Spectrum Visualizer Canvas -->
+        <canvas class="ambient-visualizer-canvas" id="ambient-visualizer-canvas" width="440" height="60"></canvas>
+
+        <!-- Presets Row -->
+        <div class="ambient-presets-row">
+          <button class="ambient-preset-btn" onclick="window.IPE_AMBIENT.applyPreset('deep_study')">🧠 Deep Cram (40Hz Gamma + Brown)</button>
+          <button class="ambient-preset-btn" onclick="window.IPE_AMBIENT.applyPreset('zen_rain')">🌧️ Calm Zen (10Hz Alpha + Rain)</button>
+          <button class="ambient-preset-btn" onclick="window.IPE_AMBIENT.applyPreset('pure_gamma')">⚡ 40Hz Gamma Only</button>
+          <button class="ambient-preset-btn" onclick="window.IPE_AMBIENT.applyPreset('pure_rain')">🌧️ Rain Only</button>
+        </div>
+
+        <!-- Individual Synthesized Sound Tracks -->
+        <div class="ambient-tracks-grid">
+          <!-- Track 1: 40Hz Gamma -->
+          <div class="ambient-track-card" id="ambient-card-gamma">
+            <div class="ambient-track-head">
+              <span class="ambient-track-name">⚡ 40Hz Gamma Focus</span>
+              <button class="ambient-track-toggle" id="ambient-btn-gamma" onclick="window.IPE_AMBIENT.toggleTrack('gamma')">Enable</button>
+            </div>
+            <div class="ambient-slider-row">
+              <input type="range" min="0" max="1" step="0.05" value="0.5" oninput="window.IPE_AMBIENT.setTrackVolume('gamma', this.value)">
+            </div>
+          </div>
+
+          <!-- Track 2: 10Hz Alpha -->
+          <div class="ambient-track-card" id="ambient-card-alpha">
+            <div class="ambient-track-head">
+              <span class="ambient-track-name">🧘 10Hz Alpha Calm</span>
+              <button class="ambient-track-toggle" id="ambient-btn-alpha" onclick="window.IPE_AMBIENT.toggleTrack('alpha')">Enable</button>
+            </div>
+            <div class="ambient-slider-row">
+              <input type="range" min="0" max="1" step="0.05" value="0.5" oninput="window.IPE_AMBIENT.setTrackVolume('alpha', this.value)">
+            </div>
+          </div>
+
+          <!-- Track 3: Gentle Rain -->
+          <div class="ambient-track-card" id="ambient-card-rain">
+            <div class="ambient-track-head">
+              <span class="ambient-track-name">🌧️ Gentle Rain</span>
+              <button class="ambient-track-toggle" id="ambient-btn-rain" onclick="window.IPE_AMBIENT.toggleTrack('rain')">Enable</button>
+            </div>
+            <div class="ambient-slider-row">
+              <input type="range" min="0" max="1" step="0.05" value="0.6" oninput="window.IPE_AMBIENT.setTrackVolume('rain', this.value)">
+            </div>
+          </div>
+
+          <!-- Track 4: Deep Brown Noise -->
+          <div class="ambient-track-card" id="ambient-card-brown">
+            <div class="ambient-track-head">
+              <span class="ambient-track-name">🌊 Deep Brown Noise</span>
+              <button class="ambient-track-toggle" id="ambient-btn-brown" onclick="window.IPE_AMBIENT.toggleTrack('brown')">Enable</button>
+            </div>
+            <div class="ambient-slider-row">
+              <input type="range" min="0" max="1" step="0.05" value="0.6" oninput="window.IPE_AMBIENT.setTrackVolume('brown', this.value)">
+            </div>
+          </div>
+        </div>
+
+        <!-- Master Volume & Play Toggle -->
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid var(--border); padding-top: var(--space-3);">
+          <div style="display: flex; align-items: center; gap: 8px; flex: 1;">
+            <span style="font-size: 11px; color: var(--text-secondary);">Master:</span>
+            <input type="range" min="0" max="1" step="0.05" value="0.7" style="flex: 1; accent-color: var(--accent);" oninput="window.IPE_AMBIENT.setMasterVolume(this.value)">
+            <span id="ambient-master-val" style="font-size: 10px; font-family: var(--font-mono); color: var(--text-primary); min-width: 32px;">70%</span>
+          </div>
+          <button class="btn-primary" id="ambient-master-toggle-btn" style="min-width: 140px; padding: 7px 14px;" onclick="window.IPE_AMBIENT.toggleMasterPlay()">
+            ▶ Play Focus Audio
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- Student Profile & Settings Screen (Part 2: All settings, XP, streak, theme in Profile) -->
     <div class="modal-overlay" id="modal-auth">
       <div class="modal-sheet auth-sheet">
@@ -499,6 +987,262 @@
             📶 <strong>100% Offline Capable:</strong> All 31 chapters, 362 questions and 159 formulas run without mobile data.
           </div>
         </div>
+      </div>
+    </div>
+
+    
+    <!-- ==========================================
+         OFFICIAL TSBIE BLUEPRINT & PYQ TRENDS MODAL
+         ========================================== -->
+    <div class="modal-overlay" id="blueprint-modal">
+      <div class="modal-sheet blueprint-sheet">
+        <div class="modal-header">
+          <div>
+            <div class="modal-title">Official TSBIE Blueprint & PYQ Trends</div>
+            <div style="font-size: 11px; color: var(--text-tertiary); margin-top: 2px;">TS Board Intermediate 2nd Year (Senior Inter) • 60 Marks</div>
+          </div>
+          <button class="close-modal-btn" onclick="window.IPE_APP.closeBlueprintModal()">✕</button>
+        </div>
+
+        <!-- Segmented Tab Switcher inside Modal -->
+        <div class="bp-tabs-bar">
+          <button class="bp-tab-pill active" data-tab="blueprint" onclick="window.IPE_APP.setBlueprintTab('blueprint')">
+            <span>60M Blueprint</span>
+          </button>
+          <button class="bp-tab-pill" data-tab="weightage" onclick="window.IPE_APP.setBlueprintTab('weightage')">
+            <span>Chapter Weightage</span>
+          </button>
+          <button class="bp-tab-pill" data-tab="trends" onclick="window.IPE_APP.setBlueprintTab('trends')">
+            <span>🔥 PYQ Trends</span>
+          </button>
+        </div>
+
+        <!-- Tab 1: 60 Marks Paper Blueprint & Strategy -->
+        <div class="bp-tab-content active" data-tab="blueprint" id="bp-content-blueprint">
+          <div class="bp-summary-grid">
+            <div class="bp-stat-box">
+              <div class="bp-stat-val">60 Marks</div>
+              <div class="bp-stat-lbl">Theory Paper Total</div>
+            </div>
+            <div class="bp-stat-box">
+              <div class="bp-stat-val">3 Hours</div>
+              <div class="bp-stat-lbl">Exam Duration</div>
+            </div>
+            <div class="bp-stat-box">
+              <div class="bp-stat-val">21 Marks</div>
+              <div class="bp-stat-lbl">Passing Minimum (35%)</div>
+            </div>
+            <div class="bp-stat-box">
+              <div class="bp-stat-val">76 Marks</div>
+              <div class="bp-stat-lbl">Total with Choice</div>
+            </div>
+          </div>
+
+          <div class="bp-section-card">
+            <div class="bp-sec-header">
+              <span class="bp-sec-tag sec-a">Section A</span>
+              <span class="bp-sec-title">Very Short Answer Questions (VSAQs)</span>
+            </div>
+            <div class="bp-sec-meta">
+              <span><strong>10 Questions</strong> &times; <strong>2 Marks</strong> = <strong>20 Marks</strong></span>
+              <span class="bp-badge-compulsory">No Choice • All Compulsory</span>
+            </div>
+            <p class="bp-sec-desc">
+              Questions 1 to 10. These cover definitions, laws, units, and direct 1-step calculations.
+              <strong>Rank decider section:</strong> 10 out of 10 correct is mandatory for a 60/60 score!
+            </p>
+          </div>
+
+          <div class="bp-section-card">
+            <div class="bp-sec-header">
+              <span class="bp-sec-tag sec-b">Section B</span>
+              <span class="bp-sec-title">Short Answer Questions (SAQs)</span>
+            </div>
+            <div class="bp-sec-meta">
+              <span>Answer <strong>6 of 8 Questions</strong> &times; <strong>4 Marks</strong> = <strong>24 Marks</strong></span>
+              <span class="bp-badge-choice">Choice: 6 out of 8</span>
+            </div>
+            <p class="bp-sec-desc">
+              Questions 11 to 18. Covers 4-mark derivations, short explanations with diagrams, and numerical problems.
+              Students have 2 full choice questions to skip if unfamiliar.
+            </p>
+          </div>
+
+          <div class="bp-section-card">
+            <div class="bp-sec-header">
+              <span class="bp-sec-tag sec-c">Section C</span>
+              <span class="bp-sec-title">Long Answer Questions (LAQs)</span>
+            </div>
+            <div class="bp-sec-meta">
+              <span>Answer <strong>2 of 3 Questions</strong> &times; <strong>8 Marks</strong> = <strong>16 Marks</strong></span>
+              <span class="bp-badge-choice">Choice: 2 out of 3</span>
+            </div>
+            <p class="bp-sec-desc">
+              Questions 19 to 21. Strictly from designated high-weightage chapters!
+              <strong>Physics:</strong> Waves, Current Electricity, Nuclei.
+              <strong>Chemistry:</strong> p-Block, Electrochemistry/Kinetics, Organic Chemistry.
+            </p>
+          </div>
+
+          <div class="bp-pro-tips-card">
+            <div class="bp-pro-tips-title">💡 60/60 Master Strategy decoded from State Toppers:</div>
+            <ul class="bp-pro-tips-list">
+              <li><strong>Neat Diagrams:</strong> Draw circuit diagrams (Potentiometer, Wheatstone bridge) and apparatus (Nuclear reactor, Organ pipes) with sharp pencil and labels.</li>
+              <li><strong>Chemical Equations:</strong> Write fully balanced equations with conditions (catalyst, temp, pressure) in Haber, Ostwald, and Contact processes.</li>
+              <li><strong>Units Matter:</strong> Never leave numerical answers without proper SI units ($\text{m/s}, \text{V}, \text{Hz}, \text{S cm}^2\text{mol}^{-1}$).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Tab 2: Chapter-Wise Weightage Table -->
+        <div class="bp-tab-content" data-tab="weightage" id="bp-content-weightage">
+          <div class="bp-sub-toggle-bar">
+            <button class="bp-weightage-pill active" data-subj="physics" onclick="window.IPE_APP.setWeightageSubject('physics')">Physics ⚡ (16 Ch)</button>
+            <button class="bp-weightage-pill" data-subj="chemistry" onclick="window.IPE_APP.setWeightageSubject('chemistry')">Chemistry 🧪 (15 Ch)</button>
+          </div>
+
+          <!-- Physics Table -->
+          <div class="bp-table-container" id="bp-physics-table-wrap">
+            <table class="bp-weightage-table">
+              <thead>
+                <tr>
+                  <th>Ch #</th>
+                  <th>Chapter Name</th>
+                  <th>2M</th>
+                  <th>4M</th>
+                  <th>8M</th>
+                  <th>Total</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>Waves</td><td>—</td><td>—</td><td>1 (8M)</td><td><span class="bp-total-chip laq">8M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('phy-ch01', true)">Practice</button></td></tr>
+                <tr><td>2</td><td>Ray Optics & Optical Instruments</td><td>1</td><td>1</td><td>—</td><td><span class="bp-total-chip">6M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('phy-ch02', true)">Practice</button></td></tr>
+                <tr><td>3</td><td>Wave Optics</td><td>—</td><td>1</td><td>—</td><td><span class="bp-total-chip">4M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('phy-ch03', true)">Practice</button></td></tr>
+                <tr><td>4</td><td>Electric Charges and Fields</td><td>—</td><td>1</td><td>—</td><td><span class="bp-total-chip">4M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('phy-ch04', true)">Practice</button></td></tr>
+                <tr><td>5</td><td>Electrostatic Potential & Capacitance</td><td>1</td><td>1</td><td>—</td><td><span class="bp-total-chip">6M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('phy-ch05', true)">Practice</button></td></tr>
+                <tr><td>6</td><td>Current Electricity</td><td>—</td><td>—</td><td>1 (8M)</td><td><span class="bp-total-chip laq">8M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('phy-ch06', true)">Practice</button></td></tr>
+                <tr><td>7</td><td>Moving Charges & Magnetism</td><td>1</td><td>1</td><td>—</td><td><span class="bp-total-chip">6M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('phy-ch07', true)">Practice</button></td></tr>
+                <tr><td>8</td><td>Magnetism and Matter</td><td>2</td><td>—</td><td>—</td><td><span class="bp-total-chip">4M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('phy-ch08', true)">Practice</button></td></tr>
+                <tr><td>9</td><td>Electromagnetic Induction</td><td>—</td><td>1</td><td>—</td><td><span class="bp-total-chip">4M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('phy-ch09', true)">Practice</button></td></tr>
+                <tr><td>10</td><td>Alternating Current</td><td>1</td><td>—</td><td>—</td><td><span class="bp-total-chip">2M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('phy-ch10', true)">Practice</button></td></tr>
+                <tr><td>11</td><td>Electromagnetic Waves</td><td>1</td><td>—</td><td>—</td><td><span class="bp-total-chip">2M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('phy-ch11', true)">Practice</button></td></tr>
+                <tr><td>12</td><td>Dual Nature of Radiation & Matter</td><td>1</td><td>1</td><td>—</td><td><span class="bp-total-chip">6M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('phy-ch12', true)">Practice</button></td></tr>
+                <tr><td>13</td><td>Atoms</td><td>—</td><td>1</td><td>—</td><td><span class="bp-total-chip">4M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('phy-ch13', true)">Practice</button></td></tr>
+                <tr><td>14</td><td>Nuclei</td><td>—</td><td>—</td><td>1 (8M)</td><td><span class="bp-total-chip laq">8M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('phy-ch14', true)">Practice</button></td></tr>
+                <tr><td>15</td><td>Semiconductor Electronics</td><td>1</td><td>1</td><td>—</td><td><span class="bp-total-chip">6M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('phy-ch15', true)">Practice</button></td></tr>
+                <tr><td>16</td><td>Communication Systems</td><td>1</td><td>—</td><td>—</td><td><span class="bp-total-chip">2M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('phy-ch16', true)">Practice</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Chemistry Table -->
+          <div class="bp-table-container" id="bp-chemistry-table-wrap" style="display: none;">
+            <table class="bp-weightage-table">
+              <thead>
+                <tr>
+                  <th>Ch #</th>
+                  <th>Chapter Name</th>
+                  <th>2M</th>
+                  <th>4M</th>
+                  <th>8M</th>
+                  <th>Total</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>Solid State</td><td>—</td><td>1</td><td>—</td><td><span class="bp-total-chip">4M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('chem-ch01', true)">Practice</button></td></tr>
+                <tr><td>2</td><td>Solutions</td><td>1</td><td>1</td><td>—</td><td><span class="bp-total-chip">6M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('chem-ch02', true)">Practice</button></td></tr>
+                <tr><td>3</td><td>Electrochemistry</td><td>—</td><td>1</td><td>(8M combo)</td><td><span class="bp-total-chip laq">4-8M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('chem-ch03', true)">Practice</button></td></tr>
+                <tr><td>4</td><td>Chemical Kinetics</td><td>—</td><td>1</td><td>(8M combo)</td><td><span class="bp-total-chip laq">4-8M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('chem-ch04', true)">Practice</button></td></tr>
+                <tr><td>5</td><td>Surface Chemistry</td><td>—</td><td>1</td><td>—</td><td><span class="bp-total-chip">4M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('chem-ch05', true)">Practice</button></td></tr>
+                <tr><td>6</td><td>Metallurgy</td><td>1</td><td>1</td><td>—</td><td><span class="bp-total-chip">6M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('chem-ch06', true)">Practice</button></td></tr>
+                <tr><td>7</td><td>p-Block Elements (Gr 15-18)</td><td>2</td><td>—</td><td>1 (8M)</td><td><span class="bp-total-chip laq">12-16M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('chem-ch07', true)">Practice</button></td></tr>
+                <tr><td>8</td><td>d & f Block Elements</td><td>—</td><td>1</td><td>—</td><td><span class="bp-total-chip">4M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('chem-ch08', true)">Practice</button></td></tr>
+                <tr><td>9</td><td>Coordination Compounds</td><td>1</td><td>1</td><td>—</td><td><span class="bp-total-chip">6M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('chem-ch09', true)">Practice</button></td></tr>
+                <tr><td>10</td><td>Haloalkanes & Haloarenes</td><td>—</td><td>1</td><td>—</td><td><span class="bp-total-chip">4M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('chem-ch10', true)">Practice</button></td></tr>
+                <tr><td>11</td><td>Alcohols, Phenols, Ethers, Carbonyls</td><td>—</td><td>1</td><td>1 (8M)</td><td><span class="bp-total-chip laq">12-14M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('chem-ch11', true)">Practice</button></td></tr>
+                <tr><td>12</td><td>Amines (Organic Nitrogen)</td><td>—</td><td>1</td><td>—</td><td><span class="bp-total-chip">4M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('chem-ch12', true)">Practice</button></td></tr>
+                <tr><td>13</td><td>Biomolecules</td><td>—</td><td>1</td><td>—</td><td><span class="bp-total-chip">4M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('chem-ch13', true)">Practice</button></td></tr>
+                <tr><td>14</td><td>Polymers</td><td>—</td><td>1</td><td>—</td><td><span class="bp-total-chip">4M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('chem-ch14', true)">Practice</button></td></tr>
+                <tr><td>15</td><td>Chemistry in Everyday Life</td><td>2</td><td>—</td><td>—</td><td><span class="bp-total-chip">4M</span></td><td><button class="bp-table-btn" onclick="window.IPE_APP.selectChapter('chem-ch15', true)">Practice</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tab 3: PYQ Trends (2018–2025 Analysis) -->
+        <div class="bp-tab-content" data-tab="trends" id="bp-content-trends">
+          <div class="bp-trend-badge-bar">
+            <span>Decoded from 7+ Years of TS & AP Intermediate Public Examination Papers</span>
+          </div>
+
+          <!-- Section 1: Guaranteed 8M Questions -->
+          <div class="bp-trend-group">
+            <div class="bp-trend-group-title">🎯 The 6 Guaranteed 8-Mark LAQ Questions:</div>
+            
+            <div class="bp-trend-item">
+              <div class="bp-trend-header">
+                <span class="bp-trend-name">1. Waves: Stretched Strings / Sonometer / Organ Pipes</span>
+                <span class="bp-repeat-badge">Repeated 6 Times (2024, 2023, 2022, 2020)</span>
+              </div>
+              <p class="bp-trend-desc">Transverse vibrations laws in stretched strings ($\nu \propto 1/L, \sqrt{T}, 1/\sqrt{\mu}$) or stationary waves in open vs closed organ pipes ($1:2:3$ vs $1:3:5$).</p>
+              <button class="bp-practice-link-btn" onclick="window.IPE_APP.closeBlueprintModal(); window.IPE_FEED.setFilter({ chapterId: 'phy-ch01', type: 'LAQ' }); window.IPE_APP.switchTab('feed');">Practice Waves LAQs ➔</button>
+            </div>
+
+            <div class="bp-trend-item">
+              <div class="bp-trend-header">
+                <span class="bp-trend-name">2. Current Electricity: Potentiometer / Wheatstone Bridge</span>
+                <span class="bp-repeat-badge">Repeated 6 Times (2024, 2023, 2022, 2019)</span>
+              </div>
+              <p class="bp-trend-desc">Principle of potentiometer + comparison of EMF of 2 cells ($E_1/E_2 = l_1/l_2$) or internal resistance ($r = R(l_1-l_2)/l_2$); Kirchhoff's laws & Wheatstone bridge balance ($P/Q = R/S$).</p>
+              <button class="bp-practice-link-btn" onclick="window.IPE_APP.closeBlueprintModal(); window.IPE_FEED.setFilter({ chapterId: 'phy-ch06', type: 'LAQ' }); window.IPE_APP.switchTab('feed');">Practice Current Electricity LAQs ➔</button>
+            </div>
+
+            <div class="bp-trend-item">
+              <div class="bp-trend-header">
+                <span class="bp-trend-name">3. Nuclei: Nuclear Reactor / Radioactive Decay Law</span>
+                <span class="bp-repeat-badge">Repeated 6 Times (2024, 2023, 2022, 2020)</span>
+              </div>
+              <p class="bp-trend-desc">Principle, neat labeled diagram and components of a Nuclear Reactor (Fuel, Moderator, Control rods, Coolant, Shield) or $N = N_0 e^{-\lambda t}$ derivation and half-life.</p>
+              <button class="bp-practice-link-btn" onclick="window.IPE_APP.closeBlueprintModal(); window.IPE_FEED.setFilter({ chapterId: 'phy-ch14', type: 'LAQ' }); window.IPE_APP.switchTab('feed');">Practice Nuclei LAQs ➔</button>
+            </div>
+
+            <div class="bp-trend-item">
+              <div class="bp-trend-header">
+                <span class="bp-trend-name">4. Chemistry p-Block: Haber / Ostwald / Contact / Ozone</span>
+                <span class="bp-repeat-badge">Repeated 7 Times (Guaranteed Every Year)</span>
+              </div>
+              <p class="bp-trend-desc">Manufacture of Ammonia ($N_2 + 3H_2 \rightleftharpoons 2NH_3$) with Le Chatelier's conditions (200 atm, 700 K, Fe) or Ozone laboratory preparation and reactions with $PbS, KI, Ag$.</p>
+              <button class="bp-practice-link-btn" onclick="window.IPE_APP.closeBlueprintModal(); window.IPE_FEED.setFilter({ chapterId: 'chem-ch07', type: 'LAQ' }); window.IPE_APP.switchTab('feed');">Practice p-Block LAQs ➔</button>
+            </div>
+
+            <div class="bp-trend-item">
+              <div class="bp-trend-header">
+                <span class="bp-trend-name">5. Chemistry Organic: High-Yield Named Reactions</span>
+                <span class="bp-repeat-badge">Repeated 6 Times (Section C Q21)</span>
+              </div>
+              <p class="bp-trend-desc">Reimer-Tiemann, Kolbe's, Williamson's synthesis, Cannizzaro, Aldol condensation, HVZ, Carbylamine test, Hoffmann bromamide degradation.</p>
+              <button class="bp-practice-link-btn" onclick="window.IPE_APP.closeBlueprintModal(); window.IPE_FEED.setFilter({ chapterId: 'chem-ch11', type: 'LAQ' }); window.IPE_APP.switchTab('feed');">Practice Organic LAQs ➔</button>
+            </div>
+
+            <div class="bp-trend-item">
+              <div class="bp-trend-header">
+                <span class="bp-trend-name">6. Electrochemistry & Chemical Kinetics (4M + 4M Combo)</span>
+                <span class="bp-repeat-badge">Repeated 5 Times</span>
+              </div>
+              <p class="bp-trend-desc">Galvanic Daniell cell EMF calculation using Nernst equation or Kohlrausch's law + First order reaction rate equation derivation and half-life ($t_{1/2} = 0.693/k$).</p>
+              <button class="bp-practice-link-btn" onclick="window.IPE_APP.closeBlueprintModal(); window.IPE_FEED.setFilter({ chapterId: 'chem-ch03', type: 'Numerical' }); window.IPE_APP.switchTab('feed');">Practice Electrochem & Kinetics ➔</button>
+            </div>
+          </div>
+
+          <div style="margin-top: 14px;">
+            <button class="btn-primary" style="width: 100%;" onclick="window.IPE_APP.closeBlueprintModal(); window.IPE_FEED.setMarksFilter('PYQ', null); window.IPE_APP.switchTab('feed');">
+              🔥 Practice All 226 Verified Board PYQs in Feed Now ➔
+            </button>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -620,6 +1364,11 @@
   <script src="js/feed.js?v=9"></script>
   <script src="js/flashcards.js?v=9"></script>
   <script src="js/ai.js?v=9"></script>
+  <script src="js/countdown.js?v=10"></script>
+  <script src="js/ambient_audio.js?v=10"></script>
+  <script src="js/commute.js?v=10"></script>
+  <script src="js/simulators.js?v=10"></script>
+  <script src="js/mock_exam.js?v=10"></script>
   <script src="js/app.js?v=9"></script>
 </body>
 </html>

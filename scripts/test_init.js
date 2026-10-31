@@ -103,6 +103,11 @@ runFile('js/quiz.js');
 runFile('js/feed.js');
 runFile('js/flashcards.js');
 runFile('js/ai.js');
+runFile('js/countdown.js');
+runFile('js/ambient_audio.js');
+runFile('js/commute.js');
+runFile('js/simulators.js');
+runFile('js/mock_exam.js');
 runFile('js/app.js');
 
 console.log('Running IPE_APP.init()...');
@@ -152,3 +157,56 @@ try {
 } catch (e) {
   console.error('❌ openChapterFormulas failed:', e);
 }
+
+console.log('Testing Flagship Features in headless sandbox:');
+
+console.log('1. Testing IPE_COUNTDOWN:');
+try {
+  sandbox.window.IPE_COUNTDOWN.init();
+  const timeRem = sandbox.window.IPE_COUNTDOWN.calculateTimeRemaining();
+  console.log('✅ IPE_COUNTDOWN init & calculateTimeRemaining succeeded! Days remaining:', timeRem.days);
+} catch (e) {
+  console.error('❌ IPE_COUNTDOWN failed:', e);
+}
+
+console.log('2. Testing IPE_AMBIENT:');
+try {
+  sandbox.window.IPE_AMBIENT.init();
+  console.log('✅ IPE_AMBIENT init succeeded! Available tracks:', Object.keys(sandbox.window.IPE_AMBIENT.getTracks()).join(', '));
+} catch (e) {
+  console.error('❌ IPE_AMBIENT failed:', e);
+}
+
+console.log('3. Testing IPE_COMMUTE:');
+try {
+  sandbox.window.IPE_COMMUTE.init();
+  sandbox.window.IPE_COMMUTE.setSpeed('15s');
+  console.log('✅ IPE_COMMUTE init & setSpeed succeeded!');
+} catch (e) {
+  console.error('❌ IPE_COMMUTE failed:', e);
+}
+
+console.log('4. Testing IPE_SIMULATORS:');
+try {
+  sandbox.window.IPE_SIMULATORS.init();
+  sandbox.window.IPE_SIMULATORS.switchSimulator('sonometer');
+  sandbox.window.IPE_SIMULATORS.switchSimulator('potentiometer');
+  sandbox.window.IPE_SIMULATORS.switchSimulator('nernst');
+  sandbox.window.IPE_SIMULATORS.switchSimulator('kinetics');
+  console.log('✅ IPE_SIMULATORS all 4 simulators initialized & switched successfully!');
+} catch (e) {
+  console.error('❌ IPE_SIMULATORS failed:', e);
+}
+
+console.log('5. Testing IPE_MOCK:');
+try {
+  sandbox.window.IPE_MOCK.init();
+  sandbox.window.IPE_MOCK.generatePaper('physics');
+  console.log('✅ IPE_MOCK generated Physics 60M Paper successfully!');
+  sandbox.window.IPE_MOCK.generatePaper('chemistry');
+  console.log('✅ IPE_MOCK generated Chemistry 60M Paper successfully!');
+} catch (e) {
+  console.error('❌ IPE_MOCK failed:', e);
+}
+
+process.exit(0);

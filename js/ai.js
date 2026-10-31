@@ -466,20 +466,79 @@ Key Teaching Guidelines:
     btn.innerHTML = loading ? '<span>⏳</span>' : '<span>➔</span>';
   }
 
+  // Smart Offline Concept Breakdown Generator for 100% Offline / No-API-Key Availability
+  function generateOfflineExplanation(q) {
+    const hint = q.teluguHint || q.telugu_hint || q.tenglish_hint || 'Ee concept board exam lo chaala high-yield!';
+    const formulaPart = q.formula ? `\n\n### 📐 Key Formula & Terms\n$$${q.formula.replace(/^\$+|\$+$/g, '')}$$\nBoard exam lo formula raasaka prathi symbol definition and SI units thappakunda rayali.` : '';
+
+    return `### 💡 IPE GURU Master Concept Breakdown\n` +
+      `**${q.subject} • ${q.chapter}** (${q.type} - ${q.marks} Marks)\n\n` +
+      `**Q: ${q.question}**\n\n` +
+      `#### 1. Real-World Analogy & Tenglish Intuition\n` +
+      `> 💡 **Quick Hint:** ${hint}\n\n` +
+      `#### 2. Board Exam Presentation (Exact Steps for Full ${q.marks}/${q.marks} Marks)\n` +
+      `${q.answer}` +
+      `${formulaPart}\n\n` +
+      `#### 3. 🎯 Examiner Secret & Scoring Strategy\n` +
+      `• Ee question previous IPE exams lo frequent ga repeat ayina **High-Yield Question**!\n` +
+      `• **Step-by-Step:** Answers ni points (1, 2, 3) ga rayandi, paragraphs la rayakandi.\n` +
+      `• **Units & Formulas:** Numericals lo final answer ki proper unit pettakapothe mark cut chestharu.\n\n` +
+      `*💡 Tip: Live AI tho open-ended conversations chat cheyadaniki, paina unna 🔑 Key button tap chesi free Groq API key enter cheyyandi!*`;
+  }
+
   // Quick Action: Explain Question from Scratch
   function explainQuestion(qId) {
-    const questions = window.IPE_FEED.getQuestions();
-    const q = questions.find(item => item.id === qId);
+    const all = window.IPE_FEED.getAllLoadedQuestions ? window.IPE_FEED.getAllLoadedQuestions() : window.IPE_FEED.getQuestions();
+    const q = all.find(item => item.id === qId);
     if (!q) return;
 
-    const prompt = `Sir, please explain this ${q.subject} board question from scratch in simple Tenglish: "${q.question}". Also explain the formula and step-by-step logic.`;
-    openChat(prompt);
+    openChat();
+
+    if (GROQ_CONFIG.apiKey && navigator.onLine) {
+      const prompt = `Sir, please explain this ${q.subject} board question from scratch in simple Tenglish: "${q.question}". Also explain the formula and step-by-step logic.`;
+      sendMessage(prompt);
+    } else {
+      appendUserMessage(`Explain question: "${q.question}"`);
+      const offlineReply = generateOfflineExplanation(q);
+      conversationHistory.push({ role: 'assistant', content: offlineReply });
+      const typingIndicator = document.getElementById('ai-typing-indicator');
+      if (typingIndicator) typingIndicator.style.display = 'flex';
+      setTimeout(async () => {
+        if (typingIndicator) typingIndicator.style.display = 'none';
+        await appendAssistantMessage(offlineReply, true);
+        window.IPE_STORAGE.addXP(10);
+        window.IPE_APP.updateStatsUI();
+        window.IPE_GAME.showXPToast(10, '🧠 AI Concept Insight!');
+      }, 300);
+    }
   }
 
   // Quick Action: Explain Formula from Scratch
   function explainFormula(title, formula) {
-    const prompt = `Sir, please explain the formula "${title}" ($${formula}$) from scratch in Tenglish. Real world example tho start chesi, terms and IPE board exam lo ela question adugutharo cheppandi!`;
-    openChat(prompt);
+    openChat();
+    if (GROQ_CONFIG.apiKey && navigator.onLine) {
+      const prompt = `Sir, please explain the formula "${title}" ($${formula}$) from scratch in Tenglish. Real world example tho start chesi, terms and IPE board exam lo ela question adugutharo cheppandi!`;
+      sendMessage(prompt);
+    } else {
+      appendUserMessage(`Explain formula: ${title} (${formula})`);
+      const offlineReply = `### 📐 Formula Breakdown: ${title}\n` +
+        `**Formula:** $$${formula.replace(/^\$+|\$+$/g, '')}$$\n\n` +
+        `#### 1. Concept Intuition (Tenglish)\n` +
+        `> Ee formula IPE Board Exam lo direct derivation gaani, numericals lo gaani frequent ga repeat avthundi. Prathi term yokka standard SI unit gurthupettukondi.\n\n` +
+        `#### 2. Board Exam Tips for Full Marks\n` +
+        `• 1. State the fundamental law or definition first.\n` +
+        `• 2. Write the formula clearly in the center of the answer page.\n` +
+        `• 3. Mention what each symbol represents (e.g., $m$ = mass in kg, $v$ = velocity in m/s).\n` +
+        `• 4. In numericals, always write final answer with proper units (Marks are deducted if units are missing)!\n\n` +
+        `*💡 Tip: Live interactive doubts adagadaniki, 🔑 Key button tap chesi free Groq API key enter cheyyandi!*`;
+      conversationHistory.push({ role: 'assistant', content: offlineReply });
+      const typingIndicator = document.getElementById('ai-typing-indicator');
+      if (typingIndicator) typingIndicator.style.display = 'flex';
+      setTimeout(async () => {
+        if (typingIndicator) typingIndicator.style.display = 'none';
+        await appendAssistantMessage(offlineReply, true);
+      }, 300);
+    }
   }
 
   function clearChat() {

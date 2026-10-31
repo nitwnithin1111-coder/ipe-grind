@@ -35,6 +35,13 @@ window.IPE_APP = (function() {
 
     // Check badges
     window.IPE_GAME.checkBadges();
+
+    // Initialize Flagship Features: Countdown, Audio, Commute, Simulators, Mock Exam
+    if (window.IPE_COUNTDOWN && window.IPE_COUNTDOWN.init) window.IPE_COUNTDOWN.init();
+    if (window.IPE_COMMUTE && window.IPE_COMMUTE.init) window.IPE_COMMUTE.init();
+    if (window.IPE_SIMULATORS && window.IPE_SIMULATORS.init) window.IPE_SIMULATORS.init();
+    if (window.IPE_MOCK && window.IPE_MOCK.init) window.IPE_MOCK.init();
+    if (window.IPE_AMBIENT && window.IPE_AMBIENT.init) window.IPE_AMBIENT.init();
   }
 
   // Debounced Search (300ms)
@@ -331,7 +338,9 @@ window.IPE_APP = (function() {
     function buildChapterItem(ch, subject) {
       const isLoaded = ch.loaded !== false;
       const progress = isLoaded ? window.IPE_STORAGE.getChapterProgress(ch.id) : { mastered: 0, total: 0, percent: 0 };
-      const solvedCount = progress.total > 0 ? progress.total : (ch.questionsCount || 10);
+      const chData = window.IPE_DATA.chapters[ch.id];
+      const actualCount = chData && chData.questions ? chData.questions.length : (ch.questionCount || 10);
+      const solvedCount = progress.total > 0 ? progress.total : actualCount;
       const solvedCaption = `${progress.mastered}/${solvedCount} solved`;
 
       if (subject === 'Physics') {
@@ -354,10 +363,16 @@ window.IPE_APP = (function() {
 
           <div class="ch-card-meta">
             <span class="ch-solved-caption">${solvedCaption}</span>
-            <button class="ch-formula-btn" onclick="event.stopPropagation(); window.IPE_APP.openChapterFormulas('${ch.id}')" title="Formulas">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg>
-              <span>Formulas</span>
-            </button>
+            <div style="display: flex; gap: 4px;">
+              ${ch.id === 'phy-ch01' ? '<button class="ch-formula-btn" style="color: #38bdf8; border-color: rgba(56,189,248,0.4);" onclick="event.stopPropagation(); window.IPE_SIMULATORS.openModal(\'sonometer\');" title="Simulate Sonometer"><span>🧪 Lab</span></button>' : ''}
+              ${ch.id === 'phy-ch06' ? '<button class="ch-formula-btn" style="color: #38bdf8; border-color: rgba(56,189,248,0.4);" onclick="event.stopPropagation(); window.IPE_SIMULATORS.openModal(\'potentiometer\');" title="Simulate Potentiometer"><span>🧪 Lab</span></button>' : ''}
+              ${ch.id === 'chem-ch03' ? '<button class="ch-formula-btn" style="color: #38bdf8; border-color: rgba(56,189,248,0.4);" onclick="event.stopPropagation(); window.IPE_SIMULATORS.openModal(\'nernst\');" title="Simulate Daniell Cell"><span>🧪 Lab</span></button>' : ''}
+              ${ch.id === 'chem-ch04' ? '<button class="ch-formula-btn" style="color: #38bdf8; border-color: rgba(56,189,248,0.4);" onclick="event.stopPropagation(); window.IPE_SIMULATORS.openModal(\'kinetics\');" title="Simulate Kinetics"><span>🧪 Lab</span></button>' : ''}
+              <button class="ch-formula-btn" onclick="event.stopPropagation(); window.IPE_APP.openChapterFormulas('${ch.id}')" title="Formulas">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg>
+                <span>Formulas</span>
+              </button>
+            </div>
           </div>
 
           <div class="ch-progress-row">
@@ -445,7 +460,8 @@ window.IPE_APP = (function() {
     const container = document.getElementById('saved-questions-list');
     if (!container) return;
 
-    const all = window.IPE_FEED.getQuestions();
+    // Use all loaded questions across full syllabus, not just filtered activeQuestions!
+    const all = window.IPE_FEED.getAllLoadedQuestions ? window.IPE_FEED.getAllLoadedQuestions() : window.IPE_FEED.getQuestions();
     const idSet = (savedSubTab === 'bookmarked') ? window.IPE_STORAGE.getBookmarks() : window.IPE_STORAGE.getRevise();
 
     const matched = all.filter(q => idSet.has(q.id));
@@ -759,6 +775,46 @@ window.IPE_APP = (function() {
     }
   }
 
+
+  // Official Blueprint & PYQ Trends Controller
+  let activeBlueprintTab = 'blueprint';
+  let activeWeightageSubject = 'physics';
+
+  function openBlueprintModal(initialTab) {
+    const modal = document.getElementById('blueprint-modal');
+    if (!modal) return;
+    if (initialTab) {
+      setBlueprintTab(initialTab);
+    }
+    modal.classList.add('open');
+  }
+
+  function closeBlueprintModal() {
+    const modal = document.getElementById('blueprint-modal');
+    if (modal) modal.classList.remove('open');
+  }
+
+  function setBlueprintTab(tabName) {
+    activeBlueprintTab = tabName;
+    document.querySelectorAll('.bp-tab-pill').forEach(pill => {
+      pill.classList.toggle('active', pill.getAttribute('data-tab') === tabName);
+    });
+    document.querySelectorAll('.bp-tab-content').forEach(content => {
+      content.classList.toggle('active', content.getAttribute('data-tab') === tabName);
+    });
+  }
+
+  function setWeightageSubject(subj) {
+    activeWeightageSubject = subj;
+    document.querySelectorAll('.bp-weightage-pill').forEach(pill => {
+      pill.classList.toggle('active', pill.getAttribute('data-subj') === subj);
+    });
+    const phyTable = document.getElementById('bp-physics-table-wrap');
+    const chemTable = document.getElementById('bp-chemistry-table-wrap');
+    if (phyTable) phyTable.style.display = subj === 'physics' ? 'block' : 'none';
+    if (chemTable) chemTable.style.display = subj === 'chemistry' ? 'block' : 'none';
+  }
+
   return {
     init: init,
     switchTab: switchTab,
@@ -786,7 +842,11 @@ window.IPE_APP = (function() {
     saveUserProfile: saveUserProfile,
     loginAsGuest: loginAsGuest,
     updateUserProfileUI: updateUserProfileUI,
-    installPWA: installPWA
+    installPWA: installPWA,
+    openBlueprintModal: openBlueprintModal,
+    closeBlueprintModal: closeBlueprintModal,
+    setBlueprintTab: setBlueprintTab,
+    setWeightageSubject: setWeightageSubject
   };
 })();
 

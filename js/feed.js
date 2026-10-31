@@ -8,6 +8,7 @@ window.IPE_FEED = (function() {
     chapterId: 'all',  // 'all' | 'phy-ch01' | 'chem-ch01' ...
     type: 'all',       // 'all' | 'VSAQ' | 'SAQ' | 'LAQ' | 'Numerical' | 'MCQ'
     importantOnly: false,
+    pyqOnly: false,
     searchQuery: ''
   };
 
@@ -66,6 +67,10 @@ window.IPE_FEED = (function() {
       list = list.filter(q => q.important === true);
     }
 
+    if (currentFilter.pyqOnly) {
+      list = list.filter(q => q.pyq || q.important === true);
+    }
+
     if (currentFilter.searchQuery && currentFilter.searchQuery.trim() !== '') {
       const q = currentFilter.searchQuery.toLowerCase();
       list = list.filter(item => {
@@ -85,6 +90,7 @@ window.IPE_FEED = (function() {
     const isBookmarked = window.IPE_STORAGE.isBookmarked(q.id);
     const isMastered = window.IPE_STORAGE.isMastered(q.id);
     const isRevise = window.IPE_STORAGE.isRevise(q.id);
+    const hintText = q.teluguHint || q.telugu_hint || q.tenglish_hint;
 
     // Subtle Key Formula Markup (1px border, no glowing side-bar)
     let formulaMarkup = '';
@@ -116,10 +122,13 @@ window.IPE_FEED = (function() {
 
     return `
       <div class="vcard-item" id="card-${q.id}" data-id="${q.id}">
-        <!-- 1. Small Caption: Subject • Chapter • Marks -->
+        <!-- 1. Small Caption: Subject • Chapter • Marks & PYQ badge -->
         <div class="vcard-caption-row">
           <span class="vcard-caption-text">${q.subject} • ${q.chapter}</span>
-          <span class="vcard-marks-tag">${q.type} (${q.marks}M)</span>
+          <div class="vcard-tags-group">
+            ${(q.pyq || q.important) ? `<span class="vcard-pyq-badge" title="High-Yield Previous Year Question">🔥 ${q.pyq || 'TS IPE PYQ ⭐'}</span>` : ''}
+            <span class="vcard-marks-tag">${q.type} (${q.marks}M)</span>
+          </div>
         </div>
 
         <!-- 2. Question Text (Largest text on the card) -->
@@ -145,14 +154,14 @@ window.IPE_FEED = (function() {
             ${formulaMarkup}
 
             <!-- Collapsed Tenglish Hint Row that expands on tap -->
-            ${q.teluguHint ? `
+            ${hintText ? `
               <div class="vcard-hint-container">
                 <button class="vcard-hint-trigger" onclick="window.IPE_FEED.toggleTelugu('${q.id}')">
                   <span>💡 Tenglish Hint</span>
                   <span class="hint-chevron">▼</span>
                 </button>
                 <div class="vcard-hint-content" id="telugu-${q.id}">
-                  <p>${q.teluguHint}</p>
+                  <p>${hintText}</p>
                 </div>
               </div>
             ` : ''}
@@ -278,7 +287,7 @@ window.IPE_FEED = (function() {
     setupSwipeGestures();
   }
 
-  // Touch Swipe Gestures for Mobile (Swipe left -> Next, Swipe right -> Prev)
+  // Touch Swipe Gestures for Mobile: Support Vertical Reels Swipe (Up/Down) & Horizontal Swipe (Left/Right)
   function setupSwipeGestures() {
     const container = document.getElementById('reels-feed-container');
     if (!container) return;
@@ -297,8 +306,16 @@ window.IPE_FEED = (function() {
       const dx = touchEndX - touchStartX;
       const dy = touchEndY - touchStartY;
 
-      // Horizontal swipe threshold: 50px dx, less than 60px dy
-      if (Math.abs(dx) > 50 && Math.abs(dy) < 60) {
+      // Vertical swipe (Standard Reels swipe: Swipe UP to go Next, Swipe DOWN to go Prev)
+      if (Math.abs(dy) > 55 && Math.abs(dy) > Math.abs(dx)) {
+        if (dy < 0) {
+          window.IPE_FEED.nextQuestion();
+        } else {
+          window.IPE_FEED.prevQuestion();
+        }
+      }
+      // Horizontal swipe backup (Swipe Left to go Next, Swipe Right to go Prev)
+      else if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy)) {
         if (dx < 0) {
           window.IPE_FEED.nextQuestion();
         } else {
@@ -308,11 +325,57 @@ window.IPE_FEED = (function() {
     };
   }
 
+  // Full Keyboard Shortcuts for Desktop / Tablet Study
+  let keyboardInitialized = false;
+  function setupKeyboardShortcuts() {
+    if (keyboardInitialized) return;
+    keyboardInitialized = true;
+
+    window.addEventListener('keydown', (e) => {
+      const activeEl = document.activeElement;
+      if (activeEl && (activeEl.tagName === 'INPUT' || activeEl.tagName === 'TEXTAREA' || activeEl.isContentEditable)) {
+        return;
+      }
+
+      const feedSec = document.getElementById('section-feed');
+      if (!feedSec || !feedSec.classList.contains('active')) return;
+
+      const currentQ = activeQuestions[currentIndex];
+
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === 'j') {
+        e.preventDefault();
+        window.IPE_FEED.nextQuestion();
+      } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp' || e.key === 'k') {
+        e.preventDefault();
+        window.IPE_FEED.prevQuestion();
+      } else if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        if (currentQ) window.IPE_FEED.toggleAnswer(currentQ.id);
+      } else if (e.key.toLowerCase() === 'b' || e.key.toLowerCase() === 's') {
+        if (currentQ) window.IPE_FEED.toggleBookmark(currentQ.id);
+      } else if (e.key.toLowerCase() === 'r') {
+        if (currentQ) window.IPE_FEED.toggleReviseAgain(currentQ.id);
+      } else if (e.key.toLowerCase() === 'm' || e.key.toLowerCase() === 'g') {
+        if (currentQ) window.IPE_FEED.toggleGotIt(currentQ.id);
+      } else if (e.key.toLowerCase() === 't') {
+        if (currentQ) window.IPE_FEED.toggleTelugu(currentQ.id);
+      } else if (e.key.toLowerCase() === 'l') {
+        if (currentQ) window.IPE_FEED.handleAudioSpeak(currentQ.id);
+      } else if (e.key.toLowerCase() === 'e') {
+        if (currentQ && window.IPE_AI) window.IPE_AI.explainQuestion(currentQ.id);
+      }
+    });
+  }
+
   return {
     init: function() {
       currentIndex = 0;
+      setupKeyboardShortcuts();
       renderFeed();
     },
+
+    getAllQuestions: getAllLoadedQuestions,
+    getAllLoadedQuestions: getAllLoadedQuestions,
 
     getQuestions: function() {
       return activeQuestions;
@@ -389,7 +452,13 @@ window.IPE_FEED = (function() {
           btnEl.classList.add('active');
         }
       }
-      currentFilter.type = type;
+      if (type === 'PYQ') {
+        currentFilter.pyqOnly = true;
+        currentFilter.type = 'all';
+      } else {
+        currentFilter.pyqOnly = false;
+        currentFilter.type = type;
+      }
       currentIndex = 0;
       renderFeed();
     },
@@ -400,6 +469,7 @@ window.IPE_FEED = (function() {
         chapterId: 'all',
         type: 'all',
         importantOnly: false,
+        pyqOnly: false,
         searchQuery: ''
       };
 

@@ -80,7 +80,7 @@ async function testScreens() {
   const loadedPromise = new Promise((resolve) => {
     eventListeners.set('Page.loadEventFired', resolve);
   });
-  await sendCommand('Page.navigate', { url: 'http://localhost:8000/index.html' });
+  await sendCommand('Page.navigate', { url: 'file:///C:/Users/chary/.gemini/antigravity/scratch/ipe-grind/index.html' });
   await loadedPromise;
   await new Promise(r => setTimeout(r, 600));
 
