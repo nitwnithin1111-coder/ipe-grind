@@ -22,7 +22,7 @@ window.IPE_DATA.chapters["chem-ch09"] = {
       "formula": "\\Delta_t = \\frac{4}{9} \\Delta_o, \\quad \\Delta_o = \\text{Octahedral splitting between } t_{2g} \\text{ and } e_g",
       "symbols": "$\\text{Spectrochemical Series: } I^- < Br^- < Cl^- < F^- < OH^- < H_2O < NH_3 < en < CN^- < CO$",
       "units": "$\\text{cm}^{-1} \\text{ or kJ/mol}$",
-      "tip": "Strong field ligands (CN^-, CO) cause pairing (low spin); weak field ligands (halides) form high spin complexes."
+      "tip": "Strong field ligands ($\\text{CN}^-$, $\\text{CO}$) cause pairing (low spin); weak field ligands (halides) form high spin complexes."
     },
     {
       "title": "Effective Atomic Number (EAN) Rule",
@@ -66,9 +66,9 @@ window.IPE_DATA.chapters["chem-ch09"] = {
       "question": "What is an ambidentate ligand? Give two examples.",
       "answer": "• Definition: A monodentate ligand that can coordinate to the central metal atom through either of two different donor atoms.\n• Examples:\n1. Nitrito: $-NO_2^-$ (attaches through $N$) and $-ONO^-$ (attaches through $O$).\n2. Thiocyanato: $-SCN^-$ (attaches through $S$) and $-NCS^-$ (attaches through $N$).",
       "formula": "-NO_2^- \\text{ and } -ONO^-, \\quad -SCN^- \\text{ and } -NCS^-",
-      "telugu_hint": "rendu ververu daat prmaanuvul dvaaraa bmdhimchgl laigaamdlnu ubhydmt laigaamdlu antaru (udaa: NO_2^- / ONO^-).",
+      "telugu_hint": "rendu ververu daat prmaanuvul dvaaraa bmdhimchgl laigaamdlnu ubhydmt laigaamdlu antaru (udaa: $\\text{NO}_2^- / \\text{ONO}^-$).",
       "source_check": "verified",
-      "tenglish_hint": "rendu ververu daat prmaanuvul dvaaraa bmdhimchgl laigaamdlnu ubhydmt laigaamdlu antaru (udaa: NO_2^- / ONO^-)."
+      "tenglish_hint": "rendu ververu daat prmaanuvul dvaaraa bmdhimchgl laigaamdlnu ubhydmt laigaamdlu antaru (udaa: $\\text{NO}_2^- / \\text{ONO}^-$)."
     },
     {
       "id": "chem-ch09-q003",
@@ -96,9 +96,9 @@ window.IPE_DATA.chapters["chem-ch09"] = {
       "question": "Using Valence Bond Theory (VBT), explain the hybridization, geometry, and magnetic property of $[Fe(CN)_6]^{4-}$ and $[Fe(H_2O)_6]^{2+}$.",
       "answer": "• **$[Fe(CN)_6]^{4-}$**:\n1. Central ion is $Fe^{2+}$ with $3d^6$ configuration.\n2. Cyanide ion ($CN^-$) is a **strong field ligand**, which forces all 6 electrons in $3d$ to pair up, leaving two vacant $3d$ orbitals.\n3. Hybridization: $d^2sp^3$ (Inner orbital octahedral complex).\n4. Unpaired electrons $n = 0 \\implies$ **Diamagnetic**.\n\n• **$[Fe(H_2O)_6]^{2+}$**:\n1. Water ($H_2O$) is a **weak field ligand**, unable to force pairing of $3d$ electrons.\n2. Uses outer $4s, 4p, 4d$ orbitals: $sp^3d^2$ hybridization (Outer orbital octahedral complex).\n3. Unpaired electrons $n = 4 \\implies$ **Strongly Paramagnetic** ($\\mu = 4.90\\text{ BM}$).",
       "formula": "[Fe(CN)_6]^{4-}: d^2sp^3 \\text{ (Diamagnetic)}; \\quad [Fe(H_2O)_6]^{2+}: sp^3d^2 \\text{ (Paramagnetic)}",
-      "telugu_hint": "CN- blmain laigaamd kabatti electronlu jtkoodi d^2sp^3 dia magneticm avthundi. H2O blheen laigaamd kabatti sp^3d^2 para magneticm avthundi.",
+      "telugu_hint": "$\\text{CN}^-$ blmain laigaamd kabatti electronlu jtkoodi $d^2sp^3$ dia magneticm avthundi. $\\text{H}_2\\text{O}$ blheen laigaamd kabatti $sp^3d^2$ para magneticm avthundi.",
       "source_check": "verified",
-      "tenglish_hint": "CN- blmain laigaamd kabatti electronlu jtkoodi d^2sp^3 dia magneticm avthundi. H2O blheen laigaamd kabatti sp^3d^2 para magneticm avthundi."
+      "tenglish_hint": "$\\text{CN}^-$ blmain laigaamd kabatti electronlu jtkoodi $d^2sp^3$ dia magneticm avthundi. $\\text{H}_2\\text{O}$ blheen laigaamd kabatti $sp^3d^2$ para magneticm avthundi."
     },
     {
       "id": "chem-ch09-q005",

@@ -1,4 +1,4 @@
-// Storage Manager for IPE GRIND using localStorage
+// Storage Manager for IPE GRIND using localStorage with Firestore Cloud Bridge
 window.IPE_STORAGE = (function() {
   const KEYS = {
     MASTERED: 'ipe_mastered_ids',
@@ -25,6 +25,10 @@ window.IPE_STORAGE = (function() {
   function safeSet(key, val) {
     try {
       localStorage.setItem(key, JSON.stringify(val));
+      // Notify Cloud Database sync engine
+      if (window.IPE_DB && window.IPE_DB.triggerSave) {
+        window.IPE_DB.triggerSave();
+      }
     } catch (e) {
       console.warn('Storage write failed for', key, e);
     }
@@ -119,7 +123,6 @@ window.IPE_STORAGE = (function() {
       }
 
       if (data.lastDate === today) {
-        // Already practiced today
         return { streak: data.current, isNewDay: false };
       }
 
@@ -128,11 +131,9 @@ window.IPE_STORAGE = (function() {
       const diffDays = Math.round((now - last) / (1000 * 60 * 60 * 24));
 
       if (diffDays === 1) {
-        // Consecutive day!
         data.current += 1;
         if (data.current > data.highest) data.highest = data.current;
       } else if (diffDays > 1) {
-        // Lapsed - reset gracefully
         data.current = 1;
       }
       data.lastDate = today;
@@ -157,7 +158,7 @@ window.IPE_STORAGE = (function() {
       if (!badges.has(badgeKey)) {
         badges.add(badgeKey);
         safeSet(KEYS.BADGES, Array.from(badges));
-        return true; // Newly unlocked
+        return true;
       }
       return false;
     },
@@ -166,6 +167,7 @@ window.IPE_STORAGE = (function() {
     getUser: function() {
       return safeGet(KEYS.USER, {
         name: 'Guest Aspirant',
+        email: '',
         mobile: '',
         targetAim: '60/60 Topper',
         isGuest: true,
@@ -178,6 +180,7 @@ window.IPE_STORAGE = (function() {
     logoutUser: function() {
       safeSet(KEYS.USER, {
         name: 'Guest Aspirant',
+        email: '',
         mobile: '',
         targetAim: '60/60 Topper',
         isGuest: true,

@@ -22,7 +22,7 @@ window.IPE_DATA.chapters["chem-ch08"] = {
       "formula": "4FeCr_2O_4 + 8Na_2CO_3 + 7O_2 \\to 8Na_2CrO_4 + 2Fe_2O_3 + 8CO_2",
       "symbols": "$2Na_2CrO_4 + H_2SO_4 \\to Na_2Cr_2O_7 + Na_2SO_4 + H_2O$, $\\quad Na_2Cr_2O_7 + 2KCl \\to K_2Cr_2O_7 + 2NaCl$",
       "units": "",
-      "tip": "Dichromate ion Cr_2O_7^{2-} (orange) and chromate ion CrO_4^{2-} (yellow) interconvert with pH change."
+      "tip": "Dichromate ion $\\text{Cr}_2\\text{O}_7^{2-}$ (orange) and chromate ion $\\text{CrO}_4^{2-}$ (yellow) interconvert with pH change."
     },
     {
       "title": "Disproportionation of Manganate Ion",
@@ -96,9 +96,9 @@ window.IPE_DATA.chapters["chem-ch08"] = {
       "question": "Calculate the 'spin-only' magnetic moment of $Fe^{2+}$ ion in Bohr Magnetons ($Z = 26$).",
       "answer": "• Electronic configuration of $Fe$: $[Ar] 3d^6 4s^2$.\n• Electronic configuration of $Fe^{2+}$: $[Ar] 3d^6$.\n• Number of unpaired electrons in $3d^6$: $n = 4$.\n• Formula: $\\mu = \\sqrt{n(n+2)} = \\sqrt{4(4+2)} = \\sqrt{24} \\approx 4.90 \\text{ BM}$.",
       "formula": "\\mu = \\sqrt{4(6)} = \\sqrt{24} = 4.90\\text{ BM}",
-      "telugu_hint": "Fe^{2+} lo 4 omtri electronlu untayi: $\\mu = \\sqrt{4(4+2)} = \\sqrt{24} \\approx 4.90\\text{ BM}$.",
+      "telugu_hint": "$\\text{Fe}^{2+}$ lo 4 omtri electronlu untayi: $\\mu = \\sqrt{4(4+2)} = \\sqrt{24} \\approx 4.90\\text{ BM}$.",
       "source_check": "verified",
-      "tenglish_hint": "Fe^{2+} lo 4 omtri electronlu untayi: $\\mu = \\sqrt{4(4+2)} = \\sqrt{24} \\approx 4.90\\text{ BM}$."
+      "tenglish_hint": "$\\text{Fe}^{2+}$ lo 4 omtri electronlu untayi: $\\mu = \\sqrt{4(4+2)} = \\sqrt{24} \\approx 4.90\\text{ BM}$."
     },
     {
       "id": "chem-ch08-q005",
@@ -117,9 +117,9 @@ window.IPE_DATA.chapters["chem-ch08"] = {
       "correctOption": 2,
       "answer": "Correct Answer: C) $Sc^{3+}$.\n• $Sc^{3+}$ has configuration $[Ar] 3d^0$. Since it has no unpaired $d$-electrons, it is diamagnetic and cannot undergo $d-d$ transitions (colorless).",
       "formula": "Sc^{3+} = [Ar]3d^0 \\implies n=0",
-      "telugu_hint": "Sc^{3+} lo d-electronlu umdvu (3d^0), kabatti idi dia magneticm and colorless.",
+      "telugu_hint": "$\\text{Sc}^{3+}$ lo d-electronlu umdvu ($3d^0$), kabatti idi dia magneticm and colorless.",
       "source_check": "verified",
-      "tenglish_hint": "Sc^{3+} lo d-electronlu umdvu (3d^0), kabatti idi dia magneticm and colorless."
+      "tenglish_hint": "$\\text{Sc}^{3+}$ lo d-electronlu umdvu ($3d^0$), kabatti idi dia magneticm and colorless."
     }
   ]
 };

@@ -321,9 +321,9 @@ window.IPE_DATA.chapters["chem-ch01"] = {
       "question": "Derive the packing efficiency in a Face-Centered Cubic (FCC / CCP) unit cell.",
       "answer": "1. Geometry of FCC Unit Cell:\n• Let unit cell edge length = $a$, radius of each sphere = $r$.\n• In FCC, spheres touch along the face diagonal $AC$.\n• In right $\\triangle ABC$: $AC^2 = AB^2 + BC^2 = a^2 + a^2 = 2a^2$.\n$$AC = \\sqrt{2}a$$\n• But $AC$ passes through one central sphere and two corner spheres: $AC = 4r$.\n$$\\sqrt{2}a = 4r \\implies a = \\frac{4r}{\\sqrt{2}} = 2\\sqrt{2}r$$\n2. Volumes:\n• Volume of unit cell $V = a^3 = (2\\sqrt{2}r)^3 = 16\\sqrt{2}r^3$.\n• Number of atoms in FCC unit cell $z = 4$.\n• Total volume occupied by 4 spheres: $V_{\\text{atoms}} = 4 \\times \\left(\\frac{4}{3}\\pi r^3\\right) = \\frac{16}{3}\\pi r^3$.\n\n3. Packing Efficiency:\n$$\\text{Packing Efficiency} = \\frac{\\text{Volume occupied by atoms}}{\\text{Total volume of unit cell}} \\times 100$$\n$$= \\frac{\\frac{16}{3}\\pi r^3}{16\\sqrt{2}r^3} \\times 100 = \\frac{\\pi}{3\\sqrt{2}} \\times 100 = \\frac{3.1416}{4.2426} \\times 100 \\approx 74\\%$$Hence proved: Packing efficiency of FCC is 74% (Void space = 26%).",
       "formula": "\\text{Packing Efficiency}_{\\text{FCC}} = \\frac{\\pi}{3\\sqrt{2}} \\times 100 = 74\\%",
-      "telugu_hint": "mukh krnm 4r = sqrt(2)a. volume a^3 = 16*sqrt(2)*r^3. 4 golaal volume = (16/3)*pi*r^3. smkuln power = 74%.",
+      "telugu_hint": "face diagonal $4r = \\sqrt{2}a$. unit cell volume $a^3 = 16\\sqrt{2}r^3$. 4 atoms volume $= \\frac{16}{3}\\pi r^3$. packing efficiency $= 74\\%$.",
       "source_check": "verified",
-      "tenglish_hint": "mukh krnm 4r = sqrt(2)a. volume a^3 = 16*sqrt(2)*r^3. 4 golaal volume = (16/3)*pi*r^3. smkuln power = 74%."
+      "tenglish_hint": "face diagonal $4r = \\sqrt{2}a$. unit cell volume $a^3 = 16\\sqrt{2}r^3$. 4 atoms volume $= \\frac{16}{3}\\pi r^3$. packing efficiency $= 74\\%$."
     },
     {
       "id": "chem-ch01-q019",
@@ -350,9 +350,9 @@ window.IPE_DATA.chapters["chem-ch01"] = {
       "question": "Derive the packing efficiency in a Simple Cubic (SC) unit cell.",
       "answer": "1. Geometry of Simple Cubic:\n• In a simple cubic lattice, spheres touch along the cube edge.\n• Edge length $a = 2r$.\n• Volume of unit cell $V = a^3 = (2r)^3 = 8r^3$.\n\n2. Volume of Atoms:\n• Number of atoms per simple cubic unit cell $z = 8 \\times \\frac{1}{8} = 1$.\n• Volume of 1 sphere = $\\frac{4}{3}\\pi r^3$.\n\n3. Packing Efficiency:\n$$\\text{Packing Efficiency} = \\frac{\\text{Volume of 1 sphere}}{\\text{Volume of unit cell}} \\times 100$$\n$$= \\frac{\\frac{4}{3}\\pi r^3}{8r^3} \\times 100 = \\frac{\\pi}{6} \\times 100 = \\frac{3.1416}{6} \\times 100 \\approx 52.4\\%$$Hence, Packing efficiency of Simple Cubic is 52.4% (Void space = 47.6%).",
       "formula": "\\text{Packing Efficiency}_{\\text{SC}} = \\frac{\\pi}{6} \\times 100 = 52.4\\%",
-      "telugu_hint": "srl ghnmlo a = 2r. total volume 8r^3. ok gol volume (4/3)*pi*r^3. power = 52.4%.",
+      "telugu_hint": "simple cubic lo $a = 2r$. total volume $= 8r^3$. 1 atom volume $= \\frac{4}{3}\\pi r^3$. efficiency $= 52.4\\%$.",
       "source_check": "verified",
-      "tenglish_hint": "srl ghnmlo a = 2r. total volume 8r^3. ok gol volume (4/3)*pi*r^3. power = 52.4%."
+      "tenglish_hint": "simple cubic lo $a = 2r$. total volume $= 8r^3$. 1 atom volume $= \\frac{4}{3}\\pi r^3$. efficiency $= 52.4\\%$."
     },
     {
       "id": "chem-ch01-q021",
@@ -392,11 +392,11 @@ window.IPE_DATA.chapters["chem-ch01"] = {
       "marks": 4,
       "important": false,
       "question": "Derive the formula for the density of a cubic crystal from its unit cell edge length.",
-      "answer": "1. Mass of a Unit Cell:\n• Let $a$ = Edge length of unit cell (in cm).\n• Volume of unit cell $V = a^3$.\n• Let $z$ = Number of atoms per unit cell.\n• Mass of one atom $m = \\frac{M}{N_A}$ (where $M$ is molar mass in g/mol, $N_A = 6.022 \\times 10^{23}$ is Avogadro's number).\n• Total mass of unit cell = $z \\times m = z \\times \\frac{M}{N_A}$.\n\n2. Density Formula:\n$$\\text{Density } d = \\frac{\\text{Mass of unit cell}}{\\text{Volume of unit cell}}$$\n$$d = \\frac{z \\cdot M}{a^3 \\cdot N_A}$$3. Note: If $a$ is in picometers (pm), then $a \\text{ (cm)} = a \\times 10^{-10}\\text{ cm}$, so $a^3 = (a \\times 10^{-10})^3\\text{ cm}^3$.",
+      "answer": "1. Mass of a Unit Cell:\n• Let $a$ = Edge length of unit cell (in cm).\n• Volume of unit cell $V = a^3$.\n• Let $z$ = Number of atoms per unit cell.\n• Mass of one atom $m = \\frac{M}{N_A}$ (where $M$ is molar mass in $\\text{g/mol}$, $N_A = 6.022 \\times 10^{23}\\text{ mol}^{-1}$ is Avogadro's number).\n• Total mass of unit cell = $z \\times m = z \\times \\frac{M}{N_A}$.\n\n2. Density Formula:\n$$\\text{Density } d = \\frac{\\text{Mass of unit cell}}{\\text{Volume of unit cell}}$$\n$$d = \\frac{z \\cdot M}{a^3 \\cdot N_A}$$3. Note: If $a$ is in picometers (pm), then $a \\text{ (cm)} = a \\times 10^{-10}\\text{ cm}$, so $a^3 = (a \\times 10^{-10})^3\\text{ cm}^3$.",
       "formula": "d = \\frac{z \\cdot M}{a^3 \\cdot N_A}",
-      "telugu_hint": "yoonit sel mass = z * (M / NA). volume = a^3. kabatti density d = (z * M) / (a^3 * NA).",
+      "telugu_hint": "unit cell mass $= z \\times \\frac{M}{N_A}$. volume $= a^3$. density $d = \\frac{z \\cdot M}{a^3 \\cdot N_A}$.",
       "source_check": "verified",
-      "tenglish_hint": "yoonit sel mass = z * (M / NA). volume = a^3. kabatti density d = (z * M) / (a^3 * NA)."
+      "tenglish_hint": "unit cell mass $= z \\times \\frac{M}{N_A}$. volume $= a^3$. density $d = \\frac{z \\cdot M}{a^3 \\cdot N_A}$."
     },
     {
       "id": "chem-ch01-q024",
@@ -449,12 +449,12 @@ window.IPE_DATA.chapters["chem-ch01"] = {
       "marks": 8,
       "important": true,
       "pyq": "TS IPE High-Yield ⭐",
-      "question": "(a) Derive expressions for the packing efficiency of (i) Body-centered cubic (BCC) and (ii) Face-centered cubic (FCC) lattices. (b) An element crystallizes in FCC lattice with edge length 400 pm. If its density is 7 g/cm^3, calculate its molar mass (N_A = 6.022 x 10^23 mol^-1).",
-      "answer": "Part (a): Packing Efficiencies (5 Marks):\n1. BCC Lattice:\n• Atoms touch along body diagonal: $\\sqrt{3}a = 4r \\implies a = \\frac{4r}{\\sqrt{3}}$.\n• Volume of unit cell $a^3 = \\frac{64r^3}{3\\sqrt{3}}$.\n• Number of atoms $z = 2$.\n• Total volume of 2 atoms = $2 \\times \\frac{4}{3}\\pi r^3 = \\frac{8}{3}\\pi r^3$.\n$$\\text{Packing Efficiency} = \\frac{\\frac{8}{3}\\pi r^3}{\\frac{64r^3}{3\\sqrt{3}}} \\times 100 = \\frac{\\sqrt{3}\\pi}{8} \\times 100 \\approx 68\\%$$2. FCC Lattice:\n• Atoms touch along face diagonal: $\\sqrt{2}a = 4r \\implies a = 2\\sqrt{2}r$.\n• Volume of unit cell $a^3 = (2\\sqrt{2}r)^3 = 16\\sqrt{2}r^3$.\n• Number of atoms $z = 4$.\n• Total volume of 4 atoms = $4 \\times \\frac{4}{3}\\pi r^3 = \\frac{16}{3}\\pi r^3$.\n$$\\text{Packing Efficiency} = \\frac{\\frac{16}{3}\\pi r^3}{16\\sqrt{2}r^3} \\times 100 = \\frac{\\pi}{3\\sqrt{2}} \\times 100 \\approx 74\\%$$\nPart (b): Numerical Problem (3 Marks):\n• Given: FCC lattice $\\implies z = 4$.\n• Edge length $a = 400\\text{ pm} = 400 \\times 10^{-10}\\text{ cm} = 4 \\times 10^{-8}\\text{ cm}$.\n• Unit cell volume $a^3 = (4 \\times 10^{-8})^3 = 64 \\times 10^{-24}\\text{ cm}^3$.\n• Density $d = 7\\text{ g/cm}^3$, $N_A = 6.022 \\times 10^{23}\\text{ mol}^{-1}$.\n• Using density formula: $d = \\frac{z \\cdot M}{a^3 \\cdot N_A} \\implies M = \\frac{d \\cdot a^3 \\cdot N_A}{z}$.\n$$M = \\frac{7 \\times 64 \\times 10^{-24} \\times 6.022 \\times 10^{23}}{4}$$\n$$M = \\frac{448 \\times 0.6022}{4} = 112 \\times 0.6022 \\approx 67.45\\text{ g/mol}$$\n• Answer: Molar mass of the element is 67.45 g/mol.",
+      "question": "(a) Derive expressions for the packing efficiency of (i) Body-centered cubic (BCC) and (ii) Face-centered cubic (FCC) lattices. (b) An element crystallizes in FCC lattice with edge length $400\\text{ pm}$. If its density is $7\\text{ g/cm}^3$, calculate its molar mass ($N_A = 6.022 \\times 10^{23}\\text{ mol}^{-1}$).",
+      "answer": "Part (a): Packing Efficiencies (5 Marks):\n1. BCC Lattice:\n• Atoms touch along body diagonal: $\\sqrt{3}a = 4r \\implies a = \\frac{4r}{\\sqrt{3}}$.\n• Volume of unit cell $a^3 = \\frac{64r^3}{3\\sqrt{3}}$.\n• Number of atoms $z = 2$.\n• Total volume of 2 atoms = $2 \\times \\frac{4}{3}\\pi r^3 = \\frac{8}{3}\\pi r^3$.\n$$\\text{Packing Efficiency} = \\frac{\\frac{8}{3}\\pi r^3}{\\frac{64r^3}{3\\sqrt{3}}} \\times 100 = \\frac{\\sqrt{3}\\pi}{8} \\times 100 \\approx 68\\%$$2. FCC Lattice:\n• Atoms touch along face diagonal: $\\sqrt{2}a = 4r \\implies a = 2\\sqrt{2}r$.\n• Volume of unit cell $a^3 = (2\\sqrt{2}r)^3 = 16\\sqrt{2}r^3$.\n• Number of atoms $z = 4$.\n• Total volume of 4 atoms = $4 \\times \\frac{4}{3}\\pi r^3 = \\frac{16}{3}\\pi r^3$.\n$$\\text{Packing Efficiency} = \\frac{\\frac{16}{3}\\pi r^3}{16\\sqrt{2}r^3} \\times 100 = \\frac{\\pi}{3\\sqrt{2}} \\times 100 \\approx 74\\%$$\nPart (b): Numerical Problem (3 Marks):\n• Given: FCC lattice $\\implies z = 4$.\n• Edge length $a = 400\\text{ pm} = 400 \\times 10^{-10}\\text{ cm} = 4 \\times 10^{-8}\\text{ cm}$.\n• Unit cell volume $a^3 = (4 \\times 10^{-8})^3 = 64 \\times 10^{-24}\\text{ cm}^3$.\n• Density $d = 7\\text{ g/cm}^3$, $N_A = 6.022 \\times 10^{23}\\text{ mol}^{-1}$.\n• Using density formula: $d = \\frac{z \\cdot M}{a^3 \\cdot N_A} \\implies M = \\frac{d \\cdot a^3 \\cdot N_A}{z}$.\n$$M = \\frac{7 \\times 64 \\times 10^{-24} \\times 6.022 \\times 10^{23}}{4}$$\n$$M = \\frac{448 \\times 0.6022}{4} = 112 \\times 0.6022 \\approx 67.45\\text{ g/mol}$$\n• Answer: Molar mass of the element is $67.45\text{ g/mol}$.",
       "formula": "d = \\frac{z \\cdot M}{a^3 \\cdot N_A} \\implies M = 67.45 \\text{ g/mol}",
-      "telugu_hint": "BCC smkuln power 68%, FCC 74%. calculation: FCC lo z = 4, a = 4x10^-8 cm. molar mass M = (d * a^3 * NA) / 4 = 67.45 g/mol.",
+      "telugu_hint": "BCC efficiency $68\\%$, FCC $74\\%$. FCC lo $z = 4$, $a = 4 \\times 10^{-8}\\text{ cm}$. molar mass $M = \\frac{d \\cdot a^3 \\cdot N_A}{4} \\approx 67.45\\text{ g/mol}$.",
       "source_check": "verified",
-      "tenglish_hint": "BCC smkuln power 68%, FCC 74%. calculation: FCC lo z = 4, a = 4x10^-8 cm. molar mass M = (d * a^3 * NA) / 4 = 67.45 g/mol."
+      "tenglish_hint": "BCC efficiency $68\\%$, FCC $74\\%$. FCC lo $z = 4$, $a = 4 \\times 10^{-8}\\text{ cm}$. molar mass $M = \\frac{d \\cdot a^3 \\cdot N_A}{4} \\approx 67.45\\text{ g/mol}$."
     },
     {
       "id": "chem-ch01-q028",
@@ -492,12 +492,12 @@ window.IPE_DATA.chapters["chem-ch01"] = {
       "type": "LAQ",
       "marks": 8,
       "important": false,
-      "question": "(a) Classify magnetic substances into 5 classes with their domain spin alignment and examples. (b) Chromium metal crystallizes in BCC lattice with edge length 288 pm. Calculate the density of chromium (Atomic mass = 52 u, N_A = 6.022 x 10^23 mol^-1).",
-      "answer": "Part (a): Magnetic Classification (5 Marks):\n1. Paramagnetic: Weakly attracted in magnetic field; caused by unpaired electrons. Examples: $O_2, Cu^{2+}$.\n2. Diamagnetic: Weakly repelled; caused by paired electrons with opposite spins canceling magnetic moments. Examples: $NaCl, H_2O$.\n3. Ferromagnetic: Strongly attracted and permanently magnetized. All magnetic domains spontaneously align parallel in the same direction: $\\uparrow \\uparrow \\uparrow \\uparrow \\uparrow$. Examples: $Fe, Co, Ni, CrO_2$.\n4. Antiferromagnetic: Magnetic domains align in opposite directions in equal numbers, completely canceling net magnetic moment: $\\uparrow \\downarrow \\uparrow \\downarrow \\uparrow \\downarrow$. Example: $MnO, FeO$.\n5. Ferrimagnetic: Magnetic domains align in parallel and antiparallel directions in UNEQUAL numbers, leaving a net small magnetic moment: $\\uparrow \\uparrow \\downarrow \\uparrow \\uparrow \\downarrow$. Example: Magnetite ($Fe_3O_4$), Ferrites like $MgFe_2O_4$.\n\nPart (b): Chromium Density Calculation (3 Marks):\n• Structure: BCC $\\implies z = 2$.\n• Atomic mass $M = 52\\text{ g/mol}$.\n• Edge length $a = 288\\text{ pm} = 288 \\times 10^{-10}\\text{ cm} = 2.88 \\times 10^{-8}\\text{ cm}$.\n• Volume of unit cell $a^3 = (2.88 \\times 10^{-8})^3 \\approx 2.3888 \\times 10^{-23}\\text{ cm}^3$.\n• Using density formula:\n$$d = \\frac{z \\cdot M}{a^3 \\cdot N_A} = \\frac{2 \\times 52}{(2.3888 \\times 10^{-23}) \\times (6.022 \\times 10^{23})}$$\n$$d = \\frac{104}{2.3888 \\times 6.022} = \\frac{104}{14.385} \\approx 7.23\\text{ g/cm}^3$$\n• Answer: Density of chromium = 7.23 g/cm^3 (or 7230 kg/m^3).",
+      "question": "(a) Classify magnetic substances into 5 classes with their domain spin alignment and examples. (b) Chromium metal crystallizes in BCC lattice with edge length $288\\text{ pm}$. Calculate the density of chromium ($\\text{Atomic mass} = 52\\text{ u}$, $N_A = 6.022 \\times 10^{23}\\text{ mol}^{-1}$).",
+      "answer": "Part (a): Magnetic Classification (5 Marks):\n1. Paramagnetic: Weakly attracted in magnetic field; caused by unpaired electrons. Examples: $O_2, Cu^{2+}$.\n2. Diamagnetic: Weakly repelled; caused by paired electrons with opposite spins canceling magnetic moments. Examples: $NaCl, H_2O$.\n3. Ferromagnetic: Strongly attracted and permanently magnetized. All magnetic domains spontaneously align parallel in the same direction: $\\uparrow \\uparrow \\uparrow \\uparrow \\uparrow$. Examples: $Fe, Co, Ni, CrO_2$.\n4. Antiferromagnetic: Magnetic domains align in opposite directions in equal numbers, completely canceling net magnetic moment: $\\uparrow \\downarrow \\uparrow \\downarrow \\uparrow \\downarrow$. Example: $MnO, FeO$.\n5. Ferrimagnetic: Magnetic domains align in parallel and antiparallel directions in UNEQUAL numbers, leaving a net small magnetic moment: $\\uparrow \\uparrow \\downarrow \\uparrow \\uparrow \\downarrow$. Example: Magnetite ($Fe_3O_4$), Ferrites like $MgFe_2O_4$.\n\nPart (b): Chromium Density Calculation (3 Marks):\n• Structure: BCC $\\implies z = 2$.\n• Atomic mass $M = 52\\text{ g/mol}$.\n• Edge length $a = 288\\text{ pm} = 288 \\times 10^{-10}\\text{ cm} = 2.88 \\times 10^{-8}\\text{ cm}$.\n• Volume of unit cell $a^3 = (2.88 \\times 10^{-8})^3 \\approx 2.3888 \\times 10^{-23}\\text{ cm}^3$.\n• Using density formula:\n$$d = \\frac{z \\cdot M}{a^3 \\cdot N_A} = \\frac{2 \\times 52}{(2.3888 \\times 10^{-23}) \\times (6.022 \\times 10^{23})}$$\n$$d = \\frac{104}{2.3888 \\times 6.022} = \\frac{104}{14.385} \\approx 7.23\\text{ g/cm}^3$$\n• Answer: Density of chromium = $7.23\text{ g/cm}^3$ (or $7230\text{ kg/m}^3$).",
       "formula": "d = \\frac{z \\cdot M}{a^3 \\cdot N_A} = 7.23 \\text{ g/cm}^3",
-      "telugu_hint": "5 rkaal magnetic dhrmaalu and domainl vinyaasm. calculation: BCC kabatti z = 2, M = 52, a = 2.88x10^-8 cm. density d = 7.23 g/cm^3.",
+      "telugu_hint": "5 rkaal magnetic dhrmaalu and domainl vinyaasm. calculation: BCC kabatti $z = 2$, $M = 52$, $a = 2.88 \\times 10^{-8}\\text{ cm}$. density $d = 7.23\\text{ g/cm}^3$.",
       "source_check": "verified",
-      "tenglish_hint": "5 rkaal magnetic dhrmaalu and domainl vinyaasm. calculation: BCC kabatti z = 2, M = 52, a = 2.88x10^-8 cm. density d = 7.23 g/cm^3."
+      "tenglish_hint": "5 rkaal magnetic dhrmaalu and domainl vinyaasm. calculation: BCC kabatti $z = 2$, $M = 52$, $a = 2.88 \\times 10^{-8}\\text{ cm}$. density $d = 7.23\\text{ g/cm}^3$."
     },
     {
       "id": "chem-ch01-q031",
@@ -507,12 +507,12 @@ window.IPE_DATA.chapters["chem-ch01"] = {
       "marks": 4,
       "important": true,
       "pyq": "TS IPE High-Yield ⭐",
-      "question": "Silver forms an FCC lattice. The edge length of its unit cell is 4.077 x 10^-8 cm and its density is 10.5 g/cm^3. Calculate the atomic mass of silver (N_A = 6.022 x 10^23 mol^-1).",
-      "answer": "Step 1: Given Data\n• Lattice = FCC $\\implies z = 4$\n• Edge length $a = 4.077 \\times 10^{-8}\\text{ cm}$\n• Density $d = 10.5\\text{ g/cm}^3$\n• $N_A = 6.022 \\times 10^{23}\\text{ mol}^{-1}$\nStep 2: Formula\n$$d = \\frac{z \\cdot M}{a^3 \\cdot N_A} \\implies M = \\frac{d \\cdot a^3 \\cdot N_A}{z}$$\nStep 3: Calculation\n$$a^3 = (4.077 \\times 10^{-8})^3 \\approx 6.7766 \\times 10^{-23}\\text{ cm}^3$$\n$$M = \\frac{10.5 \\times (6.7766 \\times 10^{-23}) \\times (6.022 \\times 10^{23})}{4}$$\n$$M = \\frac{10.5 \\times 6.7766 \\times 6.022}{4} = \\frac{428.49}{4} \\approx 107.12\\text{ g/mol}$$\nFinal Answer: The atomic mass of silver is 107.12 g/mol (approx 108 u).",
+      "question": "Silver forms an FCC lattice. The edge length of its unit cell is $4.077 \\times 10^{-8}\\text{ cm}$ and its density is $10.5\\text{ g/cm}^3$. Calculate the atomic mass of silver ($N_A = 6.022 \\times 10^{23}\\text{ mol}^{-1}$).",
+      "answer": "Step 1: Given Data\n• Lattice = FCC $\\implies z = 4$\n• Edge length $a = 4.077 \\times 10^{-8}\\text{ cm}$\n• Density $d = 10.5\\text{ g/cm}^3$\n• $N_A = 6.022 \\times 10^{23}\\text{ mol}^{-1}$\nStep 2: Formula\n$$d = \\frac{z \\cdot M}{a^3 \\cdot N_A} \\implies M = \\frac{d \\cdot a^3 \\cdot N_A}{z}$$\nStep 3: Calculation\n$$a^3 = (4.077 \\times 10^{-8})^3 \\approx 6.7766 \\times 10^{-23}\\text{ cm}^3$$\n$$M = \\frac{10.5 \\times (6.7766 \\times 10^{-23}) \\times (6.022 \\times 10^{23})}{4}$$\n$$M = \\frac{10.5 \\times 6.7766 \\times 6.022}{4} = \\frac{428.49}{4} \\approx 107.12\\text{ g/mol}$$\nFinal Answer: The atomic mass of silver is $107.12\text{ g/mol}$ (approx $108\text{ u}$).",
       "formula": "M = \\frac{d \\cdot a^3 \\cdot N_A}{z}",
-      "telugu_hint": "FCC kabatti z = 4. M = (d * a^3 * NA) / z = (10.5 * 6.78e-23 * 6.022e23) / 4 = 107.1 g/mol.",
+      "telugu_hint": "FCC kabatti $z = 4$. $M = \\frac{d \\cdot a^3 \\cdot N_A}{z} \\approx 107.12\\text{ g/mol}$.",
       "source_check": "verified",
-      "tenglish_hint": "FCC kabatti z = 4. M = (d * a^3 * NA) / z = (10.5 * 6.78e-23 * 6.022e23) / 4 = 107.1 g/mol."
+      "tenglish_hint": "FCC kabatti $z = 4$. $M = \\frac{d \\cdot a^3 \\cdot N_A}{z} \\approx 107.12\\text{ g/mol}$."
     },
     {
       "id": "chem-ch01-q032",
@@ -522,12 +522,12 @@ window.IPE_DATA.chapters["chem-ch01"] = {
       "marks": 4,
       "important": true,
       "pyq": "TS IPE High-Yield ⭐",
-      "question": "An element has a BCC structure with a cell edge of 288 pm. The density of the element is 7.2 g/cm^3. How many atoms are present in 208 g of the element?",
-      "answer": "Step 1: Given Data\n• Edge length $a = 288\\text{ pm} = 2.88 \\times 10^{-8}\\text{ cm}$\n• Density $d = 7.2\\text{ g/cm}^3$\n• Mass of element = 208 g\n\nStep 2: Volume of 208 g of element\n$$\\text{Volume} = \\frac{\\text{Mass}}{\\text{Density}} = \\frac{208\\text{ g}}{7.2\\text{ g/cm}^3} \\approx 28.889\\text{ cm}^3$$\nStep 3: Volume of one unit cell\n$$V_{\\text{cell}} = a^3 = (2.88 \\times 10^{-8})^3 = 2.3888 \\times 10^{-23}\\text{ cm}^3$$\nStep 4: Number of unit cells in 208 g\n$$\\text{Number of unit cells} = \\frac{28.889}{2.3888 \\times 10^{-23}} \\approx 1.2093 \\times 10^{24}\\text{ unit cells}$$\nStep 5: Total number of atoms (BCC has 2 atoms per cell)\n$$\\text{Total atoms} = 2 \\times (1.2093 \\times 10^{24}) = 2.418 \\times 10^{24}\\text{ atoms}$$\nFinal Answer: Number of atoms present in 208 g = 2.418 x 10^24 atoms.",
+      "question": "An element has a BCC structure with a cell edge of $288\\text{ pm}$. The density of the element is $7.2\\text{ g/cm}^3$. How many atoms are present in $208\\text{ g}$ of the element?",
+      "answer": "Step 1: Given Data\n• Edge length $a = 288\\text{ pm} = 2.88 \\times 10^{-8}\\text{ cm}$\n• Density $d = 7.2\\text{ g/cm}^3$\n• Mass of element = $208\\text{ g}$\n\nStep 2: Volume of $208\\text{ g}$ of element\n$$\\text{Volume} = \\frac{\\text{Mass}}{\\text{Density}} = \\frac{208\\text{ g}}{7.2\\text{ g/cm}^3} \\approx 28.889\\text{ cm}^3$$\nStep 3: Volume of one unit cell\n$$V_{\\text{cell}} = a^3 = (2.88 \\times 10^{-8})^3 = 2.3888 \\times 10^{-23}\\text{ cm}^3$$\nStep 4: Number of unit cells in $208\\text{ g}$\n$$\\text{Number of unit cells} = \\frac{28.889}{2.3888 \\times 10^{-23}} \\approx 1.2093 \\times 10^{24}\\text{ unit cells}$$\nStep 5: Total number of atoms (BCC has 2 atoms per cell)\n$$\\text{Total atoms} = 2 \\times (1.2093 \\times 10^{24}) = 2.418 \\times 10^{24}\\text{ atoms}$$\nFinal Answer: Number of atoms present in $208\\text{ g} = 2.418 \\times 10^{24}\\text{ atoms}$.",
       "formula": "\\text{Total Atoms} = z \\times \\left(\\frac{\\text{Total Volume}}{a^3}\\right)",
-      "telugu_hint": "208 graamul volume = 28.89 cm^3. yoonit sel volume = 2.39e-23 cm^3. total prmaanuvulu = 2 * (28.89 / 2.39e-23) = 2.418x10^24.",
+      "telugu_hint": "$208\\text{ g}$ volume $= 28.89\\text{ cm}^3$. unit cell volume $= 2.39 \\times 10^{-23}\\text{ cm}^3$. total atoms $= 2 \\times \\frac{28.89}{2.39 \\times 10^{-23}} \\approx 2.418 \\times 10^{24}$.",
       "source_check": "verified",
-      "tenglish_hint": "208 graamul volume = 28.89 cm^3. yoonit sel volume = 2.39e-23 cm^3. total prmaanuvulu = 2 * (28.89 / 2.39e-23) = 2.418x10^24."
+      "tenglish_hint": "$208\\text{ g}$ volume $= 28.89\\text{ cm}^3$. unit cell volume $= 2.39 \\times 10^{-23}\\text{ cm}^3$. total atoms $= 2 \\times \\frac{28.89}{2.39 \\times 10^{-23}} \\approx 2.418 \\times 10^{24}$."
     },
     {
       "id": "chem-ch01-q033",
@@ -537,12 +537,12 @@ window.IPE_DATA.chapters["chem-ch01"] = {
       "marks": 4,
       "important": true,
       "pyq": "TS IPE High-Yield ⭐",
-      "question": "A solid is made of two elements A and B. Atoms of B form CCP arrangement, while atoms of A occupy 1/3rd of the tetrahedral voids. What is the empirical formula of the compound?",
-      "answer": "Step 1: Number of atoms of B\nLet the number of atoms of $B$ in the CCP lattice = $N$.\n\nStep 2: Number of tetrahedral voids\nIn a CCP lattice, number of tetrahedral voids = $2 \\times N = 2N$.\n\nStep 3: Number of atoms of A\nAtoms of $A$ occupy $\\frac{1}{3}\\text{rd}$ of tetrahedral voids:\n$$\\text{Number of } A = \\frac{1}{3} \\times 2N = \\frac{2N}{3}$$\nStep 4: Mole ratio of A to B\n$$A : B = \\frac{2N}{3} : N = \\frac{2}{3} : 1 = 2 : 3$$\nFinal Answer: The formula of the compound is A2B3.",
+      "question": "A solid is made of two elements $\\text{A}$ and $\\text{B}$. Atoms of $\\text{B}$ form CCP arrangement, while atoms of $\\text{A}$ occupy $\\frac{1}{3}\\text{rd}$ of the tetrahedral voids. What is the empirical formula of the compound?",
+      "answer": "Step 1: Number of atoms of B\nLet the number of atoms of $B$ in the CCP lattice = $N$.\n\nStep 2: Number of tetrahedral voids\nIn a CCP lattice, number of tetrahedral voids = $2 \\times N = 2N$.\n\nStep 3: Number of atoms of A\nAtoms of $A$ occupy $\\frac{1}{3}\\text{rd}$ of tetrahedral voids:\n$$\\text{Number of } A = \\frac{1}{3} \\times 2N = \\frac{2N}{3}$$\nStep 4: Mole ratio of A to B\n$$A : B = \\frac{2N}{3} : N = \\frac{2}{3} : 1 = 2 : 3$$\nFinal Answer: The formula of the compound is $\text{A}_2\text{B}_3$.",
       "formula": "A : B = \\left(\\frac{1}{3} \\times 2N\\right) : N = 2 : 3 \\implies A_2B_3",
-      "telugu_hint": "B = N ayite chturmukhi rmdhraalu = 2N. A = (1/3)*2N = 2N/3. ratio A : B = 2 : 3. phaarmulaa A2B3.",
+      "telugu_hint": "$\\text{B} = N$ ayite tetrahedral voids $= 2N$. $\\text{A} = \\frac{1}{3} \\times 2N = \\frac{2N}{3}$. ratio $\\text{A} : \\text{B} = 2 : 3$. formula $\\text{A}_2\\text{B}_3$.",
       "source_check": "verified",
-      "tenglish_hint": "B = N ayite chturmukhi rmdhraalu = 2N. A = (1/3)*2N = 2N/3. ratio A : B = 2 : 3. phaarmulaa A2B3."
+      "tenglish_hint": "$\\text{B} = N$ ayite tetrahedral voids $= 2N$. $\\text{A} = \\frac{1}{3} \\times 2N = \\frac{2N}{3}$. ratio $\\text{A} : \\text{B} = 2 : 3$. formula $\\text{A}_2\\text{B}_3$."
     },
     {
       "id": "chem-ch01-q034",
@@ -552,12 +552,12 @@ window.IPE_DATA.chapters["chem-ch01"] = {
       "marks": 4,
       "important": true,
       "pyq": "TS IPE High-Yield ⭐",
-      "question": "Copper crystallizes into an FCC lattice with an edge length of 361 pm. Calculate the atomic radius of copper.",
-      "answer": "Step 1: Given Data\n• Crystal system = FCC\n• Edge length $a = 361\\text{ pm}$\nStep 2: Formula for FCC lattice\nIn FCC, atoms touch along the face diagonal:\n$$4r = \\sqrt{2}a \\implies r = \\frac{\\sqrt{2}a}{4} = \\frac{a}{2\\sqrt{2}}$$\nStep 3: Calculation\n$$r = \\frac{361}{2 \\times 1.414} = \\frac{361}{2.828} \\approx 127.65\\text{ pm}$$\nFinal Answer: The atomic radius of copper is 127.65 pm (approx 128 pm).",
+      "question": "Copper crystallizes into an FCC lattice with an edge length of $361\\text{ pm}$. Calculate the atomic radius of copper.",
+      "answer": "Step 1: Given Data\n• Crystal system = FCC\n• Edge length $a = 361\\text{ pm}$\nStep 2: Formula for FCC lattice\nIn FCC, atoms touch along the face diagonal:\n$$4r = \\sqrt{2}a \\implies r = \\frac{\\sqrt{2}a}{4} = \\frac{a}{2\\sqrt{2}}$$\nStep 3: Calculation\n$$r = \\frac{361}{2 \\times 1.414} = \\frac{361}{2.828} \\approx 127.65\\text{ pm}$$\nFinal Answer: The atomic radius of copper is $127.65\text{ pm}$ (approx $128\text{ pm}$).",
       "formula": "r = \\frac{a}{2\\sqrt{2}} = \\frac{\\sqrt{2}a}{4}",
-      "telugu_hint": "FCC lo r = a / (2*sqrt(2)) = 361 / 2.828 = 127.7 pm.",
+      "telugu_hint": "FCC lo $r = \\frac{a}{2\\sqrt{2}} = \\frac{361}{2.828} \\approx 127.7\\text{ pm}$.",
       "source_check": "verified",
-      "tenglish_hint": "FCC lo r = a / (2*sqrt(2)) = 361 / 2.828 = 127.7 pm."
+      "tenglish_hint": "FCC lo $r = \\frac{a}{2\\sqrt{2}} = \\frac{361}{2.828} \\approx 127.7\\text{ pm}$."
     },
     {
       "id": "chem-ch01-q035",
@@ -566,7 +566,7 @@ window.IPE_DATA.chapters["chem-ch01"] = {
       "type": "Numerical",
       "marks": 4,
       "important": false,
-      "question": "In an ionic compound AB, the radius of cation A+ is 95 pm and that of anion B- is 181 pm. Predict the coordination number and structure of AB.",
+      "question": "In an ionic compound $\\text{AB}$, the radius of cation $\\text{A}^+$ is $95\\text{ pm}$ and that of anion $\\text{B}^-$ is $181\\text{ pm}$. Predict the coordination number and structure of $\\text{AB}$.",
       "answer": "Step 1: Given Data\n• $r_+ = 95\\text{ pm}$\n• $r_- = 181\\text{ pm}$\nStep 2: Calculate Radius Ratio\n$$\\text{Radius Ratio } = \\frac{r_+}{r_-} = \\frac{95}{181} \\approx 0.5248$$\nStep 3: Radius Ratio Rule Comparison\n• $0.155 - 0.225 \\implies \\text{CN } 3$ (Planar triangular)\n• $0.225 - 0.414 \\implies \\text{CN } 4$ (Tetrahedral)\n• $0.414 - 0.732 \\implies \\text{CN } 6$ (Octahedral)\n• $0.732 - 1.000 \\implies \\text{CN } 8$ (Cubic / BCC)\nSince $0.5248$ falls in the range $0.414 - 0.732$:\n\nFinal Answer:\n• Coordination number of $A^+$ = 6.\n• Crystal geometry = Octahedral (NaCl-type rock-salt structure).",
       "formula": "\\frac{r_+}{r_-} = \\frac{95}{181} = 0.525 \\in (0.414 - 0.732) \\implies \\text{CN } 6",
       "telugu_hint": "vyaasaarth ratio r+/r- = 95/181 = 0.525. idi 0.414 - 0.732 madhya unnmdun smnvy smkhy = 6 (ashtmukhi structure, NaCl laamtidi).",
@@ -580,8 +580,8 @@ window.IPE_DATA.chapters["chem-ch01"] = {
       "type": "Numerical",
       "marks": 4,
       "important": false,
-      "question": "At what glancing angle will first-order reflection be observed from crystal planes spaced 0.282 nm apart when X-rays of wavelength 0.071 nm are used? (sin^-1(0.1259) = 7.23 deg).",
-      "answer": "Step 1: Given Data\n• Order of reflection $n = 1$\n• Interplanar spacing $d = 0.282\\text{ nm}$\n• Wavelength $\\lambda = 0.071\\text{ nm}$\nStep 2: Bragg's Formula\n$$n\\lambda = 2d\\sin\\theta \\implies \\sin\\theta = \\frac{n\\lambda}{2d}$$\nStep 3: Calculation\n$$\\sin\\theta = \\frac{1 \\times 0.071}{2 \\times 0.282} = \\frac{0.071}{0.564} \\approx 0.125887$$\n$$\\theta = \\sin^{-1}(0.1259) \\approx 7.23^\\circ$$\nFinal Answer: The glancing angle theta is 7.23 degrees.",
+      "question": "At what glancing angle will first-order reflection be observed from crystal planes spaced $0.282\\text{ nm}$ apart when X-rays of wavelength $0.071\\text{ nm}$ are used? ($\\sin^{-1}(0.1259) \\approx 7.23^\\circ$).",
+      "answer": "Step 1: Given Data\n• Order of reflection $n = 1$\n• Interplanar spacing $d = 0.282\\text{ nm}$\n• Wavelength $\\lambda = 0.071\\text{ nm}$\nStep 2: Bragg's Formula\n$$n\\lambda = 2d\\sin\\theta \\implies \\sin\\theta = \\frac{n\\lambda}{2d}$$\nStep 3: Calculation\n$$\\sin\\theta = \\frac{1 \\times 0.071}{2 \\times 0.282} = \\frac{0.071}{0.564} \\approx 0.125887$$\n$$\\theta = \\sin^{-1}(0.1259) \\approx 7.23^\\circ$$\nFinal Answer: The glancing angle $\theta$ is $7.23^\circ$.",
       "formula": "\\sin\\theta = \\frac{n\\lambda}{2d}",
       "telugu_hint": "braag formula: sin(theta) = lambda / (2d) = 0.071 / (2 * 0.282) = 0.1259. theta = 7.23 digreelu.",
       "source_check": "verified",
@@ -595,8 +595,8 @@ window.IPE_DATA.chapters["chem-ch01"] = {
       "marks": 4,
       "important": true,
       "pyq": "TS IPE High-Yield ⭐",
-      "question": "Analysis shows that nickel oxide has the non-stoichiometric formula Ni_0.98 O_1.00. What fraction of nickel exists as Ni^2+ and Ni^3+ ions?",
-      "answer": "Step 1: Basis of Calculation\nLet the number of oxide ions $O^{2-} = 100$.\nTotal negative charge = $100 \\times (-2) = -200$.\nThen, total nickel atoms = 98.\n\nStep 2: Set up equation for neutrality\nLet number of $Ni^{3+}$ ions = $x$.\nThen number of $Ni^{2+}$ ions = $98 - x$.\nTotal positive charge must balance total negative charge (+200):\n$$3(x) + 2(98 - x) = 200$$\n$$3x + 196 - 2x = 200$$\n$$x = 200 - 196 = 4$$\nStep 3: Compute fractions\n• Number of $Ni^{3+} = 4$\n• Number of $Ni^{2+} = 98 - 4 = 94$\n• Fraction of $Ni^{3+} = \\frac{4}{98} \\times 100 \\approx 4.08\\%$\n• Fraction of $Ni^{2+} = \\frac{94}{98} \\times 100 \\approx 95.92\\%$\nFinal Answer: Fraction as Ni^2+ = 95.92%; Fraction as Ni^3+ = 4.08%.",
+      "question": "Analysis shows that nickel oxide has the non-stoichiometric formula $\\text{Ni}_{0.98}\\text{O}_{1.00}$. What fraction of nickel exists as $\\text{Ni}^{2+}$ and $\\text{Ni}^{3+}$ ions?",
+      "answer": "Step 1: Basis of Calculation\nLet the number of oxide ions $O^{2-} = 100$.\nTotal negative charge = $100 \\times (-2) = -200$.\nThen, total nickel atoms = 98.\n\nStep 2: Set up equation for neutrality\nLet number of $Ni^{3+}$ ions = $x$.\nThen number of $Ni^{2+}$ ions = $98 - x$.\nTotal positive charge must balance total negative charge (+200):\n$$3(x) + 2(98 - x) = 200$$\n$$3x + 196 - 2x = 200$$\n$$x = 200 - 196 = 4$$\nStep 3: Compute fractions\n• Number of $Ni^{3+} = 4$\n• Number of $Ni^{2+} = 98 - 4 = 94$\n• Fraction of $Ni^{3+} = \\frac{4}{98} \\times 100 \\approx 4.08\\%$\n• Fraction of $Ni^{2+} = \\frac{94}{98} \\times 100 \\approx 95.92\\%$\nFinal Answer: Fraction as $\text{Ni}^{2+} = 95.92\%$; Fraction as $\text{Ni}^{3+} = 4.08\%$.",
       "formula": "3x + 2(98 - x) = 200 \\implies x = 4",
       "telugu_hint": "100 aaksaidlku 98 nikel unnaayi. 3x + 2(98-x) = 200 => x = 4 (Ni3+). Ni2+ shaatm = (94/98)*100 = 95.92%.",
       "source_check": "verified",
@@ -609,12 +609,12 @@ window.IPE_DATA.chapters["chem-ch01"] = {
       "type": "Numerical",
       "marks": 4,
       "important": false,
-      "question": "The edge length of the NaCl unit cell is 564 pm. Calculate the theoretical density of NaCl crystal (M = 58.5 g/mol, z = 4, N_A = 6.022 x 10^23 mol^-1).",
-      "answer": "Step 1: Given Data\n• $z = 4$ ($NaCl$ forms FCC-type lattice with 4 formula units/cell)\n• Molar mass $M = 58.5\\text{ g/mol}$\n• Edge length $a = 564\\text{ pm} = 5.64 \\times 10^{-8}\\text{ cm}$\n• $N_A = 6.022 \\times 10^{23}\\text{ mol}^{-1}$\nStep 2: Volume of unit cell\n$$a^3 = (5.64 \\times 10^{-8})^3 \\approx 1.794 \\times 10^{-22}\\text{ cm}^3$$\nStep 3: Density Calculation\n$$d = \\frac{z \\cdot M}{a^3 \\cdot N_A} = \\frac{4 \\times 58.5}{(1.794 \\times 10^{-22}) \\times (6.022 \\times 10^{23})}$$\n$$d = \\frac{234}{108.03} \\approx 2.166\\text{ g/cm}^3$$\nFinal Answer: Theoretical density of NaCl = 2.166 g/cm^3 (or 2.17 g/cm^3).",
+      "question": "The edge length of the $\\text{NaCl}$ unit cell is $564\\text{ pm}$. Calculate the theoretical density of $\\text{NaCl}$ crystal ($M = 58.5\\text{ g/mol}$, $z = 4$, $N_A = 6.022 \\times 10^{23}\\text{ mol}^{-1}$).",
+      "answer": "Step 1: Given Data\n• $z = 4$ ($NaCl$ forms FCC-type lattice with 4 formula units/cell)\n• Molar mass $M = 58.5\\text{ g/mol}$\n• Edge length $a = 564\\text{ pm} = 5.64 \\times 10^{-8}\\text{ cm}$\n• $N_A = 6.022 \\times 10^{23}\\text{ mol}^{-1}$\nStep 2: Volume of unit cell\n$$a^3 = (5.64 \\times 10^{-8})^3 \\approx 1.794 \\times 10^{-22}\\text{ cm}^3$$\nStep 3: Density Calculation\n$$d = \\frac{z \\cdot M}{a^3 \\cdot N_A} = \\frac{4 \\times 58.5}{(1.794 \\times 10^{-22}) \\times (6.022 \\times 10^{23})}$$\n$$d = \\frac{234}{108.03} \\approx 2.166\\text{ g/cm}^3$$\nFinal Answer: Theoretical density of $\text{NaCl} = 2.166\text{ g/cm}^3$ (or $2.17\text{ g/cm}^3$).",
       "formula": "d = \\frac{z \\cdot M}{a^3 \\cdot N_A}",
-      "telugu_hint": "NaCl lo z = 4. d = (4 * 58.5) / ( (5.64e-8)^3 * 6.022e23 ) = 234 / 108.03 = 2.166 g/cm^3.",
+      "telugu_hint": "$\\text{NaCl}$ lo $z = 4$. $d = \\frac{4 \\times 58.5}{(5.64 \\times 10^{-8})^3 \\times (6.022 \\times 10^{23})} \\approx 2.166\\text{ g/cm}^3$.",
       "source_check": "verified",
-      "tenglish_hint": "NaCl lo z = 4. d = (4 * 58.5) / ( (5.64e-8)^3 * 6.022e23 ) = 234 / 108.03 = 2.166 g/cm^3."
+      "tenglish_hint": "$\\text{NaCl}$ lo $z = 4$. $d = \\frac{4 \\times 58.5}{(5.64 \\times 10^{-8})^3 \\times (6.022 \\times 10^{23})} \\approx 2.166\\text{ g/cm}^3$."
     },
     {
       "id": "chem-ch01-q039",
@@ -623,12 +623,12 @@ window.IPE_DATA.chapters["chem-ch01"] = {
       "type": "Numerical",
       "marks": 4,
       "important": false,
-      "question": "Calculate the number of unit cells in 8.1 g of Aluminium if it crystallizes in an FCC lattice (Atomic mass of Al = 27 g/mol).",
-      "answer": "Step 1: Number of moles of Al in 8.1 g\n$$n = \\frac{\\text{Mass}}{\\text{Molar mass}} = \\frac{8.1\\text{ g}}{27\\text{ g/mol}} = 0.3\\text{ moles}$$\nStep 2: Number of atoms of Al\n$$\\text{Number of atoms} = 0.3 \\times N_A = 0.3 \\times 6.022 \\times 10^{23} = 1.8066 \\times 10^{23}\\text{ atoms}$$\nStep 3: Number of unit cells\nSince Aluminium crystallizes in FCC, each unit cell contains $z = 4$ atoms:\n$$\\text{Number of unit cells} = \\frac{\\text{Total atoms}}{4} = \\frac{1.8066 \\times 10^{23}}{4} \\approx 4.5165 \\times 10^{22}$$\nFinal Answer: Number of unit cells = 4.52 x 10^22.",
+      "question": "Calculate the number of unit cells in $8.1\\text{ g}$ of Aluminium if it crystallizes in an FCC lattice ($\\text{Atomic mass of Al} = 27\\text{ g/mol}$).",
+      "answer": "Step 1: Number of moles of Al in 8.1 g\n$$n = \\frac{\\text{Mass}}{\\text{Molar mass}} = \\frac{8.1\\text{ g}}{27\\text{ g/mol}} = 0.3\\text{ moles}$$\nStep 2: Number of atoms of Al\n$$\\text{Number of atoms} = 0.3 \\times N_A = 0.3 \\times 6.022 \\times 10^{23} = 1.8066 \\times 10^{23}\\text{ atoms}$$\nStep 3: Number of unit cells\nSince Aluminium crystallizes in FCC, each unit cell contains $z = 4$ atoms:\n$$\\text{Number of unit cells} = \\frac{\\text{Total atoms}}{4} = \\frac{1.8066 \\times 10^{23}}{4} \\approx 4.5165 \\times 10^{22}$$\nFinal Answer: Number of unit cells $= 4.52 \times 10^{22}$.",
       "formula": "\\text{Unit cells} = \\frac{\\text{Moles} \\times N_A}{z}",
-      "telugu_hint": "8.1 graa alyoominiym = 0.3 mol = 1.807x10^23 prmaanuvulu. FCC lo yoonit sel‌ku 4 prmaanuvulu kabatti sels smkhy = 1.807e23 / 4 = 4.52x10^22.",
+      "telugu_hint": "$8.1\\text{ g Al} = 0.3\\text{ mol} = 1.807 \\times 10^{23}\\text{ atoms}$. FCC lo unit cell-ku $4$ atoms kabatti unit cells $= \\frac{1.807 \\times 10^{23}}{4} \\approx 4.52 \\times 10^{22}$.",
       "source_check": "verified",
-      "tenglish_hint": "8.1 graa alyoominiym = 0.3 mol = 1.807x10^23 prmaanuvulu. FCC lo yoonit sel‌ku 4 prmaanuvulu kabatti sels smkhy = 1.807e23 / 4 = 4.52x10^22."
+      "tenglish_hint": "$8.1\\text{ g Al} = 0.3\\text{ mol} = 1.807 \\times 10^{23}\\text{ atoms}$. FCC lo unit cell-ku $4$ atoms kabatti unit cells $= \\frac{1.807 \\times 10^{23}}{4} \\approx 4.52 \\times 10^{22}$."
     },
     {
       "id": "chem-ch01-q040",
@@ -637,12 +637,12 @@ window.IPE_DATA.chapters["chem-ch01"] = {
       "type": "Numerical",
       "marks": 4,
       "important": false,
-      "question": "Iron has a BCC unit cell with a cell edge of 286.6 pm. Calculate the atomic radius of an iron atom.",
-      "answer": "Step 1: Given Data\n• Crystal lattice = BCC\n• Edge length $a = 286.6\\text{ pm}$\nStep 2: Formula for BCC lattice\nIn BCC, atoms touch along the body diagonal:\n$$4r = \\sqrt{3}a \\implies r = \\frac{\\sqrt{3}a}{4}$$\nStep 3: Calculation\n$$r = \\frac{1.732 \\times 286.6}{4} = \\frac{496.39}{4} \\approx 124.1\\text{ pm}$$\nFinal Answer: The atomic radius of iron is 124.1 pm.",
+      "question": "Iron has a BCC unit cell with a cell edge of $286.6\\text{ pm}$. Calculate the atomic radius of an iron atom.",
+      "answer": "Step 1: Given Data\n• Crystal lattice = BCC\n• Edge length $a = 286.6\\text{ pm}$\nStep 2: Formula for BCC lattice\nIn BCC, atoms touch along the body diagonal:\n$$4r = \\sqrt{3}a \\implies r = \\frac{\\sqrt{3}a}{4}$$\nStep 3: Calculation\n$$r = \\frac{1.732 \\times 286.6}{4} = \\frac{496.39}{4} \\approx 124.1\\text{ pm}$$\nFinal Answer: The atomic radius of iron is $124.1\text{ pm}$.",
       "formula": "r = \\frac{\\sqrt{3}a}{4}",
-      "telugu_hint": "BCC lo r = sqrt(3)*a / 4 = 1.732 * 286.6 / 4 = 124.1 pm.",
+      "telugu_hint": "BCC lo $r = \\frac{\\sqrt{3}a}{4} = \\frac{1.732 \\times 286.6}{4} \\approx 124.1\\text{ pm}$.",
       "source_check": "verified",
-      "tenglish_hint": "BCC lo r = sqrt(3)*a / 4 = 1.732 * 286.6 / 4 = 124.1 pm."
+      "tenglish_hint": "BCC lo $r = \\frac{\\sqrt{3}a}{4} = \\frac{1.732 \\times 286.6}{4} \\approx 124.1\\text{ pm}$."
     },
     {
       "id": "chem-ch01-q041",

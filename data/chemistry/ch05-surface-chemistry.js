@@ -72,7 +72,7 @@ window.IPE_DATA.chapters["chem-ch05"] = {
       "important": true,
       "pyq": "TS IPE High-Yield ⭐",
       "question": "Distinguish between Physisorption (Physical Adsorption) and Chemisorption (Chemical Adsorption).",
-      "answer": "• **Physisorption**:\n1. Caused by weak van der Waals forces.\n2. Non-specific in nature.\n3. Reversible in nature.\n4. Low enthalpy of adsorption (20 - 40 kJ/mol).\n5. Forms multi-molecular layers at high pressure.\n\n• **Chemisorption**:\n1. Caused by strong chemical bond formation (covalent/ionic).\n2. Highly specific in nature.\n3. Irreversible in nature.\n4. High enthalpy of adsorption (80 - 240 kJ/mol).\n5. Forms unimolecular (single) layer.",
+      "answer": "• **Physisorption**:\n1. Caused by weak van der Waals forces.\n2. Non-specific in nature.\n3. Reversible in nature.\n4. Low enthalpy of adsorption ($20 - 40\text{ kJ/mol}$).\n5. Forms multi-molecular layers at high pressure.\n\n• **Chemisorption**:\n1. Caused by strong chemical bond formation (covalent/ionic).\n2. Highly specific in nature.\n3. Irreversible in nature.\n4. High enthalpy of adsorption ($80 - 240\text{ kJ/mol}$).\n5. Forms unimolecular (single) layer.",
       "formula": "\\Delta H_{phys} = 20-40\\text{ kJ/mol}, \\quad \\Delta H_{chem} = 80-240\\text{ kJ/mol}",
       "telugu_hint": "bhautik adhishoshnm blheen vaamdr‌vaals blaal valla jrugutumdi (dvigtm, bhul porlu). rsaayn adhishoshnm blmain rsaayn bmdhaal valla jrugutumdi (ekgtm, ek por).",
       "source_check": "verified",

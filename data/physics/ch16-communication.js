@@ -15,7 +15,7 @@ window.IPE_DATA.chapters["phy-ch16"] = {
       "formula": "\\mu = \\frac{A_m}{A_c} = \\frac{A_{max} - A_{min}}{A_{max} + A_{min}}",
       "symbols": "$A_m = \\text{Modulating signal amplitude}$, $A_c = \\text{Carrier amplitude}$",
       "units": "$\\text{Dimensionless (}\\le 1\\text{ to avoid distortion)}$",
-      "tip": "Modulated wave bandwidth BW = 2 f_m."
+      "tip": "Modulated wave bandwidth $\\text{BW} = 2 f_m$."
     },
     {
       "title": "Range of Line-of-Sight TV Antenna",
@@ -78,7 +78,7 @@ window.IPE_DATA.chapters["phy-ch16"] = {
       "marks": 2,
       "important": true,
       "pyq": "TS IPE High-Yield ⭐",
-      "question": "A TV transmitting antenna has a height of 80 m. What is the maximum distance up to which TV transmission can be received? ($R = 6.4 \\times 10^6 \\text{ m}$)",
+      "question": "A TV transmitting antenna has a height of $80\\text{ m}$. What is the maximum distance up to which TV transmission can be received? ($R = 6.4 \\times 10^6 \\text{ m}$)",
       "answer": "• Given: $h = 80 \\text{ m}, R = 6.4 \\times 10^6 \\text{ m}$.\n• Formula: $d = \\sqrt{2 R h}$\n• Calculation:\n$d = \\sqrt{2 \\times 6.4 \\times 10^6 \\times 80} = \\sqrt{1024 \\times 10^6} = 32 \\times 10^3 \\text{ m} = 32 \\text{ km}$.\n• Result: Maximum distance = $32 \\text{ km}$.",
       "formula": "d = \\sqrt{2 R h} = 32 \\text{ km}",
       "telugu_hint": "$d = \\sqrt{2 \\times 6.4 \\times 10^6 \\times 80} = 32\\text{ km}$.",
@@ -100,7 +100,7 @@ window.IPE_DATA.chapters["phy-ch16"] = {
         "D) Mesosphere"
       ],
       "correctOption": 2,
-      "answer": "Correct Answer: C) Ionosphere.\n• Sky waves (3 MHz to 30 MHz) undergo total internal reflection from the ionospheric plasma layers.",
+      "answer": "Correct Answer: C) Ionosphere.\n• Sky waves ($3\\text{ MHz}$ to $30\\text{ MHz}$) undergo total internal reflection from the ionospheric plasma layers.",
       "formula": "\\text{Sky waves reflect from Ionosphere}",
       "telugu_hint": "skai waves ayaanospiyr dvaaraa reflection chemdutaayi.",
       "source_check": "verified",

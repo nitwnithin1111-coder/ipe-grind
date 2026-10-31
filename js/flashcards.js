@@ -172,7 +172,12 @@ window.IPE_FLASHCARDS = (function() {
   }
 
   function renderMath(element) {
-    if (window.renderMathInElement && element) {
+    if (!element) return;
+    if (window.IPE_RENDER_MATH) {
+      window.IPE_RENDER_MATH(element);
+      return;
+    }
+    if (window.renderMathInElement) {
       try {
         window.renderMathInElement(element, {
           delimiters: [

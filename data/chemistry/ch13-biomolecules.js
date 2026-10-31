@@ -15,7 +15,7 @@ window.IPE_DATA.chapters["chem-ch13"] = {
       "formula": "\\text{Glucose } (C_6H_{12}O_6) + HI \\xrightarrow{\\Delta} n\\text{-hexane}, \\quad \\text{Glucose} + Br_2 \\text{ water} \\to \\text{Gluconic acid}, \\quad \\text{Glucose} + conc. HNO_3 \\to \\text{Saccharic acid}",
       "symbols": "",
       "units": "",
-      "tip": "Aldohexose with 4 chiral carbon centers (2^4 = 16 optical isomers)."
+      "tip": "Aldohexose with 4 chiral carbon centers ($2^4 = 16$ optical isomers)."
     },
     {
       "title": "Peptide Bond & Zwitterion",

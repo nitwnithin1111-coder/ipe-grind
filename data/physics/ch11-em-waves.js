@@ -15,7 +15,7 @@ window.IPE_DATA.chapters["phy-ch11"] = {
       "formula": "I_d = \\varepsilon_0 \\frac{d\\Phi_E}{dt}",
       "symbols": "$\\Phi_E = \\text{Electric flux}$, $\\varepsilon_0 = \\text{Permittivity of free space}$",
       "units": "$\\text{Ampere (A)}$",
-      "tip": "Inside capacitor during charging, conduction current I_c = 0 and displacement current I_d = I."
+      "tip": "Inside capacitor during charging, conduction current $I_c = 0$ and displacement current $I_d = I$."
     },
     {
       "title": "Speed of EM Waves in Vacuum",

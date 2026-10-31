@@ -42,6 +42,11 @@ window.IPE_APP = (function() {
     if (window.IPE_SIMULATORS && window.IPE_SIMULATORS.init) window.IPE_SIMULATORS.init();
     if (window.IPE_MOCK && window.IPE_MOCK.init) window.IPE_MOCK.init();
     if (window.IPE_AMBIENT && window.IPE_AMBIENT.init) window.IPE_AMBIENT.init();
+    // Phase 3 Modules: Google Auth, Cloud Database & Concept Explorer
+    if (window.IPE_AUTH && window.IPE_AUTH.init) window.IPE_AUTH.init();
+    if (window.IPE_DB && window.IPE_DB.init) window.IPE_DB.init();
+    if (window.IPE_CONCEPTS && window.IPE_CONCEPTS.init) window.IPE_CONCEPTS.init();
+
   }
 
   // Debounced Search (300ms)
@@ -549,7 +554,8 @@ window.IPE_APP = (function() {
   // Modals Management
   function openFilterModal() {
     const modal = document.getElementById('filter-modal');
-    if (modal) modal.classList.add('open');
+    if (modal) if (window.IPE_AUTH && window.IPE_AUTH.updateAuthUI) window.IPE_AUTH.updateAuthUI();
+    modal.classList.add('open');
   }
 
   function closeFilterModal() {
@@ -787,11 +793,24 @@ window.IPE_APP = (function() {
       setBlueprintTab(initialTab);
     }
     modal.classList.add('open');
+    if (window.IPE_RENDER_MATH) {
+      window.IPE_RENDER_MATH(modal);
+    } else if (window.renderMathInElement) {
+      try {
+        window.renderMathInElement(modal, {
+          delimiters: [
+            { left: "$$", right: "$$", display: true },
+            { left: "$", right: "$", display: false }
+          ],
+          throwOnError: false
+        });
+      } catch (e) {}
+    }
   }
 
   function closeBlueprintModal() {
-    const modal = document.getElementById('blueprint-modal');
-    if (modal) modal.classList.remove('open');
+    const modal = document.getElementById("blueprint-modal");
+    if (modal) modal.classList.remove("open");
   }
 
   function setBlueprintTab(tabName) {

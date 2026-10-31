@@ -22,7 +22,7 @@ window.IPE_DATA.chapters["phy-ch05"] = {
       "formula": "C_0 = \\frac{\\varepsilon_0 A}{d}, \\quad C = \\frac{K\\varepsilon_0 A}{d} = K C_0",
       "symbols": "$A = \\text{Plate area}$, $d = \\text{Plate separation}$, $K = \\text{Dielectric constant}$",
       "units": "$\\text{Farad (F)}$",
-      "tip": "Introducing a dielectric increases capacitance by factor K."
+      "tip": "Introducing a dielectric increases capacitance by factor $K$."
     },
     {
       "title": "Energy Stored in a Capacitor",
@@ -36,7 +36,7 @@ window.IPE_DATA.chapters["phy-ch05"] = {
       "formula": "\\frac{1}{C_s} = \\frac{1}{C_1} + \\frac{1}{C_2}, \\quad C_p = C_1 + C_2",
       "symbols": "$C_s = \\text{Series equivalent}$, $C_p = \\text{Parallel equivalent}$",
       "units": "$\\text{Farad (F)}$",
-      "tip": "In series, charge Q is same. In parallel, potential V is same."
+      "tip": "In series, charge $Q$ is same. In parallel, potential $V$ is same."
     },
     {
       "title": "Capacitance with Dielectric Slab of Thickness t",
@@ -48,7 +48,7 @@ window.IPE_DATA.chapters["phy-ch05"] = {
     {
       "title": "Common Potential after Sharing of Charges",
       "formula": "V = \\frac{C_1 V_1 + C_2 V_2}{C_1 + C_2}",
-      "symbols": "C_1, $C_2 = \\text{Capacitances of two capacitors}$, V_1, $V_2 = \\text{Initial potentials}$",
+      "symbols": "$C_1, C_2 = \\text{Capacitances of two capacitors}$, $V_1, V_2 = \\text{Initial potentials}$",
       "units": "$\\text{Volt (V)}$",
       "tip": "Electrostatic energy loss on sharing charge is $\\Delta U = \\frac{C_1 C_2 (V_1 - V_2)^2}{2(C_1 + C_2)}$, dissipated as heat and spark."
     }
@@ -138,17 +138,17 @@ window.IPE_DATA.chapters["phy-ch05"] = {
       "important": false,
       "question": "When a dielectric slab of dielectric constant $K$ is introduced between the plates of an isolated charged capacitor, the energy stored:",
       "options": [
-        "A) Increases K times",
-        "B) Decreases by a factor K",
+        "A) Increases $K$ times",
+        "B) Decreases by a factor $K$",
         "C) Remains unchanged",
         "D) Becomes zero"
       ],
       "correctOption": 1,
-      "answer": "Correct Answer: B) Decreases by a factor K.\n• For an isolated capacitor, charge $Q$ is constant. Since $C' = KC$, $U' = \\frac{Q^2}{2C'} = \\frac{Q^2}{2KC} = \\frac{U}{K}$.",
+      "answer": "Correct Answer: B) Decreases by a factor $K$.\n• For an isolated capacitor, charge $Q$ is constant. Since $C' = KC$, $U' = \\frac{Q^2}{2C'} = \\frac{Q^2}{2KC} = \\frac{U}{K}$.",
       "formula": "U' = \\frac{U}{K}",
-      "telugu_hint": "vivikt kepaasitr‌lo charge constantmgaa untundi, kepaasitens periginmdun energy U/K tagguthundi.",
+      "telugu_hint": "vivikt kepaasitr‌lo charge constantmgaa untundi, kepaasitens periginmdun energy $U/K$ tagguthundi.",
       "source_check": "verified",
-      "tenglish_hint": "vivikt kepaasitr‌lo charge constantmgaa untundi, kepaasitens periginmdun energy U/K tagguthundi."
+      "tenglish_hint": "vivikt kepaasitr‌lo charge constantmgaa untundi, kepaasitens periginmdun energy $U/K$ tagguthundi."
     }
   ]
 };

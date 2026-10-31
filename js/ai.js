@@ -1,5 +1,5 @@
 // Groq-Powered AI Master Tutor Engine for IPE GRIND ("IPE GURU")
-// High-performance streaming typewriter, KaTeX math isolation, voice speech, and prompt routing
+// High-performance streaming typewriter, KaTeX math isolation, voice speech, serverless Vercel proxy, and offline concept intelligence
 window.IPE_AI = (function() {
   const GROQ_CONFIG = {
     endpoint: 'https://api.groq.com/openai/v1/chat/completions',
@@ -19,6 +19,107 @@ Key Teaching Guidelines:
 5. Keep students chatting: At the end of every reply, ask an intriguing, friendly concept-check question or challenge them to test their intuition (e.g., "Ippudu meelo okka doubt ravali... source observer ki daggara vasthe apparent frequency perugutunda taggutunda? Tell me your thought!").
 6. Tone: Warm, energetic, encouraging, like a favorite coaching master.`;
 
+  // Comprehensive Offline Knowledge Base for Zero-Network / Zero-Key Concept Explanations
+  const OFFLINE_CONCEPTS = {
+    doppler: `### ⚡ Doppler Effect (Waves) — Scratch to Board 60/60!
+**Real-World Analogy:** Ee train whistle sound observe chesara? Train mana daggara vastunte sound pitch high ga (shrill ga) vinipistundi, train dhooranga velthunte pitch drop avthundi! Deenne **Doppler Effect** antam.
+
+#### 1. Official Definition:
+The apparent change in the frequency of sound heard by an observer due to the relative motion between the source and observer is called **Doppler Effect**.
+
+#### 2. Master Apparent Frequency Formula:
+$$\\nu' = \\nu \\left( \\frac{v \\pm v_o}{v \\mp v_s} \\right)$$
+where:
+- $\\nu'$ = Apparent frequency heard by observer
+- $\\nu$ = True frequency emitted by source
+- $v$ = Speed of sound in air ($\\approx 340\\text{ m/s}$)
+- $v_s$ = Velocity of source
+- $v_o$ = Velocity of observer
+
+#### 3. Key Cases for Board Exams:
+1. **Source approaching stationary observer ($v_o = 0$):**
+   $$\\nu' = \\nu \\left(\\frac{v}{v - v_s}\\right) > \\nu \\quad \\text{(Frequency increases)}$$
+2. **Source receding away from stationary observer:**
+   $$\\nu' = \\nu \\left(\\frac{v}{v + v_s}\\right) < \\nu \\quad \\text{(Frequency decreases)}$$
+
+> 💡 **Quick Concept Check:** Suppose source and observer both move in same direction with equal speed ($v_s = v_o$). Apparent frequency $\\nu'$ emouthundi? Tell me your thought!`,
+
+    schottky: `### 🧪 Schottky vs Frenkel Defects (Solid State)
+**Everyday Analogy:** Okaru class nundi motham baitiki vellipovadam vs okaru bench nundi lechi madhyalo bench row sandhulo kurchovadam!
+
+#### 1. Schottky Defect:
+- **What happens:** Equal number of cations ($A^+$) and anions ($B^-$) are missing from their lattice sites.
+- **Stoichiometry:** Remains unchanged (crystal remains electrically neutral).
+- **Density:** **Decreases significantly** because ions completely left the crystal:
+  $$d = \\frac{z \\cdot M}{a^3 \\cdot N_A}$$
+- **Condition:** High coordination number & small difference in ionic sizes ($r^+ \\approx r^-$).
+- **Examples:** $\\text{NaCl}, \\text{KCl}, \\text{CsCl}, \\text{AgBr}$.
+
+#### 2. Frenkel Defect (Dislocation Defect):
+- **What happens:** The smaller ion (usually cation) leaves its normal lattice site and occupies an **interstitial space**.
+- **Density:** **Remains constant** (ions are still inside the crystal volume!).
+- **Condition:** Low coordination number & large difference in ionic sizes ($r^- \\gg r^+$).
+- **Examples:** $\\text{ZnS}, \\text{AgCl}, \\text{AgBr}, \\text{AgI}$.
+
+> ⭐ **High-Yield Board Question:** Which compound shows BOTH Schottky and Frenkel defects? **Answer: $\\text{AgBr}$ (Silver Bromide)**!`,
+
+    ydse: `### ⚡ Young's Double Slit Experiment & Fringe Width (Wave Optics)
+**Real-World Picture:** Water lo two stones vesinappudu ripple waves kalisi crests and troughs create chesthayi kadha? Light waves kuda alage interfere ayyi alternate bright & dark bands form chesthayi!
+
+#### 1. Path Difference ($\\Delta x$):
+For a point $P$ at distance $y$ from the central line on a screen at distance $D$, with slit separation $d$:
+$$\\Delta x = \\frac{y \\cdot d}{D}$$
+
+#### 2. Conditions for Interference:
+- **Bright Fringes (Constructive):** $\\Delta x = n\\lambda \\implies y_n = \\frac{n\\lambda D}{d}$ where $n = 0, 1, 2, \\dots$
+- **Dark Fringes (Destructive):** $\\Delta x = (2n - 1)\\frac{\\lambda}{2} \\implies y_n = (2n - 1)\\frac{\\lambda D}{2d}$
+
+#### 3. Fringe Width ($\\beta$):
+Distance between any two successive bright or dark fringes:
+$$\\beta = y_{n+1} - y_n = \\frac{\\lambda D}{d}$$
+
+> 💡 **TSBIE Board Trap:** Apparatus motham water ($n = 1.33$) lo munchithe fringe width emavthundi? Since $\\lambda' = \\lambda / \\mu$, fringe width **$\\beta$ decreases**!`,
+
+    nernst: `### 🧪 Nernst Equation & Daniell Cell EMF (Electrochemistry)
+**Why it matters:** Standard conditions ($1\\text{ M}, 298\\text{ K}$) lekapothe battery voltage ela calculate cheyyali? Nernst Equation is the universal key!
+
+#### 1. General Nernst Equation:
+$$E_{\\text{cell}} = E^\\circ_{\\text{cell}} - \\frac{2.303 RT}{nF} \\log_{10} Q$$
+At $T = 298\\text{ K}$, constant values substitute chesthe:
+$$E_{\\text{cell}} = E^\\circ_{\\text{cell}} - \\frac{0.0591}{n} \\log_{10} \\left( \\frac{[\\text{Products}]}{[\\text{Reactants}]} \\right)$$
+
+#### 2. Daniell Cell Application ($n = 2$):
+Cell reaction: $\\text{Zn}(s) + \\text{Cu}^{2+}(aq) \\rightleftharpoons \\text{Zn}^{2+}(aq) + \\text{Cu}(s)$
+$$E_{\\text{cell}} = E^\\circ_{\\text{cell}} - \\frac{0.0591}{2} \\log_{10} \\left( \\frac{[\\text{Zn}^{2+}]}{[\\text{Cu}^{2+}]} \\right)$$
+where $E^\\circ_{\\text{cell}} = E^\\circ_{\\text{cathode}} - E^\\circ_{\\text{anode}} = +0.34\\text{ V} - (-0.76\\text{ V}) = 1.10\\text{ V}$.
+
+> 💡 **Concept Question:** $[\\text{Zn}^{2+}]$ concentration perigithe EMF of cell perugutunda taggutunda? Tell me!`,
+
+    potentiometer: `### ⚡ Potentiometer (Current Electricity — Guaranteed 8M LAQ!)
+**Core Principle:** A uniform wire of length $L$ carries constant steady current. The potential drop across any length $l$ is directly proportional to that length:
+$$V \\propto l \\implies V = \\Phi \\cdot l$$
+where $\\Phi = V/L$ is the potential gradient.
+
+#### 1. Why Potentiometer is Superior to a Voltmeter:
+At the balance null point ($G = 0$), the potentiometer draws **ZERO current** from the test cell. Hence, it measures the exact true EMF of the cell, acting as an **ideal voltmeter of infinite internal resistance**. A voltmeter always draws some current, measuring only terminal voltage $V < E$.
+
+#### 2. Formulae for Board Numerical:
+1. **Comparison of EMF of two cells:**
+   $$\\frac{E_1}{E_2} = \\frac{l_1}{l_2}$$
+2. **Measurement of Internal Resistance ($r$):**
+   $$r = R \\left( \\frac{l_1 - l_2}{l_2} \\right)$$
+   where $l_1$ = balancing length on open circuit, $l_2$ = balancing length when resistance $R$ is shunted.`,
+
+    haber: `### 🧪 Haber Process for Ammonia ($NH_3$) — Guaranteed Chemistry LAQ!
+Manufacture of Ammonia:
+$$\\text{N}_2(g) + 3\\text{H}_2(g) \\rightleftharpoons 2\\text{NH}_3(g) \\quad \\Delta H = -92.4\\text{ kJ/mol}$$
+
+#### Optimum Conditions by Le Chatelier's Principle:
+1. **High Pressure ($\\approx 200\\text{ atm}$):** Forward reaction proceeds with decrease in number of gaseous moles ($4 \\rightarrow 2$). Hence, high pressure favors forward reaction.
+2. **Optimum Temperature ($700\\text{ K} - 773\\text{ K}$):** Since the reaction is exothermic, low temp favors forward yield, but at very low temp reaction is too slow. $700\\text{ K}$ is the optimum compromise.
+3. **Catalyst:** Finely divided Iron ($\\text{Fe}$) with Molybdenum ($\\text{Mo}$) or $\\text{K}_2\\text{O} / \\text{Al}_2\\text{O}_3$ as promoter to speed up equilibrium.`
+  };
+
   let conversationHistory = [];
   let isGenerating = false;
   let isFullscreen = false;
@@ -29,6 +130,8 @@ Key Teaching Guidelines:
   }
 
   function renderMath(element) {
+    if (!element) return;
+    if (window.IPE_RENDER_MATH) { window.IPE_RENDER_MATH(element); return; }
     if (window.renderMathInElement && element) {
       try {
         window.renderMathInElement(element, {
@@ -44,17 +147,15 @@ Key Teaching Guidelines:
     }
   }
 
-  // Open AI Chat Modal / Drawer
   function openChat(initialPrompt) {
     const modal = document.getElementById('ai-chat-modal');
     if (!modal) return;
     modal.classList.add('open');
 
-    // Show initial welcome if empty
     const messagesContainer = document.getElementById('ai-chat-messages');
     if (conversationHistory.length === 0 && messagesContainer) {
       appendAssistantMessage(
-        "Namaste champ! 🚀 Nenu me **IPE GURU** ni. Physics and Chemistry lo edaina concept ardham kaledha? Or formula derive cheyyadam kashtanga undha? Just ask me - scratch nundi crystal clear ga explain chestha! Ee roju em nerchukundham?",
+        "Namaste champ! 🚀 Nenu me **IPE GURU** ni. Physics and Chemistry lo edaina concept ardham kaledha? Or 60/60 score cheyyadaniki doubt undha? Just ask me - zero nundi crystal clear ga explain chestha! Ee roju em nerchukundham?",
         false
       );
     }
@@ -95,62 +196,42 @@ Key Teaching Guidelines:
     container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
   }
 
-  // Safe Markdown parser with KaTeX Math delimiter preservation
   function formatMarkdown(text) {
     if (!text) return '';
 
-    // Step 1: Stash Display Math ($$...$$)
     const displayMath = [];
     let cleanText = text.replace(/\$\$([\s\S]*?)\$\$/g, (match, math) => {
       displayMath.push(math);
       return `___DISPLAY_MATH_${displayMath.length - 1}___`;
     });
 
-    // Step 2: Stash Inline Math ($...$)
     const inlineMath = [];
     cleanText = cleanText.replace(/\$([^\$\n]+?)\$/g, (match, math) => {
       inlineMath.push(math);
       return `___INLINE_MATH_${inlineMath.length - 1}___`;
     });
 
-    // Step 3: Escape HTML Entities
     let html = cleanText
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;');
 
-    // Step 4: Markdown elements
-    // Headings
     html = html.replace(/^### (.*$)/gim, '<div class="ai-md-h3">$1</div>');
     html = html.replace(/^## (.*$)/gim, '<div class="ai-md-h2">$1</div>');
     html = html.replace(/^# (.*$)/gim, '<div class="ai-md-h1">$1</div>');
-
-    // Blockquotes
     html = html.replace(/^> (.*$)/gim, '<div class="ai-md-quote">💡 $1</div>');
-
-    // Numbered step lists: 1. Item
     html = html.replace(/^(\d+)\.\s+(.*$)/gim, '<div class="ai-md-step"><span class="step-num">$1</span><span class="step-text">$2</span></div>');
-
-    // Bullet lists: - Item or * Item
     html = html.replace(/^[\*\-]\s+(.*$)/gim, '<div class="ai-md-bullet"><span class="bullet-dot">✦</span><span class="bullet-text">$1</span></div>');
-
-    // Bold & Italics
     html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
-
-    // Inline Code
     html = html.replace(/`([^`]+)`/g, '<code class="ai-md-code">$1</code>');
-
-    // Paragraph Spacing
     html = html.replace(/\n\n/g, '<div class="ai-para-break"></div>');
     html = html.replace(/\n/g, '<br>');
 
-    // Step 5: Restore KaTeX Display Math
     displayMath.forEach((math, idx) => {
       html = html.replace(`___DISPLAY_MATH_${idx}___`, `$$${math}$$`);
     });
 
-    // Step 6: Restore KaTeX Inline Math
     inlineMath.forEach((math, idx) => {
       html = html.replace(`___INLINE_MATH_${idx}___`, `$${math}$`);
     });
@@ -158,49 +239,39 @@ Key Teaching Guidelines:
     return html;
   }
 
-  function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
   }
 
-  // Slowly reveal AI response line-by-line with typewriter effect and smooth autoscroll
-  async function revealLineByLine(fullText, msgContainer) {
-    const lines = fullText.split('\n');
-    let displayedText = '';
+  function revealLineByLine(fullText, bubbleEl) {
+    return new Promise((resolve) => {
+      const formatted = formatMarkdown(fullText);
+      bubbleEl.innerHTML = formatted;
+      renderMath(bubbleEl);
 
-    const cursor = document.createElement('span');
-    cursor.className = 'ai-typing-cursor';
-    cursor.textContent = '▍';
-    msgContainer.appendChild(cursor);
+      bubbleEl.style.opacity = '0';
+      bubbleEl.style.transform = 'translateY(6px)';
+      bubbleEl.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
 
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i];
-      displayedText += (i === 0 ? '' : '\n') + line;
-
-      msgContainer.innerHTML = formatMarkdown(displayedText);
-      msgContainer.appendChild(cursor);
-
-      renderMath(msgContainer);
-
-      const chatViewport = document.getElementById('ai-chat-messages');
-      if (chatViewport) {
-        chatViewport.scrollTop = chatViewport.scrollHeight;
-      }
-
-      // Natural pause pacing
-      const delay = line.trim() === '' ? 50 : Math.min(220, Math.max(90, line.length * 4));
-      await new Promise(r => setTimeout(r, delay));
-    }
-
-    if (cursor.parentNode) cursor.parentNode.removeChild(cursor);
-    renderMath(msgContainer);
+      requestAnimationFrame(() => {
+        bubbleEl.style.opacity = '1';
+        bubbleEl.style.transform = 'translateY(0)';
+        const container = document.getElementById('ai-chat-messages');
+        if (container) container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
+        resolve();
+      });
+    });
   }
 
-  // Append Assistant Message with Avatar, Name, Actions, and smart follow-up suggestions
   function appendAssistantMessage(text, animate = true) {
     const container = document.getElementById('ai-chat-messages');
-    if (!container) return;
+    if (!container) return Promise.resolve();
 
     const msgDiv = document.createElement('div');
     msgDiv.className = 'ai-msg assistant-msg';
@@ -213,10 +284,11 @@ Key Teaching Guidelines:
     contentDiv.className = 'ai-msg-content';
 
     const authorHeader = document.createElement('div');
-    authorHeader.className = 'ai-msg-author';
+    authorHeader.className = 'ai-author-header';
     authorHeader.innerHTML = `
       <span class="ai-author-name">IPE GURU</span>
-      <span class="ai-author-badge">TS Board Expert</span>
+      <span class="ai-badge-verified">✓ Board Specialist</span>
+      <span class="ai-timestamp">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
     `;
 
     const bubble = document.createElement('div');
@@ -229,7 +301,6 @@ Key Teaching Guidelines:
       <button class="ai-action-btn" onclick="window.IPE_AI.speakMessage(this)" title="Listen to Explanation">🔊 Listen</button>
     `;
 
-    // Smart Follow-Up Chips Bar
     const followUps = document.createElement('div');
     followUps.className = 'ai-followup-chips';
     followUps.innerHTML = `
@@ -257,7 +328,6 @@ Key Teaching Guidelines:
     }
   }
 
-  // Copy Message to Clipboard
   function copyMessage(btnEl) {
     const bubble = btnEl.closest('.ai-msg-content').querySelector('.assistant-bubble');
     if (!bubble) return;
@@ -270,12 +340,9 @@ Key Teaching Guidelines:
         btnEl.innerHTML = orig;
         btnEl.style.color = '';
       }, 2000);
-    }).catch(err => {
-      console.warn('Clipboard copy error:', err);
     });
   }
 
-  // Speak Message Aloud
   function speakMessage(btnEl) {
     const bubble = btnEl.closest('.ai-msg-content').querySelector('.assistant-bubble');
     if (!bubble) return;
@@ -286,7 +353,19 @@ Key Teaching Guidelines:
     });
   }
 
-  // Send message to Groq API
+  // Find offline concept match if available
+  function findOfflineConcept(text) {
+    const lower = text.toLowerCase();
+    if (lower.includes('doppler')) return OFFLINE_CONCEPTS.doppler;
+    if (lower.includes('schottky') || lower.includes('frenkel')) return OFFLINE_CONCEPTS.schottky;
+    if (lower.includes('slit') || lower.includes('ydse') || lower.includes('fringe')) return OFFLINE_CONCEPTS.ydse;
+    if (lower.includes('nernst') || lower.includes('daniell') || lower.includes('emf')) return OFFLINE_CONCEPTS.nernst;
+    if (lower.includes('potentiometer') || lower.includes('internal resistance')) return OFFLINE_CONCEPTS.potentiometer;
+    if (lower.includes('haber') || lower.includes('ammonia') || lower.includes('nh3')) return OFFLINE_CONCEPTS.haber;
+    return null;
+  }
+
+  // Send message: Zero-key required, tries serverless Vercel proxy, then offline knowledge, then direct API
   async function sendMessage(overrideText) {
     if (isGenerating) return;
 
@@ -305,7 +384,6 @@ Key Teaching Guidelines:
     const typingIndicator = document.getElementById('ai-typing-indicator');
     if (typingIndicator) typingIndicator.style.display = 'flex';
 
-    // Auto scroll chat
     const chatViewport = document.getElementById('ai-chat-messages');
     if (chatViewport) chatViewport.scrollTop = chatViewport.scrollHeight;
 
@@ -315,12 +393,11 @@ Key Teaching Guidelines:
         ...conversationHistory.slice(-8)
       ];
 
-      let response = null;
-      let usedServerless = false;
+      let reply = null;
 
-      // 1. Check if serverless /api/chat is available (e.g. Vercel deployment)
+      // Tier 1: Try Vercel Serverless Function /api/chat (Uses server-side GROQ_API_KEY)
       try {
-        const testRes = await fetch('/api/chat', {
+        const serverlessRes = await fetch('/api/chat', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -332,56 +409,66 @@ Key Teaching Guidelines:
           })
         });
 
-        if (testRes.ok) {
-          response = testRes;
-          usedServerless = true;
+        if (serverlessRes.ok) {
+          const data = await serverlessRes.json();
+          if (data && data.choices && data.choices[0] && data.choices[0].message) {
+            reply = data.choices[0].message.content;
+          }
         }
-      } catch (e) {
-        // Not on serverless, fallback to direct client call
+      } catch (serverlessErr) {
+        // Fall through to next tier
       }
 
-      // 2. Direct client call to Groq API
-      if (!usedServerless) {
-        if (!GROQ_CONFIG.apiKey) {
-          if (typingIndicator) typingIndicator.style.display = 'none';
-          showApiKeyBanner(false);
-          return;
+      // Tier 2: Check offline deep concept intelligence
+      if (!reply) {
+        const offlineMatch = findOfflineConcept(text);
+        if (offlineMatch) {
+          reply = offlineMatch;
         }
-
-        response = await fetch(GROQ_CONFIG.endpoint, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + GROQ_CONFIG.apiKey
-          },
-          body: JSON.stringify({
-            model: GROQ_CONFIG.model,
-            messages: messages,
-            temperature: 0.7,
-            max_tokens: 900
-          })
-        });
       }
 
-      if (!response || !response.ok) {
-        if (response && response.status === 401) {
-          if (typingIndicator) typingIndicator.style.display = 'none';
-          showApiKeyBanner(true);
-          return;
+      // Tier 3: Direct Groq API call if user has local key
+      if (!reply && GROQ_CONFIG.apiKey) {
+        try {
+          const directRes = await fetch(GROQ_CONFIG.endpoint, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + GROQ_CONFIG.apiKey
+            },
+            body: JSON.stringify({
+              model: GROQ_CONFIG.model,
+              messages: messages,
+              temperature: 0.7,
+              max_tokens: 900
+            })
+          });
+
+          if (directRes.ok) {
+            const data = await directRes.json();
+            if (data && data.choices && data.choices[0] && data.choices[0].message) {
+              reply = data.choices[0].message.content;
+            }
+          }
+        } catch (directErr) {
+          // Direct API failed
         }
-        throw new Error(`Groq HTTP error: ${response ? response.status : 'No response'}`);
       }
 
-      const data = await response.json();
-      const reply = data.choices && data.choices[0] && data.choices[0].message
-        ? data.choices[0].message.content
-        : "Arere, network slow undi bhayya. Can you ask that again?";
+      // Tier 4: Fallback response if network/server is completely unreachable
+      if (!reply) {
+        reply = `Namaste champ! 🚀 Nenu me doubt ni note chesukunna. 
+        
+Prasthutam Vercel serverless Groq endpoint connectivity check chesthundi. In the meantime, try exploring:
+1. **Interactive Formula Lab (Simulators)** in the Flashcards tab.
+2. **Official TSBIE Blueprint & PYQ Trends** in the top navigation.
+3. Tap one of the high-yield concept chips above (Doppler, Schottky, YDSE, Nernst) for instant full explanations!`;
+      }
 
       conversationHistory.push({ role: 'assistant', content: reply });
 
       if (typingIndicator) typingIndicator.style.display = 'none';
 
-      // Line-by-line smooth progressive reveal
       await appendAssistantMessage(reply, true);
 
       // Award XP for asking AI doubts
@@ -393,7 +480,7 @@ Key Teaching Guidelines:
       console.error('Groq AI error:', err);
       if (typingIndicator) typingIndicator.style.display = 'none';
       appendAssistantMessage(
-        "Oops! Network issue ochindi bhayya. Koddiga sepu tarwatha malli try cheyyandi, or check your API key / internet connection.",
+        "Oops! Network check avvaledu bhayya. Koddiga sepu tarwatha malli adagandi, or explore the instant concepts chips above!",
         false
       );
     } finally {
@@ -402,7 +489,7 @@ Key Teaching Guidelines:
     }
   }
 
-  function showApiKeyBanner(isInvalid = false) {
+  function showApiKeyBanner() {
     const container = document.getElementById('ai-chat-messages');
     if (!container) return;
 
@@ -416,19 +503,17 @@ Key Teaching Guidelines:
     banner.className = 'ai-key-banner';
     banner.id = 'ai-key-banner';
     banner.innerHTML = `
-      <div class="ai-key-title">🔑 ${isInvalid ? 'Invalid Groq API Key' : 'Groq API Key Setup'}</div>
+      <div class="ai-key-title">⚡ Optional Custom Groq API Key</div>
       <div class="ai-key-desc">
-        ${isInvalid
-          ? 'API key authenticate avvaledu. Please enter a valid Groq API key.'
-          : 'To chat with IPE GURU, enter your free Groq API key (starts with <code>gsk_...</code>):'}
+        IPE GURU automatically connects via Vercel serverless. If you want to use your own personal Groq key, you can enter it here:
       </div>
       <div class="ai-key-input-row">
         <input type="password" id="ai-groq-key-input" placeholder="gsk_..." class="ai-key-input" value="${escapeHtml(GROQ_CONFIG.apiKey || '')}" />
         <button class="ai-key-save-btn" onclick="window.IPE_AI.saveApiKeyFromInput()">Save</button>
       </div>
       <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;">
-        <a href="https://console.groq.com/keys" target="_blank" class="ai-key-link">Get free key at console.groq.com ↗</a>
-        ${GROQ_CONFIG.apiKey ? '<button onclick="window.IPE_AI.clearApiKey()" style="background:none; border:none; color:var(--text-muted); font-size:11px; cursor:pointer;">Clear Key</button>' : ''}
+        <a href="https://console.groq.com/keys" target="_blank" class="ai-key-link">Free key at console.groq.com ↗</a>
+        ${GROQ_CONFIG.apiKey ? '<button onclick="window.IPE_AI.clearApiKey()" style="background:none; border:none; color:var(--text-muted); font-size:11px; cursor:pointer;">Reset Default</button>' : ''}
       </div>
     `;
     container.appendChild(banner);
@@ -440,15 +525,15 @@ Key Teaching Guidelines:
     const input = document.getElementById('ai-groq-key-input');
     if (!input) return;
     const key = input.value.trim();
-    if (!key) {
-      alert('Please enter a valid Groq API key (starts with gsk_)');
-      return;
-    }
     GROQ_CONFIG.apiKey = key;
-    localStorage.setItem('ipe_groq_key', key);
+    if (key) {
+      localStorage.setItem('ipe_groq_key', key);
+    } else {
+      localStorage.removeItem('ipe_groq_key');
+    }
     const banner = document.getElementById('ai-key-banner');
     if (banner) banner.remove();
-    appendAssistantMessage("Awesome! Me Groq API key successfully save ayindi. Ippudu me doubts adagandi, chuddam! 🚀", false);
+    appendAssistantMessage("Preferences updated! Let's continue mastering concepts! 🚀", false);
   }
 
   function clearApiKey() {
@@ -456,7 +541,34 @@ Key Teaching Guidelines:
     localStorage.removeItem('ipe_groq_key');
     const banner = document.getElementById('ai-key-banner');
     if (banner) banner.remove();
-    appendAssistantMessage("API key cleared. Click 🔑 Key to enter a new one whenever you're ready.", false);
+    appendAssistantMessage("Default Vercel serverless endpoint active.", false);
+  }
+
+  function clearChat() {
+    conversationHistory = [];
+    const container = document.getElementById('ai-chat-messages');
+    if (container) container.innerHTML = '';
+    appendAssistantMessage("Chat reset! Adagandi champ, what concept shall we master next?", false);
+  }
+
+  
+  function explainQuestion(questionId) {
+    let targetQ = null;
+    const chapters = window.IPE_DATA && window.IPE_DATA.chapters ? window.IPE_DATA.chapters : {};
+    for (const k in chapters) {
+      const ch = chapters[k];
+      if (ch && ch.questions) {
+        const found = ch.questions.find(q => q.id === questionId);
+        if (found) {
+          targetQ = { ...found, chapterTitle: ch.chapter, subject: ch.subject };
+          break;
+        }
+      }
+    }
+
+    if (!targetQ) return;
+    const prompt = `Sir, please explain this ${targetQ.subject} question from scratch in simple Tenglish: "${targetQ.question}". How should I present this in board exams for full marks?`;
+    openChat(prompt);
   }
 
   function updateSendButtonState(loading) {
@@ -466,101 +578,18 @@ Key Teaching Guidelines:
     btn.innerHTML = loading ? '<span>⏳</span>' : '<span>➔</span>';
   }
 
-  // Smart Offline Concept Breakdown Generator for 100% Offline / No-API-Key Availability
-  function generateOfflineExplanation(q) {
-    const hint = q.teluguHint || q.telugu_hint || q.tenglish_hint || 'Ee concept board exam lo chaala high-yield!';
-    const formulaPart = q.formula ? `\n\n### 📐 Key Formula & Terms\n$$${q.formula.replace(/^\$+|\$+$/g, '')}$$\nBoard exam lo formula raasaka prathi symbol definition and SI units thappakunda rayali.` : '';
-
-    return `### 💡 IPE GURU Master Concept Breakdown\n` +
-      `**${q.subject} • ${q.chapter}** (${q.type} - ${q.marks} Marks)\n\n` +
-      `**Q: ${q.question}**\n\n` +
-      `#### 1. Real-World Analogy & Tenglish Intuition\n` +
-      `> 💡 **Quick Hint:** ${hint}\n\n` +
-      `#### 2. Board Exam Presentation (Exact Steps for Full ${q.marks}/${q.marks} Marks)\n` +
-      `${q.answer}` +
-      `${formulaPart}\n\n` +
-      `#### 3. 🎯 Examiner Secret & Scoring Strategy\n` +
-      `• Ee question previous IPE exams lo frequent ga repeat ayina **High-Yield Question**!\n` +
-      `• **Step-by-Step:** Answers ni points (1, 2, 3) ga rayandi, paragraphs la rayakandi.\n` +
-      `• **Units & Formulas:** Numericals lo final answer ki proper unit pettakapothe mark cut chestharu.\n\n` +
-      `*💡 Tip: Live AI tho open-ended conversations chat cheyadaniki, paina unna 🔑 Key button tap chesi free Groq API key enter cheyyandi!*`;
-  }
-
-  // Quick Action: Explain Question from Scratch
-  function explainQuestion(qId) {
-    const all = window.IPE_FEED.getAllLoadedQuestions ? window.IPE_FEED.getAllLoadedQuestions() : window.IPE_FEED.getQuestions();
-    const q = all.find(item => item.id === qId);
-    if (!q) return;
-
-    openChat();
-
-    if (GROQ_CONFIG.apiKey && navigator.onLine) {
-      const prompt = `Sir, please explain this ${q.subject} board question from scratch in simple Tenglish: "${q.question}". Also explain the formula and step-by-step logic.`;
-      sendMessage(prompt);
-    } else {
-      appendUserMessage(`Explain question: "${q.question}"`);
-      const offlineReply = generateOfflineExplanation(q);
-      conversationHistory.push({ role: 'assistant', content: offlineReply });
-      const typingIndicator = document.getElementById('ai-typing-indicator');
-      if (typingIndicator) typingIndicator.style.display = 'flex';
-      setTimeout(async () => {
-        if (typingIndicator) typingIndicator.style.display = 'none';
-        await appendAssistantMessage(offlineReply, true);
-        window.IPE_STORAGE.addXP(10);
-        window.IPE_APP.updateStatsUI();
-        window.IPE_GAME.showXPToast(10, '🧠 AI Concept Insight!');
-      }, 300);
-    }
-  }
-
-  // Quick Action: Explain Formula from Scratch
-  function explainFormula(title, formula) {
-    openChat();
-    if (GROQ_CONFIG.apiKey && navigator.onLine) {
-      const prompt = `Sir, please explain the formula "${title}" ($${formula}$) from scratch in Tenglish. Real world example tho start chesi, terms and IPE board exam lo ela question adugutharo cheppandi!`;
-      sendMessage(prompt);
-    } else {
-      appendUserMessage(`Explain formula: ${title} (${formula})`);
-      const offlineReply = `### 📐 Formula Breakdown: ${title}\n` +
-        `**Formula:** $$${formula.replace(/^\$+|\$+$/g, '')}$$\n\n` +
-        `#### 1. Concept Intuition (Tenglish)\n` +
-        `> Ee formula IPE Board Exam lo direct derivation gaani, numericals lo gaani frequent ga repeat avthundi. Prathi term yokka standard SI unit gurthupettukondi.\n\n` +
-        `#### 2. Board Exam Tips for Full Marks\n` +
-        `• 1. State the fundamental law or definition first.\n` +
-        `• 2. Write the formula clearly in the center of the answer page.\n` +
-        `• 3. Mention what each symbol represents (e.g., $m$ = mass in kg, $v$ = velocity in m/s).\n` +
-        `• 4. In numericals, always write final answer with proper units (Marks are deducted if units are missing)!\n\n` +
-        `*💡 Tip: Live interactive doubts adagadaniki, 🔑 Key button tap chesi free Groq API key enter cheyyandi!*`;
-      conversationHistory.push({ role: 'assistant', content: offlineReply });
-      const typingIndicator = document.getElementById('ai-typing-indicator');
-      if (typingIndicator) typingIndicator.style.display = 'flex';
-      setTimeout(async () => {
-        if (typingIndicator) typingIndicator.style.display = 'none';
-        await appendAssistantMessage(offlineReply, true);
-      }, 300);
-    }
-  }
-
-  function clearChat() {
-    conversationHistory = [];
-    const container = document.getElementById('ai-chat-messages');
-    if (container) container.innerHTML = '';
-    appendAssistantMessage("Chat reset chesanu champ! Kottha doubt or concept em nerchukundham? Ask away!", false);
-  }
-
   return {
-    init: init,
-    openChat: openChat,
-    closeChat: closeChat,
-    toggleFullscreen: toggleFullscreen,
-    sendMessage: sendMessage,
-    explainQuestion: explainQuestion,
-    explainFormula: explainFormula,
-    clearChat: clearChat,
-    copyMessage: copyMessage,
-    speakMessage: speakMessage,
-    showApiKeyBanner: showApiKeyBanner,
-    saveApiKeyFromInput: saveApiKeyFromInput,
-    clearApiKey: clearApiKey
+    init,
+    openChat,
+    closeChat,
+    sendMessage,
+    toggleFullscreen,
+    copyMessage,
+    speakMessage,
+    clearChat,
+    showApiKeyBanner,
+    saveApiKeyFromInput,
+    clearApiKey,
+    explainQuestion
   };
 })();

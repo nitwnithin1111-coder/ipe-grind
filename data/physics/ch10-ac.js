@@ -13,7 +13,7 @@ window.IPE_DATA.chapters["phy-ch10"] = {
     {
       "title": "RMS & Peak Values",
       "formula": "I_{rms} = \\frac{I_0}{\\sqrt{2}} \\approx 0.707 I_0, \\quad V_{rms} = \\frac{V_0}{\\sqrt{2}}",
-      "symbols": "I_0, $V_0 = \\text{Peak current and voltage}$",
+      "symbols": "$I_0, V_0 = \\text{Peak current and voltage}$",
       "units": "$\\text{Ampere (A), Volt (V)}$",
       "tip": "Household $220\\text{V}$ AC refers to $V_{rms}$. Peak voltage is $220 \\times \\sqrt{2} \\approx 311\\text{ V}$."
     },
@@ -36,7 +36,7 @@ window.IPE_DATA.chapters["phy-ch10"] = {
       "formula": "\\frac{V_s}{V_p} = \\frac{N_s}{N_p} = \\frac{I_p}{I_s} = k",
       "symbols": "$k = \\text{Transformation ratio}$, $s = \\text{Secondary}$, $p = \\text{Primary}$",
       "units": "$\\text{Dimensionless ratio}$",
-      "tip": "Step-up transformer: k > 1 (N_s > N_p, V_s > V_p, I_s < I_p)."
+      "tip": "Step-up transformer: $k > 1$ ($N_s > N_p, V_s > V_p, I_s < I_p$)."
     },
     {
       "title": "Quality Factor (Q-Factor) of Resonant Circuit",
@@ -124,9 +124,9 @@ window.IPE_DATA.chapters["phy-ch10"] = {
       "question": "A $220 \\text{ V}, 50 \\text{ Hz}$ AC source is connected to a resistance of $100\\;\\Omega$. What is the RMS value of current and peak voltage?",
       "answer": "• Given: $V_{rms} = 220 \\text{ V}, R = 100\\;\\Omega$.\n• (i) RMS Current: $I_{rms} = \\frac{V_{rms}}{R} = \\frac{220}{100} = 2.2 \\text{ A}$.\n• (ii) Peak Voltage: $V_0 = \\sqrt{2} \\times V_{rms} = 1.414 \\times 220 \\approx 311.1 \\text{ V}$.",
       "formula": "I_{rms} = \\frac{V_{rms}}{R} = 2.2\\text{ A}, \\quad V_0 = 311.1\\text{ V}",
-      "telugu_hint": "$I_{rms} = 220/100 = 2.2\text{ A}$, $V_0 = 220 \\times \\sqrt{2} \\approx 311\\text{ V}$.",
+      "telugu_hint": "$I_{rms} = 220/100 = 2.2\\text{ A}$, $V_0 = 220 \\times \\sqrt{2} \\approx 311\\text{ V}$.",
       "source_check": "verified",
-      "tenglish_hint": "$I_{rms} = 220/100 = 2.2\text{ A}$, $V_0 = 220 \\times \\sqrt{2} \\approx 311\\text{ V}$."
+      "tenglish_hint": "$I_{rms} = 220/100 = 2.2\\text{ A}$, $V_0 = 220 \\times \\sqrt{2} \\approx 311\\text{ V}$."
     },
     {
       "id": "phy-ch10-q006",

@@ -20,14 +20,14 @@ window.IPE_DATA.chapters["chem-ch02"] = {
     {
       "title": "Raoult's Law (Volatile Liquid Mixtures)",
       "formula": "p_A = p_A^\\circ x_A, \\quad p_B = p_B^\\circ x_B, \\quad P_{\\text{total}} = p_A + p_B = p_A^\\circ + (p_B^\\circ - p_A^\\circ)x_B",
-      "symbols": "$p_A^\\circ$, $p_B^\\circ = \\text{Vapor pressures of pure components}$, x_A, $x_B = \\text{Mole fractions in liquid phase}$",
+      "symbols": "$p_A^\\circ, p_B^\\circ = \\text{Vapor pressures of pure components}$, $x_A, x_B = \\text{Mole fractions in liquid phase}$",
       "units": "$\\text{mm Hg, torr, or bar}$",
-      "tip": "In vapor phase, mole fraction is y_A = p_A / P_{total}."
+      "tip": "In vapor phase, mole fraction is $y_A = \\frac{p_A}{P_{\\text{total}}}$."
     },
     {
       "title": "Relative Lowering of Vapor Pressure (RLVP)",
       "formula": "\\frac{p_A^\\circ - p_A}{p_A^\\circ} = x_B = \\frac{n_B}{n_A + n_B} \\approx \\frac{w_B \\cdot M_A}{M_B \\cdot w_A}",
-      "symbols": "w_B, $M_B = \\text{Mass and molar mass of solute}$, w_A, $M_A = \\text{Mass and molar mass of solvent}$",
+      "symbols": "$w_B, M_B = \\text{Mass and molar mass of solute}$, $w_A, M_A = \\text{Mass and molar mass of solvent}$",
       "units": "$\\text{Dimensionless ratio}$",
       "tip": "RLVP depends only on the mole fraction of solute, independent of solute identity (colligative property)."
     },
@@ -248,9 +248,9 @@ window.IPE_DATA.chapters["chem-ch02"] = {
       "question": "Define ebullioscopic constant (Kb). What are its SI units?",
       "answer": "• Ebullioscopic Constant ($K_b$ or Molal Boiling Point Elevation Constant): Defined as the elevation in boiling point produced when 1 mole of a non-volatile solute is dissolved in 1 kilogram (1000 g) of solvent (i.e., for a 1 molal solution).\n• Units: $\\text{K kg mol}^{-1}$ (or $^\\circ\\text{C kg mol}^{-1}$).",
       "formula": "\\Delta T_b = K_b \\quad (\\text{when } m = 1 \\text{ mol/kg})",
-      "telugu_hint": "1 kilograamu solventlo 1 mol draavitaanni krigimchinppudu perige baashpeebhvn sthaanaanni molaal unnyn constantaamkm (Kb) antaru. prmaanaalu: K kg/mol.",
+      "telugu_hint": "1 kilograamu solventlo 1 mol draavitaanni krigimchinppudu perige baashpeebhvn sthaanaanni molaal elevation constant ($K_b$) antaru. units: $\\text{K kg mol}^{-1}$.",
       "source_check": "verified",
-      "tenglish_hint": "1 kilograamu solventlo 1 mol draavitaanni krigimchinppudu perige baashpeebhvn sthaanaanni molaal unnyn constantaamkm (Kb) antaru. prmaanaalu: K kg/mol."
+      "tenglish_hint": "1 kilograamu solventlo 1 mol draavitaanni krigimchinppudu perige baashpeebhvn sthaanaanni molaal elevation constant ($K_b$) antaru. units: $\\text{K kg mol}^{-1}$."
     },
     {
       "id": "chem-ch02-q014",
@@ -259,7 +259,7 @@ window.IPE_DATA.chapters["chem-ch02"] = {
       "type": "VSAQ",
       "marks": 2,
       "important": false,
-      "question": "Why does benzoic acid dissolved in benzene exhibit a molecular mass of around 244 g/mol instead of its normal mass of 122 g/mol?",
+      "question": "Why does benzoic acid dissolved in benzene exhibit a molecular mass of around $244\\text{ g/mol}$ instead of its normal mass of $122\\text{ g/mol}$?",
       "answer": "• In non-polar solvents like benzene, benzoic acid molecules undergo association through intermolecular hydrogen bonding to form stable DIMERS:\n$$2 C_6H_5COOH \\rightleftharpoons (C_6H_5COOH)_2$$\n• Since two molecules associate into one particle, the number of solute particles is halved ($i \\approx 0.5$). Colligative properties depend on particle count, causing the apparent molar mass to double to $2 \\times 122 = 244\\text{ g/mol}$.",
       "formula": "2 C_6H_5COOH \\rightleftharpoons (C_6H_5COOH)_2 \\implies M_{\\text{obs}} = 244 \\text{ g/mol}",
       "telugu_hint": "bemjeen‌lo bemjoyik aamlm haidrojn bmdhaal valla daimr‌gaa smyojnm chemddm valla anubhaarm rettimpu (244) avthundi.",
@@ -419,7 +419,7 @@ window.IPE_DATA.chapters["chem-ch02"] = {
       "marks": 4,
       "important": false,
       "question": "State and explain the terms: (a) Molarity, (b) Mass percentage, (c) Parts per million (ppm), and (d) Mole fraction.",
-      "answer": "• (a) Molarity ($M$): Number of moles of solute dissolved in 1 litre ($1000\\text{ mL}$) of solution: $M = \\frac{w_B \\times 1000}{M_B \\times V\\text{ (mL)}}$. (Unit: mol/L, temperature-dependent).\n• (b) Mass Percentage (w/w %): Mass of solute present in 100 g of solution: $\\text{Mass \\%} = \\frac{\\text{Mass of solute}}{\\text{Total mass of solution}} \\times 100$.\n• (c) Parts per million (ppm): Used for trace concentrations: $\\text{ppm} = \\frac{\\text{Mass of component}}{\\text{Total mass of solution}} \\times 10^6$. (Used for water pollutants).\n• (d) Mole Fraction ($x_i$): Ratio of the number of moles of a component to the total number of moles of all components in solution: $x_A = \\frac{n_A}{n_A + n_B}$. ($x_A + x_B = 1$).",
+      "answer": "• (a) Molarity ($M$): Number of moles of solute dissolved in 1 litre ($1000\\text{ mL}$) of solution: $M = \\frac{w_B \\times 1000}{M_B \\times V\\text{ (mL)}}$. (Unit: $\text{mol/L}$, temperature-dependent).\n• (b) Mass Percentage (w/w %): Mass of solute present in 100 g of solution: $\\text{Mass \\%} = \\frac{\\text{Mass of solute}}{\\text{Total mass of solution}} \\times 100$.\n• (c) Parts per million (ppm): Used for trace concentrations: $\\text{ppm} = \\frac{\\text{Mass of component}}{\\text{Total mass of solution}} \\times 10^6$. (Used for water pollutants).\n• (d) Mole Fraction ($x_i$): Ratio of the number of moles of a component to the total number of moles of all components in solution: $x_A = \\frac{n_A}{n_A + n_B}$. ($x_A + x_B = 1$).",
       "formula": "x_A = \\frac{n_A}{\\sum n_i}, \\quad M = \\frac{n_B}{V\\text{ (L)}}",
       "telugu_hint": "concentrationlnu vyktpriche pddhtulu: molaaritee, mass shaatm, pipiem (ppm), mol bhaagm.",
       "source_check": "verified",
@@ -448,7 +448,7 @@ window.IPE_DATA.chapters["chem-ch02"] = {
       "marks": 8,
       "important": true,
       "pyq": "TS IPE High-Yield ⭐",
-      "question": "(a) Define elevation in boiling point and derive the formula for calculating molecular mass of a solute from it. (b) 18 g of glucose (C6H12O6) is dissolved in 1 kg of water in a sauce pan. At what temperature will the water boil at 1.013 bar pressure? (Kb for water = 0.52 K kg mol^-1, boiling point of pure water = 373.15 K).",
+      "question": "(a) Define elevation in boiling point and derive the formula for calculating molecular mass of a solute from it. (b) $18\\text{ g}$ of glucose ($\\text{C}_6\\text{H}_{12}\\text{O}_6$) is dissolved in $1\\text{ kg}$ of water in a sauce pan. At what temperature will the water boil at $1.013\\text{ bar}$ pressure? ($K_b\\text{ for water} = 0.52\\text{ K kg mol}^{-1}$, boiling point of pure water = $373.15\\text{ K}$).",
       "answer": "Part (a): Elevation in Boiling Point Derivation (5 Marks):\n1. Explanation: Non-volatile solute lowers vapor pressure. The solution boils when its vapor pressure reaches atmospheric pressure, requiring a higher temperature. Elevation $\\Delta T_b = T_b - T_b^\\circ$.\n2. Derivation: For dilute solutions, $\\Delta T_b = K_b \\cdot m$.\n$$\\text{Molality } m = \\frac{w_B / M_B}{w_A\\text{ (g)} / 1000} = \\frac{1000 \\cdot w_B}{M_B \\cdot w_A}$$\n$$\\Delta T_b = \\frac{K_b \\times 1000 \\times w_B}{M_B \\times w_A}$$\n$$M_B = \\frac{1000 \\cdot K_b \\cdot w_B}{\\Delta T_b \\cdot w_A}$$\nPart (b): Problem Solution (3 Marks):\n• Given: $w_B = 18\\text{ g}$ glucose ($M_B = 180\\text{ g/mol}$), mass of solvent $w_A = 1\\text{ kg} = 1000\\text{ g}$, $K_b = 0.52\\text{ K kg mol}^{-1}$.\n• Molality of solution:\n$$m = \\frac{\\text{Moles of glucose}}{\\text{Mass of water in kg}} = \\frac{18 / 180}{1} = 0.1\\text{ mol/kg}$$\n• Elevation in boiling point:\n$$\\Delta T_b = K_b \\cdot m = 0.52 \\times 0.1 = 0.052\\text{ K}$$\n• Boiling point of solution:\n$$T_b = T_b^\\circ + \\Delta T_b = 373.15\\text{ K} + 0.052\\text{ K} = 373.202\\text{ K} \\quad (\\text{or } 100.052^\\circ\\text{C})$$\n• Answer: The water solution will boil at 373.202 K (100.052 deg C).",
       "formula": "\\Delta T_b = K_b \\cdot m = 0.052 \\text{ K} \\implies T_b = 373.202 \\text{ K}",
       "telugu_hint": "baashpeebhvn sthaan unnynm delta Tb = 0.52 * 0.1 = 0.052 K. water mrige temperature = 373.15 + 0.052 = 373.202 K.",
@@ -463,7 +463,7 @@ window.IPE_DATA.chapters["chem-ch02"] = {
       "marks": 8,
       "important": true,
       "pyq": "TS IPE High-Yield ⭐",
-      "question": "(a) What is depression in freezing point? Derive the expression for molar mass of a solute. (b) 45 g of ethylene glycol (C2H6O2) is mixed with 600 g of water. Calculate (i) the freezing point depression, and (ii) the freezing point of the solution (Kf for water = 1.86 K kg mol^-1).",
+      "question": "(a) What is depression in freezing point? Derive the expression for molar mass of a solute. (b) $45\\text{ g}$ of ethylene glycol ($\\text{C}_2\\text{H}_6\\text{O}_2$) is mixed with $600\\text{ g}$ of water. Calculate (i) the freezing point depression ($\\Delta T_f$), and (ii) the freezing point of the solution ($K_f\\text{ for water} = 1.86\\text{ K kg mol}^{-1}$).",
       "answer": "Part (a): Depression in Freezing Point Derivation (5 Marks):\n1. Explanation: Lowering of vapor pressure depresses freezing point. At freezing point, liquid solvent is in equilibrium with solid solvent. $\\Delta T_f = T_f^\\circ - T_f$.\n2. Derivation: $\\Delta T_f = K_f \\cdot m$.\n$$\\text{Molality } m = \\frac{w_B \\times 1000}{M_B \\times w_A\\text{ (g)}}$$\n$$\\Delta T_f = \\frac{K_f \\times 1000 \\times w_B}{M_B \\times w_A} \\implies M_B = \\frac{1000 \\cdot K_f \\cdot w_B}{\\Delta T_f \\cdot w_A}$$\nPart (b): Problem Solution (3 Marks):\n• Given: $w_B = 45\\text{ g}$ ethylene glycol ($M_B = 62\\text{ g/mol}$), $w_A = 600\\text{ g}$ water, $K_f = 1.86\\text{ K kg mol}^{-1}$.\n• Moles of glycol $n_B = \\frac{45}{62} \\approx 0.7258\\text{ mol}$.\n• Molality $m = \\frac{0.7258}{600 / 1000} = \\frac{0.7258}{0.6} = 1.2097\\text{ mol/kg}$.\n• (i) Freezing point depression ($\\Delta T_f$):\n$$\\Delta T_f = K_f \\cdot m = 1.86 \\times 1.2097 \\approx 2.25\\text{ K}$$\n• (ii) Freezing point of solution ($T_f$):\n$$T_f = T_f^\\circ - \\Delta T_f = 273.15\\text{ K} - 2.25\\text{ K} = 270.90\\text{ K} \\quad (\\text{or } -2.25^\\circ\\text{C})$$\n• Answer: Freezing point depression = 2.25 K; Freezing point = 270.9 K (-2.25 deg C).",
       "formula": "\\Delta T_f = K_f \\cdot m = 2.25 \\text{ K}, \\quad T_f = 270.90 \\text{ K}",
       "telugu_hint": "molality = (45/62)/0.6 = 1.21. ghneebhvn sthaan nimnt delta Tf = 1.86 * 1.21 = 2.25 K. ghneebhvn sthaanm = -2.25 digreel selsiys (270.9 K).",
@@ -478,12 +478,12 @@ window.IPE_DATA.chapters["chem-ch02"] = {
       "marks": 8,
       "important": true,
       "pyq": "TS IPE High-Yield ⭐",
-      "question": "(a) What is osmotic pressure? Describe Berkeley and Hartley's method for measuring osmotic pressure. (b) 200 cm^3 of an aqueous solution of a protein contains 1.26 g of the protein. The osmotic pressure of such a solution at 300 K is found to be 2.57 x 10^-3 bar. Calculate the molar mass of the protein (R = 0.083 L bar mol^-1 K^-1).",
-      "answer": "Part (a): Osmotic Pressure & Berkeley-Hartley Method (5 Marks):\n1. Osmotic Pressure ($\\pi$): The minimum external pressure that must be applied on the solution side across a semipermeable membrane to arrest the phenomenon of osmosis.\n2. Berkeley and Hartley's Method:\n• Apparatus consists of a porous porcelain tube having copper ferrocyanide $Cu_2[Fe(CN)_6]$ semipermeable membrane deposited in its pores.\n• The tube contains pure solvent connected to a water reservoir with a capillary indicator.\n• The solution is placed in a bronze outer jacket fitted with a frictionless piston and pressure gauge.\n• When osmosis begins, solvent tends to enter the solution. Pressure is applied via the piston on the solution until the meniscus in the capillary tube remains completely stationary.\n• The pressure recorded on the gauge at this balance point gives the osmotic pressure directly.\n• Advantage: Takes very little time, prevents membrane rupture, concentration does not change.\n\nPart (b): Protein Molar Mass Calculation (3 Marks):\n• Given: $V = 200\\text{ cm}^3 = 0.200\\text{ L}$, $w_B = 1.26\\text{ g}$, $T = 300\\text{ K}$, $\\pi = 2.57 \\times 10^{-3}\\text{ bar}$, $R = 0.083\\text{ L bar mol}^{-1}\\text{K}^{-1}$.\n• Formula: $\\pi = \\frac{w_B R T}{M_B V} \\implies M_B = \\frac{w_B R T}{\\pi V}$.\n$$M_B = \\frac{1.26 \\times 0.083 \\times 300}{(2.57 \\times 10^{-3}) \\times 0.200}$$\n$$M_B = \\frac{31.374}{0.514 \\times 10^{-3}} = \\frac{31.374}{0.000514} \\approx 61,038.9\\text{ g/mol}$$\n• Answer: The molar mass of the protein is approximately 61,039 g/mol (61.04 kDa).",
+      "question": "(a) What is osmotic pressure? Describe Berkeley and Hartley's method for measuring osmotic pressure. (b) $200\\text{ cm}^3$ of an aqueous solution of a protein contains $1.26\\text{ g}$ of the protein. The osmotic pressure of such a solution at $300\\text{ K}$ is found to be $2.57 \\times 10^{-3}\\text{ bar}$. Calculate the molar mass of the protein ($R = 0.083\\text{ L bar mol}^{-1}\\text{ K}^{-1}$).",
+      "answer": "Part (a): Osmotic Pressure & Berkeley-Hartley Method (5 Marks):\n1. Osmotic Pressure ($\\pi$): The minimum external pressure that must be applied on the solution side across a semipermeable membrane to arrest the phenomenon of osmosis.\n2. Berkeley and Hartley's Method:\n• Apparatus consists of a porous porcelain tube having copper ferrocyanide $Cu_2[Fe(CN)_6]$ semipermeable membrane deposited in its pores.\n• The tube contains pure solvent connected to a water reservoir with a capillary indicator.\n• The solution is placed in a bronze outer jacket fitted with a frictionless piston and pressure gauge.\n• When osmosis begins, solvent tends to enter the solution. Pressure is applied via the piston on the solution until the meniscus in the capillary tube remains completely stationary.\n• The pressure recorded on the gauge at this balance point gives the osmotic pressure directly.\n• Advantage: Takes very little time, prevents membrane rupture, concentration does not change.\n\nPart (b): Protein Molar Mass Calculation (3 Marks):\n• Given: $V = 200\\text{ cm}^3 = 0.200\\text{ L}$, $w_B = 1.26\\text{ g}$, $T = 300\\text{ K}$, $\\pi = 2.57 \\times 10^{-3}\\text{ bar}$, $R = 0.083\\text{ L bar mol}^{-1}\\text{K}^{-1}$.\n• Formula: $\\pi = \\frac{w_B R T}{M_B V} \\implies M_B = \\frac{w_B R T}{\\pi V}$.\n$$M_B = \\frac{1.26 \\times 0.083 \\times 300}{(2.57 \\times 10^{-3}) \\times 0.200}$$\n$$M_B = \\frac{31.374}{0.514 \\times 10^{-3}} = \\frac{31.374}{0.000514} \\approx 61,038.9\\text{ g/mol}$$\n• Answer: The molar mass of the protein is approximately $61,039\text{ g/mol}$ ($61.04\text{ kDa}$).",
       "formula": "M_B = \\frac{w_B R T}{\\pi V} \\approx 61,039 \\text{ g/mol}",
-      "telugu_hint": "drvaabhisrn pressure and berk‌lee-haart‌lee pddhti. proteen anubhaarm MB = (1.26 * 0.083 * 300) / (2.57e-3 * 0.2) = 61,039 g/mol.",
+      "telugu_hint": "osmotic pressure and Berkeley-Hartley method. protein molar mass $M_B = \\frac{1.26 \\times 0.083 \\times 300}{(2.57 \\times 10^{-3}) \\times 0.2} \\approx 61,039\\text{ g/mol}$.",
       "source_check": "verified",
-      "tenglish_hint": "drvaabhisrn pressure and berk‌lee-haart‌lee pddhti. proteen anubhaarm MB = (1.26 * 0.083 * 300) / (2.57e-3 * 0.2) = 61,039 g/mol."
+      "tenglish_hint": "osmotic pressure and Berkeley-Hartley method. protein molar mass $M_B = \\frac{1.26 \\times 0.083 \\times 300}{(2.57 \\times 10^{-3}) \\times 0.2} \\approx 61,039\\text{ g/mol}$."
     },
     {
       "id": "chem-ch02-q030",
@@ -492,7 +492,7 @@ window.IPE_DATA.chapters["chem-ch02"] = {
       "type": "LAQ",
       "marks": 8,
       "important": false,
-      "question": "(a) What is Van't Hoff factor? Deduce its relationship with degree of dissociation (alpha) and degree of association. (b) 2 g of benzoic acid (C6H5COOH) dissolved in 25 g of benzene shows a depression in freezing point equal to 1.62 K. Molal depression constant for benzene is 4.9 K kg mol^-1. What is the percentage association of acid if it forms a dimer in solution?",
+      "question": "(a) What is Van't Hoff factor? Deduce its relationship with degree of dissociation ($\\alpha$) and degree of association. (b) $2\\text{ g}$ of benzoic acid ($\\text{C}_6\\text{H}_5\\text{COOH}$) dissolved in $25\\text{ g}$ of benzene shows a depression in freezing point equal to $1.62\\text{ K}$. Molal depression constant for benzene is $4.9\\text{ K kg mol}^{-1}$. What is the percentage association of acid if it forms a dimer in solution?",
       "answer": "Part (a): Van't Hoff Factor & Alpha Relations (5 Marks):\n1. Van't Hoff factor $i = \\frac{\\text{Observed colligative property}}{\\text{Calculated colligative property}}$.\n2. Relation with Degree of Dissociation ($\\alpha$):\nFor electrolyte $A_n \\rightleftharpoons n A$:\n• Initial: 1 mol.\n• At equilibrium: $(1 - \\alpha) + n\\alpha$.\n$$i = \\frac{1 - \\alpha + n\\alpha}{1} = 1 + (n - 1)\\alpha \\implies \\alpha = \\frac{i - 1}{n - 1}$$3. Relation with Degree of Association ($\\alpha$):\nFor $n A \\rightleftharpoons A_n$:\n• Initial: 1 mol.\n• At equilibrium: $(1 - \\alpha) + \\frac{\\alpha}{n}$.\n$$i = 1 - \\alpha + \\frac{\\alpha}{n} = 1 - \\alpha\\left(1 - \\frac{1}{n}\\right) \\implies \\alpha = \\frac{1 - i}{1 - 1/n}$$\nPart (b): Benzoic Acid Problem (3 Marks):\n• Given: $w_B = 2\\text{ g}$, $w_A = 25\\text{ g}$, $\\Delta T_f = 1.62\\text{ K}$, $K_f = 4.9\\text{ K kg mol}^{-1}$. Normal molar mass $M_{\\text{normal}} = 122\\text{ g/mol}$.\n• Calculated experimental molar mass:\n$$M_{\\text{exp}} = \\frac{1000 \\cdot K_f \\cdot w_B}{\\Delta T_f \\cdot w_A} = \\frac{1000 \\times 4.9 \\times 2}{1.62 \\times 25} = \\frac{9800}{40.5} \\approx 241.98\\text{ g/mol}$$\n• Van't Hoff factor:\n$$i = \\frac{M_{\\text{normal}}}{M_{\\text{exp}}} = \\frac{122}{241.98} \\approx 0.5042$$\n• Degree of association for dimer ($n = 2$):\n$$\\alpha = \\frac{1 - i}{1 - 1/n} = \\frac{1 - 0.5042}{1 - 1/2} = \\frac{0.4958}{0.5} = 0.9916$$\n• Percentage association = $0.9916 \\times 100 = 99.16\\%$.\n• Answer: Percentage association of benzoic acid is 99.2%.",
       "formula": "\\alpha = \\frac{1 - i}{1 - 1/2} = 99.2\\%",
       "telugu_hint": "vaamt haaph phyaaktr niroopnlu. calculation: pryogpoorvk molar mass = 241.98. i = 122 / 241.98 = 0.5042. smyojn shaatm = 99.2%.",
@@ -507,7 +507,7 @@ window.IPE_DATA.chapters["chem-ch02"] = {
       "marks": 4,
       "important": true,
       "pyq": "TS IPE High-Yield ⭐",
-      "question": "Calculate the molarity and molality of a 20% (by mass) aqueous solution of potassium iodide, KI (Density of solution = 1.202 g/mL, Molar mass of KI = 166 g/mol).",
+      "question": "Calculate the molarity and molality of a $20\\%$ (by mass) aqueous solution of potassium iodide, $\\text{KI}$ ($\\text{Density of solution} = 1.202\\text{ g/mL}$, $\\text{Molar mass of KI} = 166\\text{ g/mol}$).",
       "answer": "Step 1: Given Data\n• Mass of solution = 100 g\n• Mass of solute ($KI$) $w_B = 20\\text{ g}$\n• Mass of water ($w_A$) = $100 - 20 = 80\\text{ g} = 0.08\\text{ kg}$\n• Molar mass of $KI$ $M_B = 166\\text{ g/mol}$\n• Density of solution $d = 1.202\\text{ g/mL}$\nStep 2: Calculate Molality ($m$)\n$$\\text{Moles of } KI = \\frac{20}{166} \\approx 0.1205\\text{ mol}$$\n$$\\text{Molality } m = \\frac{0.1205}{0.08\\text{ kg}} \\approx 1.506\\text{ mol/kg} \\quad (\\text{or } 1.51\\text{ m})$$\nStep 3: Calculate Molarity ($M$)\n$$\\text{Volume of 100 g solution} = \\frac{\\text{Mass}}{\\text{Density}} = \\frac{100\\text{ g}}{1.202\\text{ g/mL}} = 83.195\\text{ mL} = 0.0832\\text{ L}$$\n$$\\text{Molarity } M = \\frac{\\text{Moles}}{\\text{Volume in L}} = \\frac{0.1205}{0.0832} \\approx 1.448\\text{ M} \\quad (\\text{or } 1.45\\text{ M})$$\nFinal Answer: Molality = 1.51 m; Molarity = 1.45 M.",
       "formula": "m = \\frac{n_B}{w_A\\text{ (kg)}}, \\quad M = \\frac{n_B}{V\\text{ (L)}}",
       "telugu_hint": "KI moles = 20/166 = 0.1205. molality = 0.1205 / 0.08 = 1.51 m. solution volume = 100 / 1.202 = 83.2 mL. molaaritee = 0.1205 / 0.0832 = 1.45 M.",
@@ -537,7 +537,7 @@ window.IPE_DATA.chapters["chem-ch02"] = {
       "marks": 4,
       "important": true,
       "pyq": "TS IPE High-Yield ⭐",
-      "question": "A solution of urea (NH2CONH2) in water has a boiling point of 100.128 deg C. Calculate the freezing point of the same solution. (Kb for water = 0.52 K kg mol^-1, Kf for water = 1.86 K kg mol^-1).",
+      "question": "A solution of urea ($\\text{NH}_2\\text{CONH}_2$) in water has a boiling point of $100.128^\\circ\\text{C}$. Calculate the freezing point of the same solution. ($K_b\\text{ for water} = 0.52\\text{ K kg mol}^{-1}$, $K_f\\text{ for water} = 1.86\\text{ K kg mol}^{-1}$).",
       "answer": "Step 1: Given Data\n• Boiling point of solution $T_b = 100.128^\\circ\\text{C} \\implies \\Delta T_b = 100.128 - 100.00 = 0.128^\\circ\\text{C} = 0.128\\text{ K}$\n• $K_b = 0.52\\text{ K kg mol}^{-1}$, $K_f = 1.86\\text{ K kg mol}^{-1}$\nStep 2: Find molality of the solution ($m$)\n$$\\Delta T_b = K_b \\cdot m \\implies m = \\frac{\\Delta T_b}{K_b} = \\frac{0.128}{0.52} \\approx 0.24615\\text{ mol/kg}$$\nStep 3: Calculate freezing point depression ($\\Delta T_f$)\n$$\\Delta T_f = K_f \\cdot m = 1.86 \\times 0.24615 \\approx 0.4578\\text{ K}$$\nStep 4: Freezing point of solution\n$$T_f = 0.00^\\circ\\text{C} - 0.458^\\circ\\text{C} = -0.458^\\circ\\text{C} \\quad (\\text{or } 272.69\\text{ K})$$\nFinal Answer: Freezing point of the solution = -0.458 deg C.",
       "formula": "\\frac{\\Delta T_f}{\\Delta T_b} = \\frac{K_f}{K_b} \\implies \\Delta T_f = 0.128 \\times \\frac{1.86}{0.52} = 0.458 \\text{ K}",
       "telugu_hint": "delta Tf / delta Tb = Kf / Kb. delta Tf = 0.128 * (1.86 / 0.52) = 0.458 K. ghneebhvn sthaanm = -0.458 digreel selsiys.",
@@ -552,12 +552,12 @@ window.IPE_DATA.chapters["chem-ch02"] = {
       "marks": 4,
       "important": true,
       "pyq": "TS IPE High-Yield ⭐",
-      "question": "Calculate the osmotic pressure of a solution prepared by dissolving 1.0 g of a polymer of molar mass 185,000 in 450 mL of water at 37 deg C. (R = 0.0821 L atm K^-1 mol^-1).",
-      "answer": "Step 1: Given Data\n• Mass of polymer $w_B = 1.0\\text{ g}$\n• Molar mass $M_B = 185,000\\text{ g/mol}$\n• Volume $V = 450\\text{ mL} = 0.450\\text{ L}$\n• Temperature $T = 37 + 273.15 = 310.15\\text{ K}$\n• $R = 0.0821\\text{ L atm K}^{-1}\\text{mol}^{-1}$\nStep 2: Formula\n$$\\pi = \\frac{w_B R T}{M_B V}$$\nStep 3: Calculation\n$$\\pi = \\frac{1.0 \\times 0.0821 \\times 310.15}{185,000 \\times 0.450} = \\frac{25.463}{83,250} \\approx 3.058 \\times 10^{-4}\\text{ atm}$$In Pascals: $3.058 \\times 10^{-4} \\times 101325 \\approx 30.98\\text{ Pa}$.\n\nFinal Answer: Osmotic pressure is 3.06 x 10^-4 atm (approx 31 Pa).",
+      "question": "Calculate the osmotic pressure of a solution prepared by dissolving $1.0\\text{ g}$ of a polymer of molar mass $185,000\\text{ g/mol}$ in $450\\text{ mL}$ of water at $37^\\circ\\text{C}$. ($R = 0.0821\\text{ L atm K}^{-1}\\text{ mol}^{-1}$).",
+      "answer": "Step 1: Given Data\n• Mass of polymer $w_B = 1.0\\text{ g}$\n• Molar mass $M_B = 185,000\\text{ g/mol}$\n• Volume $V = 450\\text{ mL} = 0.450\\text{ L}$\n• Temperature $T = 37 + 273.15 = 310.15\\text{ K}$\n• $R = 0.0821\\text{ L atm K}^{-1}\\text{mol}^{-1}$\nStep 2: Formula\n$$\\pi = \\frac{w_B R T}{M_B V}$$\nStep 3: Calculation\n$$\\pi = \\frac{1.0 \\times 0.0821 \\times 310.15}{185,000 \\times 0.450} = \\frac{25.463}{83,250} \\approx 3.058 \\times 10^{-4}\\text{ atm}$$In Pascals: $3.058 \\times 10^{-4} \\times 101325 \\approx 30.98\\text{ Pa}$.\n\nFinal Answer: Osmotic pressure is $3.06 \times 10^{-4}\text{ atm}$ (approx $31\text{ Pa}$).",
       "formula": "\\pi = \\frac{w_B R T}{M_B V} = 3.06 \\times 10^{-4} \\text{ atm}",
-      "telugu_hint": "drvaabhisrn pressure pi = (1.0 * 0.0821 * 310.15) / (185000 * 0.45) = 3.06x10^-4 atm.",
+      "telugu_hint": "osmotic pressure $\\pi = \\frac{1.0 \\times 0.0821 \\times 310.15}{185000 \\times 0.45} \\approx 3.06 \\times 10^{-4}\\text{ atm}$.",
       "source_check": "verified",
-      "tenglish_hint": "drvaabhisrn pressure pi = (1.0 * 0.0821 * 310.15) / (185000 * 0.45) = 3.06x10^-4 atm."
+      "tenglish_hint": "osmotic pressure $\\pi = \\frac{1.0 \\times 0.0821 \\times 310.15}{185000 \\times 0.45} \\approx 3.06 \\times 10^{-4}\\text{ atm}$."
     },
     {
       "id": "chem-ch02-q035",
@@ -566,8 +566,8 @@ window.IPE_DATA.chapters["chem-ch02"] = {
       "type": "Numerical",
       "marks": 4,
       "important": false,
-      "question": "If the solubility of H2S in water at STP is 0.195 m, calculate Henry's law constant for H2S in water (STP pressure = 0.987 bar).",
-      "answer": "Step 1: Given Data\n• Molality of $H_2S = 0.195\\text{ m} = 0.195\\text{ moles of } H_2S$ in 1000 g of water.\n• Moles of water $n_w = \\frac{1000}{18} = 55.55\\text{ mol}$.\n• Pressure $p = 0.987\\text{ bar}$.\n\nStep 2: Mole fraction of H2S ($x$)\n$$x = \\frac{0.195}{0.195 + 55.55} = \\frac{0.195}{55.745} \\approx 0.003498$$\nStep 3: Henry's Law\n$$p = K_H \\cdot x \\implies K_H = \\frac{p}{x} = \\frac{0.987}{0.003498} \\approx 282.16\\text{ bar}$$\nFinal Answer: Henry's law constant KH is 282.2 bar.",
+      "question": "If the solubility of $\\text{H}_2\\text{S}$ in water at STP is $0.195\\text{ m}$, calculate Henry's law constant for $\\text{H}_2\\text{S}$ in water ($\\text{STP pressure} = 0.987\\text{ bar}$).",
+      "answer": "Step 1: Given Data\n• Molality of $H_2S = 0.195\\text{ m} = 0.195\\text{ moles of } H_2S$ in 1000 g of water.\n• Moles of water $n_w = \\frac{1000}{18} = 55.55\\text{ mol}$.\n• Pressure $p = 0.987\\text{ bar}$.\n\nStep 2: Mole fraction of H2S ($x$)\n$$x = \\frac{0.195}{0.195 + 55.55} = \\frac{0.195}{55.745} \\approx 0.003498$$\nStep 3: Henry's Law\n$$p = K_H \\cdot x \\implies K_H = \\frac{p}{x} = \\frac{0.987}{0.003498} \\approx 282.16\\text{ bar}$$\nFinal Answer: Henry's law constant $K_H$ is $282.2\text{ bar}$.",
       "formula": "K_H = \\frac{p}{x} = 282.2 \\text{ bar}",
       "telugu_hint": "mol bhaagm x = 0.195 / 55.75 = 0.0035. henree constantaamkm KH = 0.987 / 0.0035 = 282.2 bar.",
       "source_check": "verified",
@@ -580,7 +580,7 @@ window.IPE_DATA.chapters["chem-ch02"] = {
       "type": "Numerical",
       "marks": 4,
       "important": false,
-      "question": "A 5% solution (by mass) of cane sugar (molar mass 342 g/mol) in water has freezing point of 271 K. Calculate the freezing point of 5% glucose (molar mass 180 g/mol) in water. (Freezing point of pure water = 273.15 K).",
+      "question": "A $5\\%$ solution (by mass) of cane sugar ($\\text{molar mass} = 342\\text{ g/mol}$) in water has freezing point of $271\\text{ K}$. Calculate the freezing point of $5\\%$ glucose ($\\text{molar mass} = 180\\text{ g/mol}$) in water. ($\\text{Freezing point of pure water} = 273.15\\text{ K}$).",
       "answer": "Step 1: Cane sugar solution\n• $\\Delta T_{f,1} = 273.15 - 271 = 2.15\\text{ K}$.\n• In 100 g solution: $w_B = 5\\text{ g}$, $w_A = 95\\text{ g}$.\n• Molality $m_1 = \\frac{5 / 342}{95 / 1000} = \\frac{5000}{342 \\times 95} = \\frac{5000}{32490} \\approx 0.1539\\text{ m}$.\n• $\\Delta T_{f,1} = K_f \\cdot m_1 \\implies K_f = \\frac{2.15}{0.1539} \\approx 13.97\\text{ K kg/mol}$.\n\nStep 2: Glucose solution\n• In 100 g solution: $w_B = 5\\text{ g}$, $w_A = 95\\text{ g}$, $M_B = 180\\text{ g/mol}$.\n• Molality $m_2 = \\frac{5000}{180 \\times 95} = \\frac{5000}{17100} \\approx 0.2924\\text{ m}$.\n• Depression in freezing point for glucose:\n$$\\Delta T_{f,2} = K_f \\cdot m_2 = 13.97 \\times 0.2924 \\approx 4.085\\text{ K}$$\nStep 3: Freezing point of glucose solution\n$$T_f = 273.15 - 4.085 = 269.065\\text{ K}$$\nFinal Answer: Freezing point of the 5% glucose solution is 269.07 K.",
       "formula": "\\frac{\\Delta T_{f,2}}{\\Delta T_{f,1}} = \\frac{m_2}{m_1} = \\frac{342}{180} = 1.90 \\implies \\Delta T_{f,2} = 4.085 \\text{ K}",
       "telugu_hint": "glookoj molality pmchdaar kmte 342/180 = 1.9 times ekkuva. delta Tf = 2.15 * 1.9 = 4.085 K. ghneebhvn sthaanm = 273.15 - 4.085 = 269.07 K.",
@@ -595,7 +595,7 @@ window.IPE_DATA.chapters["chem-ch02"] = {
       "marks": 4,
       "important": true,
       "pyq": "TS IPE High-Yield ⭐",
-      "question": "Determine the amount of CaCl2 (i = 2.47) dissolved in 2.5 litres of water such that its osmotic pressure is 0.75 atm at 27 deg C. (Molar mass of CaCl2 = 111 g/mol, R = 0.0821 L atm K^-1 mol^-1).",
+      "question": "Determine the amount of $\\text{CaCl}_2$ ($i = 2.47$) dissolved in $2.5\\text{ litres}$ of water such that its osmotic pressure is $0.75\\text{ atm}$ at $27^\\circ\\text{C}$. ($\\text{Molar mass of CaCl}_2 = 111\\text{ g/mol}$, $R = 0.0821\\text{ L atm K}^{-1}\\text{ mol}^{-1}$).",
       "answer": "Step 1: Given Data\n• $i = 2.47$\n• $V = 2.5\\text{ L}$\n• $\\pi = 0.75\\text{ atm}$\n• $T = 27 + 273 = 300\\text{ K}$\n• $M_B = 111\\text{ g/mol}$\n• $R = 0.0821\\text{ L atm K}^{-1}\\text{mol}^{-1}$\nStep 2: Formula with Van't Hoff factor\n$$\\pi = i C R T = i \\left(\\frac{w_B}{M_B V}\\right) R T$$\nStep 3: Solve for $w_B$\n$$w_B = \\frac{\\pi \\cdot M_B \\cdot V}{i \\cdot R \\cdot T}$$\n$$w_B = \\frac{0.75 \\times 111 \\times 2.5}{2.47 \\times 0.0821 \\times 300} = \\frac{208.125}{60.836} \\approx 3.42\\text{ g}$$\nFinal Answer: The amount of CaCl2 required is 3.42 g.",
       "formula": "w_B = \\frac{\\pi \\cdot M_B \\cdot V}{i \\cdot R \\cdot T} = 3.42 \\text{ g}",
       "telugu_hint": "pi = i * (wB/MB*V) * RT. wB = (0.75 * 111 * 2.5) / (2.47 * 0.0821 * 300) = 3.42 graamulu.",
@@ -609,7 +609,7 @@ window.IPE_DATA.chapters["chem-ch02"] = {
       "type": "Numerical",
       "marks": 4,
       "important": false,
-      "question": "Calculate the depression in freezing point of water when 10 g of CH3CH2CHClCOOH is added to 250 g of water. (Ka = 1.4 x 10^-3, Kf = 1.86 K kg mol^-1, Molar mass = 122.5 g/mol).",
+      "question": "Calculate the depression in freezing point of water when $10\\text{ g}$ of $\\text{CH}_3\\text{CH}_2\\text{CHClCOOH}$ is added to $250\\text{ g}$ of water. ($K_a = 1.4 \\times 10^{-3}$, $K_f = 1.86\\text{ K kg mol}^{-1}$, $\\text{Molar mass} = 122.5\\text{ g/mol}$).",
       "answer": "Step 1: Molality of fluoro/chlorobutyric acid\n$$n_B = \\frac{10\\text{ g}}{122.5\\text{ g/mol}} = 0.08163\\text{ mol}$$\n$$m = \\frac{0.08163}{0.250\\text{ kg}} = 0.3265\\text{ mol/kg}$$\nStep 2: Degree of dissociation ($\\alpha$)\nFor weak monobasic acid: $K_a = C\\alpha^2 \\approx m\\alpha^2$:\n$$\\alpha = \\sqrt{\\frac{K_a}{m}} = \\sqrt{\\frac{1.4 \\times 10^{-3}}{0.3265}} = \\sqrt{4.288 \\times 10^{-3}} \\approx 0.0655$$\nStep 3: Van't Hoff factor ($i$)\n$$HA \\rightleftharpoons H^+ + A^- \\implies i = 1 + \\alpha = 1 + 0.0655 = 1.0655$$\nStep 4: Freezing point depression\n$$\\Delta T_f = i \\cdot K_f \\cdot m = 1.0655 \\times 1.86 \\times 0.3265 \\approx 0.647\\text{ K}$$\nFinal Answer: Depression in freezing point is 0.65 K.",
       "formula": "\\Delta T_f = i \\cdot K_f \\cdot m = 0.65 \\text{ K}",
       "telugu_hint": "alpha = sqrt(Ka / m) = 0.0655. i = 1 + alpha = 1.0655. delta Tf = 1.0655 * 1.86 * 0.3265 = 0.65 K.",
@@ -623,12 +623,12 @@ window.IPE_DATA.chapters["chem-ch02"] = {
       "type": "Numerical",
       "marks": 4,
       "important": false,
-      "question": "At 300 K, 36 g of glucose present in a litre of its solution has an osmotic pressure of 4.98 bar. If the osmotic pressure of another glucose solution is 1.52 bar at the same temperature, what would be its concentration?",
-      "answer": "Step 1: Formula\nAt constant temperature: $\\pi = C R T \\implies \\frac{\\pi_1}{\\pi_2} = \\frac{C_1}{C_2}$.\n\nStep 2: Concentration of first solution ($C_1$)\n$$C_1 = \\frac{n_1}{V} = \\frac{36\\text{ g} / 180\\text{ g/mol}}{1\\text{ L}} = 0.2\\text{ mol/L}$$\nStep 3: Solve for $C_2$\n$$\\frac{4.98}{1.52} = \\frac{0.2}{C_2}$$\n$$C_2 = 0.2 \\times \\frac{1.52}{4.98} = \\frac{0.304}{4.98} \\approx 0.061\\text{ mol/L}$$\nFinal Answer: Concentration of the second solution is 0.061 mol/L.",
+      "question": "At $300\\text{ K}$, $36\\text{ g}$ of glucose present in a litre of its solution has an osmotic pressure of $4.98\\text{ bar}$. If the osmotic pressure of another glucose solution is $1.52\\text{ bar}$ at the same temperature, what would be its concentration?",
+      "answer": "Step 1: Formula\nAt constant temperature: $\\pi = C R T \\implies \\frac{\\pi_1}{\\pi_2} = \\frac{C_1}{C_2}$.\n\nStep 2: Concentration of first solution ($C_1$)\n$$C_1 = \\frac{n_1}{V} = \\frac{36\\text{ g} / 180\\text{ g/mol}}{1\\text{ L}} = 0.2\\text{ mol/L}$$\nStep 3: Solve for $C_2$\n$$\\frac{4.98}{1.52} = \\frac{0.2}{C_2}$$\n$$C_2 = 0.2 \\times \\frac{1.52}{4.98} = \\frac{0.304}{4.98} \\approx 0.061\\text{ mol/L}$$\nFinal Answer: Concentration of the second solution is $0.061\text{ mol/L}$.",
       "formula": "C_2 = C_1\\left(\\frac{\\pi_2}{\\pi_1}\\right) = 0.061 \\text{ mol/L}",
-      "telugu_hint": "C2 = C1 * (pi2 / pi1) = 0.2 * (1.52 / 4.98) = 0.061 mol/L.",
+      "telugu_hint": "$C_2 = C_1 \\times \\frac{\\pi_2}{\\pi_1} = 0.2 \\times \\frac{1.52}{4.98} \\approx 0.061\\text{ mol/L}$.",
       "source_check": "verified",
-      "tenglish_hint": "C2 = C1 * (pi2 / pi1) = 0.2 * (1.52 / 4.98) = 0.061 mol/L."
+      "tenglish_hint": "$C_2 = C_1 \\times \\frac{\\pi_2}{\\pi_1} = 0.2 \\times \\frac{1.52}{4.98} \\approx 0.061\\text{ mol/L}$."
     },
     {
       "id": "chem-ch02-q040",
@@ -637,12 +637,12 @@ window.IPE_DATA.chapters["chem-ch02"] = {
       "type": "Numerical",
       "marks": 4,
       "important": false,
-      "question": "A solution containing 8 g of a substance in 100 g of diethyl ether boils at 36.86 deg C, whereas pure ether boils at 35.60 deg C. Determine the molecular mass of the solute (Kb for ether = 2.02 K kg mol^-1).",
-      "answer": "Step 1: Given Data\n• $w_B = 8\\text{ g}$\n• $w_A = 100\\text{ g}$\n• Boiling point elevation $\\Delta T_b = 36.86 - 35.60 = 1.26^\\circ\\text{C} = 1.26\\text{ K}$\n• $K_b = 2.02\\text{ K kg mol}^{-1}$\nStep 2: Formula\n$$M_B = \\frac{1000 \\cdot K_b \\cdot w_B}{\\Delta T_b \\cdot w_A}$$\nStep 3: Calculation\n$$M_B = \\frac{1000 \\times 2.02 \\times 8}{1.26 \\times 100} = \\frac{16160}{126} \\approx 128.25\\text{ g/mol}$$\nFinal Answer: The molecular mass of the solute is 128.25 g/mol.",
+      "question": "A solution containing $8\\text{ g}$ of a substance in $100\\text{ g}$ of diethyl ether boils at $36.86^\\circ\\text{C}$, whereas pure ether boils at $35.60^\\circ\\text{C}$. Determine the molecular mass of the solute ($K_b\\text{ for ether} = 2.02\\text{ K kg mol}^{-1}$).",
+      "answer": "Step 1: Given Data\n• $w_B = 8\\text{ g}$\n• $w_A = 100\\text{ g}$\n• Boiling point elevation $\\Delta T_b = 36.86 - 35.60 = 1.26^\\circ\\text{C} = 1.26\\text{ K}$\n• $K_b = 2.02\\text{ K kg mol}^{-1}$\nStep 2: Formula\n$$M_B = \\frac{1000 \\cdot K_b \\cdot w_B}{\\Delta T_b \\cdot w_A}$$\nStep 3: Calculation\n$$M_B = \\frac{1000 \\times 2.02 \\times 8}{1.26 \\times 100} = \\frac{16160}{126} \\approx 128.25\\text{ g/mol}$$\nFinal Answer: The molecular mass of the solute is $128.25\text{ g/mol}$.",
       "formula": "M_B = \\frac{1000 \\cdot K_b \\cdot w_B}{\\Delta T_b \\cdot w_A} = 128.25 \\text{ g/mol}",
-      "telugu_hint": "MB = (1000 * 2.02 * 8) / (1.26 * 100) = 16160 / 126 = 128.25 g/mol.",
+      "telugu_hint": "$M_B = \\frac{1000 \\times 2.02 \\times 8}{1.26 \\times 100} \\approx 128.25\\text{ g/mol}$.",
       "source_check": "verified",
-      "tenglish_hint": "MB = (1000 * 2.02 * 8) / (1.26 * 100) = 16160 / 126 = 128.25 g/mol."
+      "tenglish_hint": "$M_B = \\frac{1000 \\times 2.02 \\times 8}{1.26 \\times 100} \\approx 128.25\\text{ g/mol}$."
     },
     {
       "id": "chem-ch02-q041",
@@ -699,7 +699,7 @@ window.IPE_DATA.chapters["chem-ch02"] = {
       "question": "An ideal solution is that which:",
       "options": [
         "A) Obeys Henry's law",
-        "B) Has Delta H_mix > 0",
+        "B) Has $\\Delta H_{\\text{mix}} > 0$",
         "C) Obeys Raoult's law at all concentrations and temperatures",
         "D) Forms maximum boiling azeotropes"
       ],
@@ -760,7 +760,7 @@ window.IPE_DATA.chapters["chem-ch02"] = {
       "type": "MCQ",
       "marks": 1,
       "important": false,
-      "question": "When Henry's constant K_H for a gas increases, its solubility in water:",
+      "question": "When Henry's constant $K_H$ for a gas increases, its solubility in water:",
       "options": [
         "A) Increases",
         "B) Decreases",
@@ -866,7 +866,7 @@ window.IPE_DATA.chapters["chem-ch02"] = {
       "type": "MCQ",
       "marks": 1,
       "important": false,
-      "question": "The molal elevation constant (Kb) depends on:",
+      "question": "The molal elevation constant ($K_b$) depends on:",
       "options": [
         "A) Nature of solute",
         "B) Nature of solvent",
@@ -940,9 +940,9 @@ window.IPE_DATA.chapters["chem-ch02"] = {
       "correctOption": 1,
       "answer": "Correct Option: B) Copper ferrocyanide $Cu_2[Fe(CN)_6]$.\nSynthetic copper ferrocyanide deposited inside the pores of unglazed porcelain provides mechanical strength to withstand high pressures.",
       "formula": "Cu_2[Fe(CN)_6] = \\text{Standard synthetic SPM}",
-      "telugu_hint": "raagi ferrosynaid Cu2[Fe(CN)6] nu ardhprveshy porgaa vadatharu.",
+      "telugu_hint": "raagi ferrosynaid $Cu_2[Fe(CN)_6]$ nu ardhprveshy porgaa vadatharu.",
       "source_check": "verified",
-      "tenglish_hint": "raagi ferrosynaid Cu2[Fe(CN)6] nu ardhprveshy porgaa vadatharu."
+      "tenglish_hint": "raagi ferrosynaid $Cu_2[Fe(CN)_6]$ nu ardhprveshy porgaa vadatharu."
     },
     {
       "id": "chem-ch02-q055",
@@ -953,10 +953,10 @@ window.IPE_DATA.chapters["chem-ch02"] = {
       "important": false,
       "question": "For a non-ideal solution showing positive deviation, which of the following is TRUE?",
       "options": [
-        "A) Delta H_mix < 0",
-        "B) Delta V_mix < 0",
+        "A) $\\Delta H_{\\text{mix}} < 0$",
+        "B) $\\Delta V_{\\text{mix}} < 0$",
         "C) Vapor pressure is greater than expected",
-        "D) Intermolecular attraction A-B > A-A"
+        "D) Intermolecular attraction $A-B > A-A$"
       ],
       "correctOption": 2,
       "answer": "Correct Option: C) Vapor pressure is greater than expected.\nIn positive deviation, $A-B$ interactions are weaker, enabling molecules to escape easily into the vapor phase, raising vapor pressure.",

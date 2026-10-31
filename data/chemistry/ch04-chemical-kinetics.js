@@ -34,7 +34,7 @@ window.IPE_DATA.chapters["chem-ch04"] = {
     {
       "title": "Arrhenius Equation in Two Temperatures Form",
       "formula": "\\log\\frac{k_2}{k_1} = \\frac{E_a}{2.303 R}\\left(\\frac{T_2 - T_1}{T_1 T_2}\\right)",
-      "symbols": "k_1, $k_2 = \\text{Rate constants at Kelvin temperatures } T_1$, T_2, $E_a = \\text{Activation energy}$, $R = 8.314\\text{ J/mol K}$",
+      "symbols": "$k_1, k_2 = \\text{Rate constants at Kelvin temperatures } T_1, T_2$, $E_a = \\text{Activation energy}$, $R = 8.314\\text{ J K}^{-1}\\text{ mol}^{-1}$",
       "units": "$E_a\\text{ in J/mol or kJ/mol}$",
       "tip": "For most chemical reactions, rate of reaction nearly doubles for every $10^\\circ\\text{C}$ rise in temperature."
     }
@@ -132,9 +132,9 @@ window.IPE_DATA.chapters["chem-ch04"] = {
       "correctOption": 1,
       "answer": "Correct Answer: B) $\\text{mol L}^{-1} \\text{s}^{-1}$.\n• Rate = $k [A]^0 = k$. Hence, unit of $k$ equals unit of rate: $\\text{mol L}^{-1} \\text{s}^{-1}$.",
       "formula": "\\text{Unit of } k = \\text{mol}^{1-n} \\text{L}^{n-1} \\text{s}^{-1}",
-      "telugu_hint": "shoony krmaamk reactionku retu constantaamkm prmaanaalu: mol L^{-1} s^{-1}.",
+      "telugu_hint": "shoony krmaamk reactionku retu constantaamkm prmaanaalu: $\\text{mol L}^{-1}\\text{ s}^{-1}$.",
       "source_check": "verified",
-      "tenglish_hint": "shoony krmaamk reactionku retu constantaamkm prmaanaalu: mol L^{-1} s^{-1}."
+      "tenglish_hint": "shoony krmaamk reactionku retu constantaamkm prmaanaalu: $\\text{mol L}^{-1}\\text{ s}^{-1}$."
     }
   ]
 };

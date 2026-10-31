@@ -96,9 +96,9 @@ window.IPE_DATA.chapters["phy-ch12"] = {
       "question": "The work function of caesium metal is $2.14 \\text{ eV}$. When light of frequency $6 \\times 10^{14} \\text{ Hz}$ falls on the metal surface, what is the maximum kinetic energy of emitted photoelectrons and stopping potential?",
       "answer": "• Given: $\\Phi_0 = 2.14 \\text{ eV}$, $\\nu = 6 \\times 10^{14} \\text{ Hz}$.\n• Energy of incident photon: $E = h\\nu = \\frac{6.63 \\times 10^{-34} \\times 6 \\times 10^{14}}{1.6 \\times 10^{-19}} \\text{ eV} = \\frac{3.978 \\times 10^{-19}}{1.6 \\times 10^{-19}} = 2.486 \\text{ eV}$.\n• Max KE: $K_{max} = E - \\Phi_0 = 2.486 - 2.14 = 0.346 \\text{ eV} \\approx 0.35 \\text{ eV}$.\n• Stopping Potential: $V_0 = \\frac{K_{max}}{e} = 0.35 \\text{ V}$.",
       "formula": "K_{max} = 0.35\\text{ eV}, \\quad V_0 = 0.35\\text{ V}",
-      "telugu_hint": "$E = h\\nu = 2.49\\text{ eV}$. $K_{max} = 2.49 - 2.14 = 0.35\text{ eV}$, $V_0 = 0.35\text{ V}$.",
+      "telugu_hint": "$E = h\\nu = 2.49\\text{ eV}$. $K_{max} = 2.49 - 2.14 = 0.35\\text{ eV}$, $V_0 = 0.35\\text{ V}$.",
       "source_check": "verified",
-      "tenglish_hint": "$E = h\\nu = 2.49\\text{ eV}$. $K_{max} = 2.49 - 2.14 = 0.35\text{ eV}$, $V_0 = 0.35\text{ V}$."
+      "tenglish_hint": "$E = h\\nu = 2.49\\text{ eV}$. $K_{max} = 2.49 - 2.14 = 0.35\\text{ eV}$, $V_0 = 0.35\\text{ V}$."
     },
     {
       "id": "phy-ch12-q005",

@@ -13,7 +13,7 @@ window.IPE_DATA.chapters["phy-ch13"] = {
     {
       "title": "Bohr's Postulates",
       "formula": "L = mvr = \\frac{nh}{2\\pi}, \\quad \\frac{m v^2}{r} = \\frac{1}{4\\pi \\varepsilon_0}\\frac{e^2}{r^2}, \\quad h\\nu = E_2 - E_1",
-      "symbols": "n = 1, 2, 3, $\\dots = \\text{Principal quantum number}$",
+      "symbols": "$n = 1, 2, 3, \\dots = \\text{Principal quantum number}$",
       "units": "$\\text{J s, m, eV}$",
       "tip": "Angular momentum is quantized in integral multiples of $h/(2\\pi)$."
     },
@@ -22,14 +22,14 @@ window.IPE_DATA.chapters["phy-ch13"] = {
       "formula": "r_n = \\frac{\\varepsilon_0 n^2 h^2}{\\pi m e^2} = n^2 r_1 \\; (r_1 = 0.529\\text{ Å}), \\quad E_n = -\\frac{13.6}{n^2} \\text{ eV}",
       "symbols": "$E_1 = -13.6\\text{ eV} \\text{ (ground state)}$, $E_2 = -3.4\\text{ eV}$, $E_3 = -1.51\\text{ eV}$",
       "units": "$\\text{eV or Joule}$",
-      "tip": "Negative sign indicates electron is bound to the nucleus. Ionization energy of H is +13.6 eV."
+      "tip": "Negative sign indicates electron is bound to the nucleus. Ionization energy of H is $+13.6\\text{ eV}$."
     },
     {
       "title": "Rydberg Formula for Spectral Lines",
       "formula": "\\frac{1}{\\lambda} = R \\left( \\frac{1}{n_1^2} - \\frac{1}{n_2^2} \\right)",
       "symbols": "$R = 1.097 \\times 10^7 \\text{ m}^{-1} = \\text{Rydberg constant}$",
       "units": "$\\text{m}^{-1}$",
-      "tip": "Lyman: n_1=1 (UV); Balmer: n_1=2 (Visible); Paschen: n_1=3 (IR); Brackett: n_1=4 (IR); Pfund: n_1=5 (Far IR)."
+      "tip": "Lyman: $n_1=1$ (UV); Balmer: $n_1=2$ (Visible); Paschen: $n_1=3$ (IR); Brackett: $n_1=4$ (IR); Pfund: $n_1=5$ (Far IR)."
     },
     {
       "title": "Bohr Orbit Radius and Electron Velocity",
@@ -103,9 +103,9 @@ window.IPE_DATA.chapters["phy-ch13"] = {
       "question": "Calculate the shortest and longest wavelengths in the Balmer series of hydrogen spectrum ($R = 1.097 \\times 10^7 \\text{ m}^{-1}$).",
       "answer": "• For Balmer series: $n_1 = 2$.\n1. **Longest wavelength (First line, $n_2 = 3$)**:\n$\\frac{1}{\\lambda_{max}} = R\\left(\\frac{1}{2^2} - \\frac{1}{3^2}\\right) = R\\left(\\frac{1}{4} - \\frac{1}{9}\\right) = \\frac{5R}{36}$\n$\\lambda_{max} = \\frac{36}{5R} = \\frac{36}{5 \\times 1.097 \\times 10^7} \\approx 656.3 \\text{ nm} = 6563 \\text{ Å}$.\n2. **Shortest wavelength (Series limit, $n_2 = \\infty$)**:\n$\\frac{1}{\\lambda_{min}} = R\\left(\\frac{1}{4} - 0\\right) = \\frac{R}{4}$\n$\\lambda_{min} = \\frac{4}{R} = \\frac{4}{1.097 \\times 10^7} \\approx 364.6 \\text{ nm} = 3646 \\text{ Å}$.",
       "formula": "\\lambda_{max} = 656.3\\text{ nm}, \\quad \\lambda_{min} = 364.6\\text{ nm}",
-      "telugu_hint": "deergh wavelength (n=3): 656.3 nm; hrsv wavelength ($n=\\infty$): 364.6 nm.",
+      "telugu_hint": "deergh wavelength ($n=3$): $656.3\\text{ nm}$; hrsv wavelength ($n=\\infty$): $364.6\\text{ nm}$.",
       "source_check": "verified",
-      "tenglish_hint": "deergh wavelength (n=3): 656.3 nm; hrsv wavelength ($n=\\infty$): 364.6 nm."
+      "tenglish_hint": "deergh wavelength ($n=3$): $656.3\\text{ nm}$; hrsv wavelength ($n=\\infty$): $364.6\\text{ nm}$."
     },
     {
       "id": "phy-ch13-q005",
@@ -116,17 +116,17 @@ window.IPE_DATA.chapters["phy-ch13"] = {
       "important": false,
       "question": "The total energy of an electron in the first excited state ($n=2$) of hydrogen atom is:",
       "options": [
-        "A) -13.6 eV",
-        "B) -3.4 eV",
-        "C) -1.51 eV",
-        "D) -0.85 eV"
+        "A) $-13.6\\text{ eV}$",
+        "B) $-3.4\\text{ eV}$",
+        "C) $-1.51\\text{ eV}$",
+        "D) $-0.85\\text{ eV}$"
       ],
       "correctOption": 1,
-      "answer": "Correct Answer: B) -3.4 eV.\n• $E_n = -\\frac{13.6}{n^2} \\text{ eV} \\implies E_2 = -\\frac{13.6}{4} = -3.4 \\text{ eV}$.",
+      "answer": "Correct Answer: B) $-3.4\\text{ eV}$.\n• $E_n = -\\frac{13.6}{n^2} \\text{ eV} \\implies E_2 = -\\frac{13.6}{4} = -3.4 \\text{ eV}$.",
       "formula": "E_2 = -\\frac{13.6}{2^2} = -3.4\\text{ eV}",
-      "telugu_hint": "modti uttejit sthaayi amte n=2: E_2 = -13.6 / 4 = -3.4 eV.",
+      "telugu_hint": "modti uttejit sthaayi amte $n=2$: $E_2 = -13.6 / 4 = -3.4\\text{ eV}$.",
       "source_check": "verified",
-      "tenglish_hint": "modti uttejit sthaayi amte n=2: E_2 = -13.6 / 4 = -3.4 eV."
+      "tenglish_hint": "modti uttejit sthaayi amte $n=2$: $E_2 = -13.6 / 4 = -3.4\\text{ eV}$."
     }
   ]
 };

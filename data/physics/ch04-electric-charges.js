@@ -15,14 +15,14 @@ window.IPE_DATA.chapters["phy-ch04"] = {
       "formula": "F = \\frac{1}{4\\pi \\varepsilon_0}\\frac{q_1 q_2}{r^2}",
       "symbols": "$\\frac{1}{4\\pi \\varepsilon_0} = 9 \\times 10^9 \\text{ N m}^2/\\text{C}^2$, $\\varepsilon_0 = 8.854 \\times 10^{-12} \\text{ C}^2/\\text{N m}^2$",
       "units": "$\\text{Newton (N)}$",
-      "tip": "In a dielectric medium of constant K, force decreases by K: F_m = F/K."
+      "tip": "In a dielectric medium of constant $K$, force decreases by $K$: $F_m = F/K$."
     },
     {
       "title": "Electric Field of Dipole on Axial & Equatorial Line",
       "formula": "E_{axial} = \\frac{1}{4\\pi \\varepsilon_0}\\frac{2p}{r^3}, \\quad E_{equatorial} = \\frac{1}{4\\pi \\varepsilon_0}\\frac{p}{r^3}",
       "symbols": "$p = 2aq = \\text{Dipole moment}$, $r = \\text{Distance from center}$",
       "units": "$\\text{N/C or V/m}$",
-      "tip": "E_{axial} = 2 E_{equatorial} for a short dipole at same distance r."
+      "tip": "$E_{axial} = 2 E_{equatorial}$ for a short dipole at same distance $r$."
     },
     {
       "title": "Torque on a Dipole in Uniform Electric Field",
@@ -137,7 +137,7 @@ window.IPE_DATA.chapters["phy-ch04"] = {
       "marks": 4,
       "important": true,
       "pyq": "TS IPE High-Yield ⭐",
-      "question": "Two point charges $q_1 = +2\\mu\\text{C}$ and $q_2 = -2\\mu\\text{C}$ are separated by 20 cm in air. Find the electric field at the midpoint of the line joining them.",
+      "question": "Two point charges $q_1 = +2\\mu\\text{C}$ and $q_2 = -2\\mu\\text{C}$ are separated by $20\\text{ cm}$ in air. Find the electric field at the midpoint of the line joining them.",
       "answer": "• Given: $q_1 = +2 \\times 10^{-6}\\text{ C}$, $q_2 = -2 \\times 10^{-6}\\text{ C}$, separation $2r = 0.2\\text{ m} \\implies r = 0.1\\text{ m}$.\n• At midpoint, $\\vec{E}_1$ due to $+q_1$ is directed towards $q_2$. $\\vec{E}_2$ due to $-q_2$ is also directed towards $q_2$.\n• $E_1 = \\frac{1}{4\\pi \\varepsilon_0}\\frac{q_1}{r^2} = \\frac{9 \\times 10^9 \\times 2 \\times 10^{-6}}{(0.1)^2} = 1.8 \\times 10^6\\text{ N/C}$.\n• $E_2 = \\frac{9 \\times 10^9 \\times 2 \\times 10^{-6}}{(0.1)^2} = 1.8 \\times 10^6\\text{ N/C}$.\n• Net Field: $E_{net} = E_1 + E_2 = 3.6 \\times 10^6\\text{ N/C}$ directed towards the negative charge.",
       "formula": "E_{net} = E_1 + E_2 = 3.6 \\times 10^6\\text{ N/C}",
       "telugu_hint": "rendu kshetraal directionlu oke vaipu (run charge vaipu) untayi, kabatti koodaali: 1.8 + 1.8 = $3.6 \\times 10^6\\text{ N/C}$.",

@@ -1,0 +1,314 @@
+rules_version = '2';
+
+// ===============================================================
+// Assumed Data Model
+// ===============================================================
+//
+// This security rules file assumes the following data structures:
+//
+// Collection: users
+// Document ID: {userId} (matches request.auth.uid)
+// Fields:
+//   - name: string (required, 1-60 chars) - User's display name or nickname
+//   - email: string (required, 3-254 chars, valid email format) - User's email
+//   - photoURL: string (optional/nullable, max 2048 chars, valid http/https URL or empty)
+//   - targetAim: string (required, 1-50 chars) - Student target board exam score (e.g., '60/60 Topper')
+//   - createdAt: timestamp (required, immutable on update) - Account creation timestamp
+//   - updatedAt: timestamp (required, must be recent on update) - Profile last updated timestamp
+//   - uid: string (optional, 1-128 chars, immutable and must match userId)
+//   - theme: string (optional, 'dark' or 'light') - UI theme preference
+//
+// Subcollection: users/{userId}/data
+// Document ID: progress
+// Fields:
+//   - xp: int (required, >= 0 and <= 10,000,000) - Total gamified experience points
+//   - streak: map (required, keys: current, highest, optional lastDate)
+//       - current: int (required, >= 0 and <= 36500)
+//       - highest: int (required, >= 0 and <= 36500)
+//       - lastDate: string (optional/nullable, YYYY-MM-DD format or empty)
+//   - mastered: list (required, <= 2000 string question IDs) - "Got it" questions list
+//   - revise: list (required, <= 2000 string question IDs) - "Revise Again" questions list
+//   - bookmarks: list (required, <= 2000 string question IDs) - Starred bookmarks list
+//   - badges: list (optional, <= 100 string badge keys) - Unlocked achievement badges
+//   - updatedAt: timestamp (required, must be recent) - Last sync timestamp
+//
+// Document ID: quiz_history (when stored as a single document)
+// Fields:
+//   - history: list of maps (optional, <= 500 quiz entries)
+//   - quizzes: list of maps (optional, <= 500 quiz entries)
+//   - results: list of maps (optional, <= 500 quiz entries)
+//   - totalQuizzes: int (optional, >= 0 and <= 100,000)
+//   - averageScore: number (optional, 0-100)
+//   - highestScore: int (optional, 0-1000)
+//   - lastQuiz: map (optional, summary of last attempted quiz)
+//   - updatedAt: timestamp (required, must be recent)
+//
+// Subcollection: users/{userId}/quiz_history OR users/{userId}/data/quiz_history/items
+// Document ID: {quizId} (individual quiz attempt records)
+// Fields:
+//   - quizId: string (optional, max 100 chars)
+//   - score: int (required, >= 0 and <= 1000)
+//   - totalQuestions: int (optional, > 0 and <= 1000)
+//   - total: int (optional, > 0 and <= 1000)
+//   - subject: string (optional, max 50 chars)
+//   - chapterId: string (optional, max 50 chars)
+//   - percentage: number (optional, 0-100)
+//   - earnedXP: int (optional, >= 0 and <= 10,000)
+//   - answersLog: list (optional, <= 100 question answer logs)
+//   - answers: list (optional, <= 100 items)
+//   - completedAt: timestamp (optional, immutable on update)
+//   - createdAt: timestamp (optional, immutable on update)
+//
+// ===============================================================
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ===============================================================
+    // Default Deny Root
+    // ===============================================================
+    // Deny all reads and writes across the entire database by default.
+    // Explicit grants are provided only to authorized document owners.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // ===============================================================
+    // Standard Helper Functions
+    // ===============================================================
+
+    // Check if the user is authenticated with Firebase Auth
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Check if the authenticated user owns the document path
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Validate required fields exist in request resource
+    function hasRequiredFields(fields) {
+      return request.resource.data.keys().hasAll(fields);
+    }
+
+    // Validate request resource has ONLY explicitly permitted fields
+    function hasOnlyAllowedFields(fields) {
+      return request.resource.data.keys().hasOnly(fields);
+    }
+
+    // Ensure specified immutable fields are untouched on update
+    function areImmutableFieldsUnchanged(fields) {
+      return !request.resource.data.diff(resource.data).affectedKeys().hasAny(fields);
+    }
+
+    // Validate string length within specified bounds
+    function validStringLength(field, minLen, maxLen) {
+      return request.resource.data[field] is string &&
+        request.resource.data[field].size() >= minLen &&
+        request.resource.data[field].size() <= maxLen;
+    }
+
+    // Validate optional string field
+    function isValidOptionalString(field, minLen, maxLen) {
+      return !(field in request.resource.data) ||
+        (request.resource.data[field] is string &&
+         request.resource.data[field].size() >= minLen &&
+         request.resource.data[field].size() <= maxLen);
+    }
+
+    // Validate standard HTTP / HTTPS URL format
+    function isValidUrl(url) {
+      return url is string &&
+        (url.matches('^https://.*') || url.matches('^http://.*'));
+    }
+
+    // Validate RFC 5322 compliant email string format
+    function isValidEmail(email) {
+      return email is string &&
+        email.matches('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$');
+    }
+
+    // Validate that a timestamp is recent (within past 10 minutes or 1 minute into the future for clock skew)
+    function isRecent(time) {
+      return time is timestamp &&
+        time > request.time - duration.value(10, 'm') &&
+        time <= request.time + duration.value(1, 'm');
+    }
+
+    // ===============================================================
+    // Domain Validators (Enforced on BOTH Create and Update)
+    // ===============================================================
+
+    // Validate User Profile Document (/users/{userId})
+    function isValidUser(data, userId) {
+      return hasRequiredFields(['name', 'email', 'targetAim', 'createdAt', 'updatedAt']) &&
+        hasOnlyAllowedFields(['name', 'email', 'photoURL', 'targetAim', 'createdAt', 'updatedAt', 'uid', 'theme']) &&
+        data.name is string &&
+        data.name.size() >= 1 &&
+        data.name.size() <= 60 &&
+        data.email is string &&
+        data.email.size() >= 3 &&
+        data.email.size() <= 254 &&
+        isValidEmail(data.email) &&
+        data.targetAim is string &&
+        data.targetAim.size() >= 1 &&
+        data.targetAim.size() <= 50 &&
+        (!('photoURL' in data) || data.photoURL == null || (data.photoURL is string && data.photoURL.size() <= 2048 && (data.photoURL.size() == 0 || isValidUrl(data.photoURL)))) &&
+        (!('uid' in data) || (data.uid is string && data.uid == userId)) &&
+        (!('theme' in data) || (data.theme is string && data.theme in ['dark', 'light'])) &&
+        data.createdAt is timestamp &&
+        data.updatedAt is timestamp &&
+        isRecent(data.updatedAt);
+    }
+
+    // Validate Progress Document (/users/{userId}/data/progress)
+    function isValidProgress(data) {
+      return hasRequiredFields(['xp', 'streak', 'mastered', 'revise', 'bookmarks', 'updatedAt']) &&
+        hasOnlyAllowedFields(['xp', 'streak', 'mastered', 'revise', 'bookmarks', 'badges', 'updatedAt']) &&
+        data.xp is int &&
+        data.xp >= 0 &&
+        data.xp <= 10000000 &&
+        data.streak is map &&
+        data.streak.keys().hasAll(['current', 'highest']) &&
+        data.streak.keys().hasOnly(['current', 'highest', 'lastDate']) &&
+        data.streak.current is int &&
+        data.streak.current >= 0 &&
+        data.streak.current <= 36500 &&
+        data.streak.highest is int &&
+        data.streak.highest >= 0 &&
+        data.streak.highest <= 36500 &&
+        (!('lastDate' in data.streak) || data.streak.lastDate == null || (data.streak.lastDate is string && data.streak.lastDate.size() <= 10 && (data.streak.lastDate.size() == 0 || data.streak.lastDate.matches('^\\d{4}-\\d{2}-\\d{2}$')))) &&
+        data.mastered is list &&
+        data.mastered.size() <= 2000 &&
+        data.revise is list &&
+        data.revise.size() <= 2000 &&
+        data.bookmarks is list &&
+        data.bookmarks.size() <= 2000 &&
+        (!('badges' in data) || (data.badges is list && data.badges.size() <= 100)) &&
+        data.updatedAt is timestamp &&
+        isRecent(data.updatedAt);
+    }
+
+    // Validate Quiz History Document (/users/{userId}/data/quiz_history)
+    function isValidQuizHistoryDoc(data) {
+      return hasRequiredFields(['updatedAt']) &&
+        hasOnlyAllowedFields(['history', 'quizzes', 'results', 'updatedAt', 'lastQuiz', 'totalQuizzes', 'averageScore', 'highestScore']) &&
+        data.updatedAt is timestamp &&
+        isRecent(data.updatedAt) &&
+        (!('history' in data) || (data.history is list && data.history.size() <= 500)) &&
+        (!('quizzes' in data) || (data.quizzes is list && data.quizzes.size() <= 500)) &&
+        (!('results' in data) || (data.results is list && data.results.size() <= 500)) &&
+        (!('totalQuizzes' in data) || (data.totalQuizzes is int && data.totalQuizzes >= 0 && data.totalQuizzes <= 100000)) &&
+        (!('averageScore' in data) || ((data.averageScore is int || data.averageScore is float) && data.averageScore >= 0 && data.averageScore <= 100)) &&
+        (!('highestScore' in data) || (data.highestScore is int && data.highestScore >= 0 && data.highestScore <= 1000)) &&
+        (!('lastQuiz' in data) || (data.lastQuiz is map && data.lastQuiz.keys().hasOnly(['quizId', 'score', 'total', 'subject', 'timestamp', 'date', 'percentage', 'earnedXP'])));
+    }
+
+    // Validate Individual Quiz Result Document
+    function isValidQuizResultDoc(data) {
+      return hasOnlyAllowedFields([
+          'quizId', 'score', 'totalQuestions', 'total', 'subject', 'chapterId',
+          'percentage', 'earnedXP', 'answersLog', 'answers', 'completedAt', 'createdAt'
+        ]) &&
+        ('score' in data) &&
+        data.score is int &&
+        data.score >= 0 &&
+        data.score <= 1000 &&
+        (!('totalQuestions' in data) || (data.totalQuestions is int && data.totalQuestions > 0 && data.totalQuestions <= 1000)) &&
+        (!('total' in data) || (data.total is int && data.total > 0 && data.total <= 1000)) &&
+        (!('subject' in data) || (data.subject is string && data.subject.size() <= 50)) &&
+        (!('chapterId' in data) || (data.chapterId is string && data.chapterId.size() <= 50)) &&
+        (!('percentage' in data) || ((data.percentage is int || data.percentage is float) && data.percentage >= 0 && data.percentage <= 100)) &&
+        (!('earnedXP' in data) || (data.earnedXP is int && data.earnedXP >= 0 && data.earnedXP <= 10000)) &&
+        (!('answersLog' in data) || (data.answersLog is list && data.answersLog.size() <= 100)) &&
+        (!('answers' in data) || (data.answers is list && data.answers.size() <= 100)) &&
+        (('completedAt' in data && data.completedAt is timestamp) || ('createdAt' in data && data.createdAt is timestamp));
+    }
+
+    // ===============================================================
+    // Collection Rules
+    // ===============================================================
+
+    // User Profile Documents
+    // Path: /users/{userId}
+    match /users/{userId} {
+      // Strictly owner-only read. Prevents PII leaks (No blanket isAuthenticated read).
+      allow read: if isOwner(userId);
+
+      // Create: Owner-only, must validate full schema and recent createdAt
+      allow create: if isOwner(userId) &&
+                       isValidUser(request.resource.data, userId) &&
+                       isRecent(request.resource.data.createdAt);
+
+      // Update: Owner-only, must validate full schema and ensure createdAt is immutable
+      allow update: if isOwner(userId) &&
+                       isValidUser(request.resource.data, userId) &&
+                       areImmutableFieldsUnchanged(['createdAt']);
+
+      // Delete: Owner can delete their own profile
+      allow delete: if isOwner(userId);
+
+      // User Learning Data Documents
+      // Path: /users/{userId}/data/{dataType}
+      match /data/{dataType} {
+        // Strictly owner-only read
+        allow read: if isOwner(userId);
+
+        // Create: dataType must be 'progress' or 'quiz_history', strictly validated
+        allow create: if isOwner(userId) &&
+          (
+            (dataType == 'progress' && isValidProgress(request.resource.data)) ||
+            (dataType == 'quiz_history' && isValidQuizHistoryDoc(request.resource.data))
+          );
+
+        // Update: Validator enforced to eliminate the Update Bypass vulnerability
+        allow update: if isOwner(userId) &&
+          (
+            (dataType == 'progress' && isValidProgress(request.resource.data)) ||
+            (dataType == 'quiz_history' && isValidQuizHistoryDoc(request.resource.data))
+          );
+
+        // Delete: Owner can clear their data
+        allow delete: if isOwner(userId);
+
+        // Subcollection for nested learning items (e.g., /data/quiz_history/items/{quizId})
+        match /{subCollection}/{subDocId} {
+          allow read: if isOwner(userId);
+
+          allow create: if isOwner(userId) &&
+                           isValidQuizResultDoc(request.resource.data) &&
+                           ((!('createdAt' in request.resource.data)) || isRecent(request.resource.data.createdAt)) &&
+                           ((!('completedAt' in request.resource.data)) || isRecent(request.resource.data.completedAt));
+
+          allow update: if isOwner(userId) &&
+                           isValidQuizResultDoc(request.resource.data) &&
+                           areImmutableFieldsUnchanged(['createdAt', 'completedAt']);
+
+          allow delete: if isOwner(userId);
+        }
+      }
+
+      // Quiz History Subcollection (Direct subcollection under user)
+      // Path: /users/{userId}/quiz_history/{quizId}
+      match /quiz_history/{quizId} {
+        // Strictly owner-only read
+        allow read: if isOwner(userId);
+
+        // Create: Owner-only, validated quiz result document with recent timestamp
+        allow create: if isOwner(userId) &&
+                         isValidQuizResultDoc(request.resource.data) &&
+                         ((!('createdAt' in request.resource.data)) || isRecent(request.resource.data.createdAt)) &&
+                         ((!('completedAt' in request.resource.data)) || isRecent(request.resource.data.completedAt));
+
+        // Update: Owner-only, validated quiz result document with immutable timestamps
+        allow update: if isOwner(userId) &&
+                         isValidQuizResultDoc(request.resource.data) &&
+                         areImmutableFieldsUnchanged(['createdAt', 'completedAt']);
+
+        // Delete: Owner can delete their quiz records
+        allow delete: if isOwner(userId);
+      }
+    }
+  }
+}

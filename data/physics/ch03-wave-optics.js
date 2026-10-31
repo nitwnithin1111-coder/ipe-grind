@@ -13,7 +13,7 @@ window.IPE_DATA.chapters["phy-ch03"] = {
     {
       "title": "Huygens Wave Theory & Refraction",
       "formula": "\\frac{\\sin i}{\\sin r} = \\frac{v_1}{v_2} = \\frac{\\mu_2}{\\mu_1}",
-      "symbols": "v_1, $v_2 = \\text{Speeds in media 1 and 2}$",
+      "symbols": "$v_1, v_2 = \\text{Speeds in media 1 and 2}$",
       "units": "$\\text{m/s}$",
       "tip": "Frequency remains unchanged during refraction."
     },
@@ -139,9 +139,9 @@ window.IPE_DATA.chapters["phy-ch03"] = {
       "question": "Prove that the reflected and refracted rays are mutually perpendicular at Brewster's angle.",
       "answer": "1. By Snell's Law: $\\mu = \\frac{\\sin i_p}{\\sin r}$.\n2. By Brewster's Law: $\\mu = \\tan i_p = \\frac{\\sin i_p}{\\cos i_p}$.\n3. Equating both: $\\frac{\\sin i_p}{\\sin r} = \\frac{\\sin i_p}{\\cos i_p} \\implies \\sin r = \\cos i_p$.\n4. We know $\\cos i_p = \\sin(90^\\circ - i_p) \\implies r = 90^\\circ - i_p$.\n5. Therefore: $i_p + r = 90^\\circ$. Hence, angle between reflected and refracted rays is $180^\\circ - (i_p + r) = 90^\\circ$.",
       "formula": "i_p + r = 90^\\circ",
-      "telugu_hint": "$\\tan i_p = \\mu$ and snel law polchite i_p + r = $90^\\circ$ ani vasthundi.",
+      "telugu_hint": "$\\tan i_p = \\mu$ and snel law polchite $i_p + r = 90^\\circ$ ani vasthundi.",
       "source_check": "verified",
-      "tenglish_hint": "$\\tan i_p = \\mu$ and snel law polchite i_p + r = $90^\\circ$ ani vasthundi."
+      "tenglish_hint": "$\\tan i_p = \\mu$ and snel law polchite $i_p + r = 90^\\circ$ ani vasthundi."
     },
     {
       "id": "phy-ch03-q007",
@@ -151,7 +151,7 @@ window.IPE_DATA.chapters["phy-ch03"] = {
       "marks": 4,
       "important": true,
       "pyq": "TS IPE High-Yield ⭐",
-      "question": "In Young's experiment, slits are separated by 0.28 mm and screen is placed 1.4 m away. Distance of 4th bright fringe from center is 1.2 cm. Calculate the wavelength of light.",
+      "question": "In Young's experiment, slits are separated by $0.28\\text{ mm}$ and screen is placed $1.4\\text{ m}$ away. Distance of 4th bright fringe from center is $1.2\\text{ cm}$. Calculate the wavelength of light.",
       "answer": "• Given: $d = 0.28 \\times 10^{-3} \\text{ m}$, $D = 1.4 \\text{ m}$, $x_4 = 1.2 \\times 10^{-2} \\text{ m}$, $n = 4$.\n• Formula: $x_n = \\frac{n\\lambda D}{d} \\implies \\lambda = \\frac{x_4 d}{4D}$\n• Calculation: $\\lambda = \\frac{1.2 \\times 10^{-2} \\times 0.28 \\times 10^{-3}}{4 \\times 1.4} = \\frac{0.336 \\times 10^{-5}}{5.6} = 6 \\times 10^{-7} \\text{ m} = 6000 \\text{ Å}$.\n• Result: $\\lambda = 600 \\text{ nm}$.",
       "formula": "\\lambda = \\frac{x_4 d}{4D} = 6000 \\text{ Å}",
       "telugu_hint": "$\\lambda = \\frac{x_4 d}{4D} = 600\\text{ nm}$.",

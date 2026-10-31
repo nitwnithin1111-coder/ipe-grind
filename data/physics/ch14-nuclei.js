@@ -15,14 +15,14 @@ window.IPE_DATA.chapters["phy-ch14"] = {
       "formula": "R = R_0 A^{1/3} \\; (R_0 \\approx 1.2 \\times 10^{-15}\\text{ m}), \\quad \\rho_{nuclear} \\approx 2.3 \\times 10^{17} \\text{ kg/m}^3",
       "symbols": "$A = \\text{Mass number}$",
       "units": "$\\text{meter (m), kg/m}^3$",
-      "tip": "Nuclear density is independent of mass number A; constant for all nuclei."
+      "tip": "Nuclear density is independent of mass number $A$; constant for all nuclei."
     },
     {
       "title": "Mass Defect & Binding Energy",
       "formula": "\\Delta m = [Z m_p + (A - Z) m_n] - M, \\quad E_b = \\Delta m \\cdot c^2 = \\Delta m (\\text{in amu}) \\times 931.5 \\text{ MeV}",
       "symbols": "$\\Delta m = \\text{Mass defect}$, $E_{bn} = E_b / A = \\text{Binding energy per nucleon}$",
       "units": "$\\text{MeV}$",
-      "tip": "E_bn has maximum value of 8.75 MeV/nucleon for Iron-56 (most stable nucleus)."
+      "tip": "$E_{bn}$ has maximum value of $8.75\\text{ MeV/nucleon}$ for Iron-56 (most stable nucleus)."
     },
     {
       "title": "Radioactive Decay Law",
@@ -86,11 +86,11 @@ window.IPE_DATA.chapters["phy-ch14"] = {
       "important": true,
       "pyq": "TS IPE High-Yield ⭐",
       "question": "Explain the principle and working of a nuclear reactor with the help of a neat labeled diagram.",
-      "answer": "1. **Principle**:\n• Based on sustained **controlled nuclear fission chain reaction** of Uranium-235 by slow (thermal) neutrons, releasing enormous energy according to $E = \\Delta m c^2$.\n\n2. **Main Components of a Nuclear Reactor**:\n• **(a) Nuclear Fuel**: Fissionable materials such as enriched Uranium ($^{235}_{92}\\text{U}$) or Plutonium ($^{239}_{94}\\text{Pu}$) packed in cylindrical rods.\n• **(b) Moderator**: Slows down high-energy fast neutrons (~2 MeV) to thermal energies (~0.025 eV). Common moderators: Heavy water ($\\text{D}_2\\text{O}$), Graphite, Beryllium oxide.\n• **(c) Control Rods**: Absorb excess neutrons to maintain neutron reproduction factor $k = 1$ (critical state). Made of Cadmium or Boron.\n• **(d) Coolant**: Absorbs huge heat released in the core and transfers it to the steam generator to drive turbines. Coolants: Heavy water, Liquid sodium, Pressurized water.\n• **(e) Radiation Shielding**: Heavy concrete walls (~2 m thick) and lead casing to shield operators from dangerous gamma rays and neutrons.\n\n3. **Working**:\n• Slow neutrons trigger fission in $^{235}\\text{U}$: $^{235}_{92}\\text{U} + ^1_0n \\to ^{141}_{56}\\text{Ba} + ^{92}_{36}\\text{Kr} + 3^1_0n + 200\\text{ MeV}$.\n• Released neutrons are slowed down by moderator and controlled by control rods.\n• Heat extracted by coolant turns water into high-pressure steam, rotating turbine to generate electric power.",
+      "answer": "1. **Principle**:\n• Based on sustained **controlled nuclear fission chain reaction** of Uranium-235 by slow (thermal) neutrons, releasing enormous energy according to $E = \\Delta m c^2$.\n\n2. **Main Components of a Nuclear Reactor**:\n• **(a) Nuclear Fuel**: Fissionable materials such as enriched Uranium ($^{235}_{92}\\text{U}$) or Plutonium ($^{239}_{94}\\text{Pu}$) packed in cylindrical rods.\n• **(b) Moderator**: Slows down high-energy fast neutrons (~$2\\text{ MeV}$) to thermal energies (~$0.025\\text{ eV}$). Common moderators: Heavy water ($\\text{D}_2\\text{O}$), Graphite, Beryllium oxide.\n• **(c) Control Rods**: Absorb excess neutrons to maintain neutron reproduction factor $k = 1$ (critical state). Made of Cadmium or Boron.\n• **(d) Coolant**: Absorbs huge heat released in the core and transfers it to the steam generator to drive turbines. Coolants: Heavy water, Liquid sodium, Pressurized water.\n• **(e) Radiation Shielding**: Heavy concrete walls (~$2\\text{ m}$ thick) and lead casing to shield operators from dangerous gamma rays and neutrons.\n\n3. **Working**:\n• Slow neutrons trigger fission in $^{235}\\text{U}$: $^{235}_{92}\\text{U} + ^1_0n \\to ^{141}_{56}\\text{Ba} + ^{92}_{36}\\text{Kr} + 3^1_0n + 200\\text{ MeV}$.\n• Released neutrons are slowed down by moderator and controlled by control rods.\n• Heat extracted by coolant turns water into high-pressure steam, rotating turbine to generate electric power.",
       "formula": "^{235}_{92}\\text{U} + ^1_0n \\to \\text{Fission Fragments} + 2.5 n + 200\\text{ MeV}",
-      "telugu_hint": "nyookliyr riyaaktr bhaagaalu: 1. imdhnm (U-235), 2. maadretr (bhaarjlm D_2O), 3. niymtrn kddeelu (kaadmiym, boraan), 4. sheetleekaari (drv sodiym), 5. rkshn kvchm (kaamkreet).",
+      "telugu_hint": "nyookliyr riyaaktr bhaagaalu: 1. imdhnm (U-235), 2. maadretr (bhaarjlm $\\text{D}_2\\text{O}$), 3. niymtrn kddeelu (kaadmiym, boraan), 4. sheetleekaari (drv sodiym), 5. rkshn kvchm (kaamkreet).",
       "source_check": "verified",
-      "tenglish_hint": "nyookliyr riyaaktr bhaagaalu: 1. imdhnm (U-235), 2. maadretr (bhaarjlm D_2O), 3. niymtrn kddeelu (kaadmiym, boraan), 4. sheetleekaari (drv sodiym), 5. rkshn kvchm (kaamkreet)."
+      "tenglish_hint": "nyookliyr riyaaktr bhaagaalu: 1. imdhnm (U-235), 2. maadretr (bhaarjlm $\\text{D}_2\\text{O}$), 3. niymtrn kddeelu (kaadmiym, boraan), 4. sheetleekaari (drv sodiym), 5. rkshn kvchm (kaamkreet)."
     },
     {
       "id": "phy-ch14-q004",

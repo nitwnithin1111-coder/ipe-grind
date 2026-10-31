@@ -27,9 +27,9 @@ window.IPE_DATA.chapters["phy-ch06"] = {
     {
       "title": "Wheatstone Bridge Balancing Condition",
       "formula": "\\frac{P}{Q} = \\frac{R}{S}",
-      "symbols": "P, Q, R, $S = \\text{Four resistances arranged in quadrilateral}$",
+      "symbols": "$P, Q, R, S = \\text{Four resistances arranged in quadrilateral}$",
       "units": "$\\Omega$",
-      "tip": "When balanced, galvanometer current I_g = 0; no deflection."
+      "tip": "When balanced, galvanometer current $I_g = 0$; no deflection."
     },
     {
       "title": "Potentiometer - Comparison of EMFs & Internal Resistance",
@@ -41,7 +41,7 @@ window.IPE_DATA.chapters["phy-ch06"] = {
     {
       "title": "Temperature Coefficient of Resistance",
       "formula": "\\alpha = \\frac{R_2 - R_1}{R_1(t_2 - t_1)} = \\frac{\\Delta R}{R_0 \\Delta t}",
-      "symbols": "R_1, $R_2 = \\text{Resistances at temperatures } t_1$, t_2, $\\Delta t = \\text{Temperature rise in } ^\\circ\\text{C}$",
+      "symbols": "$R_1, R_2 = \\text{Resistances at temperatures } t_1, t_2$, $\\Delta t = \\text{Temperature rise in } ^\\circ\\text{C}$",
       "units": "$\\text{K}^{-1} \\text{ or } ^\\circ\\text{C}^{-1}$",
       "tip": "$\\alpha$ is positive for metals (resistance increases with $T$), but negative for semiconductors and carbon."
     },
@@ -137,7 +137,7 @@ window.IPE_DATA.chapters["phy-ch06"] = {
       "marks": 4,
       "important": true,
       "pyq": "TS IPE High-Yield ⭐",
-      "question": "In a potentiometer arrangement, a cell of EMF 1.25 V gives a balance point at 35.0 cm length of the wire. If the cell is replaced by another cell and the balance point shifts to 63.0 cm, what is the EMF of the second cell?",
+      "question": "In a potentiometer arrangement, a cell of EMF $1.25\\text{ V}$ gives a balance point at $35.0\\text{ cm}$ length of the wire. If the cell is replaced by another cell and the balance point shifts to $63.0\\text{ cm}$, what is the EMF of the second cell?",
       "answer": "• Given: $E_1 = 1.25 \\text{ V}$, $l_1 = 35.0 \\text{ cm}$, $l_2 = 63.0 \\text{ cm}$.\n• Formula: $\\frac{E_1}{E_2} = \\frac{l_1}{l_2} \\implies E_2 = E_1 \\left(\\frac{l_2}{l_1}\\right)$\n• Calculation:\n$E_2 = 1.25 \\times \\left(\\frac{63.0}{35.0}\\right) = 1.25 \\times 1.8 = 2.25 \\text{ V}$.\n• Result: $E_2 = 2.25 \\text{ V}$.",
       "formula": "E_2 = E_1 \\left(\\frac{l_2}{l_1}\\right) = 2.25 \\text{ V}",
       "telugu_hint": "$E_2 = 1.25 \\times \\frac{63}{35} = 2.25\\text{ V}$.",
@@ -153,17 +153,17 @@ window.IPE_DATA.chapters["phy-ch06"] = {
       "important": false,
       "question": "A wire of resistance $R$ is stretched to double its original length. Its new resistance will be:",
       "options": [
-        "A) 2R",
-        "B) 4R",
-        "C) R/2",
-        "D) R/4"
+        "A) $2R$",
+        "B) $4R$",
+        "C) $R/2$",
+        "D) $R/4$"
       ],
       "correctOption": 1,
-      "answer": "Correct Answer: B) 4R.\n• Volume remains constant ($A L = A' L'$). If $L' = 2L$, then $A' = A/2$.\n• $R' = \\rho \\frac{L'}{A'} = \\rho \\frac{2L}{A/2} = 4\\left(\\rho \\frac{L}{A}\\right) = 4R$.",
+      "answer": "Correct Answer: B) $4R$.\n• Volume remains constant ($A L = A' L'$). If $L' = 2L$, then $A' = A/2$.\n• $R' = \\rho \\frac{L'}{A'} = \\rho \\frac{2L}{A/2} = 4\\left(\\rho \\frac{L}{A}\\right) = 4R$.",
       "formula": "R' = n^2 R = (2)^2 R = 4R",
-      "telugu_hint": "length rettimpu cheste addukot vaishaalym sgmvutumdi, resistance 4 times (4R) peruguthundi.",
+      "telugu_hint": "length rettimpu cheste addukot vaishaalym sgmvutumdi, resistance 4 times ($4R$) peruguthundi.",
       "source_check": "verified",
-      "tenglish_hint": "length rettimpu cheste addukot vaishaalym sgmvutumdi, resistance 4 times (4R) peruguthundi."
+      "tenglish_hint": "length rettimpu cheste addukot vaishaalym sgmvutumdi, resistance 4 times ($4R$) peruguthundi."
     }
   ]
 };

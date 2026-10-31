@@ -14,9 +14,66 @@ window.IPE_FEED = (function() {
 
   let debounceTimer = null;
 
+  // Preprocessor for any un-delimited scientific notation or raw LaTeX symbols in text nodes
+  function preprocessMathText(node) {
+    if (!node) return;
+    if (node.nodeType === 3) { // Text node
+      const val = node.nodeValue;
+      if (!val || val.length < 3) return;
+      // Quick check if text might have unrendered scientific/math patterns
+      if (/[xX]\s*10\^|10\^[-+]?\d+|g\/cm\^3|cm\^3|mol\^-1|\\[a-zA-Z]+|\bN_A\b|Delta\s*[HV]_mix/.test(val)) {
+        // Protect existing math blocks
+        const mathBlocks = [];
+        let tokenized = val.replace(/\$\$[\s\S]*?\$\$|\$[\s\S]*?\$/g, (m) => {
+          mathBlocks.push(m);
+          return `___MATH_BLOCK_${mathBlocks.length - 1}___`;
+        });
+
+        // Convert raw LaTeX commands
+        tokenized = tokenized.replace(/(\b|(?<=\s)|(?<=[(\[]))(\d*\\(?:lambda|nu|mu|alpha|beta|gamma|Delta|delta|theta|omega|pi|approx|pm)(?:\s*[\/\*]\s*\d+)?)(?=[)\].,;:\s]|$)/g, '$$$2$$');
+
+        // Convert scientific notation with units: 4.077 x 10^-8 cm, 6.022 x 10^23 mol^-1
+        tokenized = tokenized.replace(/\b(\d+(?:\.\d+)?)\s*[xX]\s*10\^([-+]?\d+)(?:\s*(cm\^3|g\/cm\^3|g\s*cm\^-3|mol\^-1|s\^-1|m\/s|m\/s\^2|m\^2|m\^3|kg\s*m\^-3|cm|pm|nm|m|g|kg|mol|s|Hz|u|atoms|molecules|unit cells))?\b/g, (match, coeff, exp, unit) => {
+          let u = unit ? `\\text{ ${unit.replace('g/cm^3', 'g/cm}^3').replace('mol^-1', 'mol}^{-1}').replace('s^-1', 's}^{-1}').replace('cm^3', 'cm}^3')}` : '';
+          return `$${coeff} \\times 10^{${exp}}${u}$`;
+        });
+
+        // Convert isolated units with powers: 10.5 g/cm^3, 28.889 cm^3
+        tokenized = tokenized.replace(/\b(\d+(?:\.\d+)?)\s*(g\/cm\^3|cm\^3|mol\^-1|s\^-1)\b/g, (match, v, u) => {
+          const uTex = u === 'g/cm^3' ? '\\text{ g/cm}^3' : u === 'mol^-1' ? '\\text{ mol}^{-1}' : u === 'cm^3' ? '\\text{ cm}^3' : `\\text{ ${u}}`;
+          return `$${v}${uTex}$`;
+        });
+
+        // Convert common constants
+        tokenized = tokenized.replace(/\bN_A\b/g, '$N_A$');
+        tokenized = tokenized.replace(/\bDelta H_mix\b/g, '$\\Delta H_{\\text{mix}}$');
+        tokenized = tokenized.replace(/\bDelta V_mix\b/g, '$\\Delta V_{\\text{mix}}$');
+
+        tokenized = tokenized.replace(/___MATH_BLOCK_(\d+)___/g, (m, idx) => mathBlocks[parseInt(idx, 10)]);
+
+        if (tokenized !== val) {
+          node.nodeValue = tokenized;
+        }
+      }
+    } else if (node.nodeType === 1) { // Element node
+      if (node.classList && (node.classList.contains('katex') || node.classList.contains('card-formula-math'))) return;
+      if (['SCRIPT', 'STYLE', 'TEXTAREA', 'INPUT'].includes(node.tagName)) return;
+      let child = node.firstChild;
+      while (child) {
+        preprocessMathText(child);
+        child = child.nextSibling;
+      }
+    }
+  }
+
   // Lazy KaTeX rendering helper (only runs on visible card elements)
   function renderMath(element) {
     if (!element) return;
+    try {
+      preprocessMathText(element);
+    } catch (e) {
+      // Non-blocking fallback
+    }
     if (window.renderMathInElement) {
       try {
         window.renderMathInElement(element, {
@@ -31,6 +88,8 @@ window.IPE_FEED = (function() {
       }
     }
   }
+
+  window.IPE_RENDER_MATH = renderMath;
 
   // Get all questions from currently registered chapters in window.IPE_DATA
   function getAllLoadedQuestions() {
@@ -191,6 +250,12 @@ window.IPE_FEED = (function() {
           <button class="vcard-tool-btn ai-explain" onclick="window.IPE_AI.explainQuestion('${q.id}')" title="Explain concept with AI Tutor">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><rect width="16" height="12" x="4" y="8" rx="2"/><circle cx="9" cy="14" r="1"/><circle cx="15" cy="14" r="1"/></svg>
             <span>Explain with AI</span>
+          </button>
+
+          
+          <button class="vcard-tool-btn concept-btn" onclick="window.IPE_CONCEPTS.openModal()" title="View Visual Concept Masterclass" style="border: 1px solid rgba(245, 158, 11, 0.4); color: #fbbf24;">
+            <span style="font-size: 13px;">💡</span>
+            <span>Concept</span>
           </button>
 
           <div class="vcard-tools-right">

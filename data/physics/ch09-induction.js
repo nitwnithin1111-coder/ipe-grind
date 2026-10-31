@@ -110,9 +110,9 @@ window.IPE_DATA.chapters["phy-ch09"] = {
       "question": "Derive the expression for the motional EMF induced across the ends of a conductor moving in a uniform magnetic field.",
       "answer": "1. Setup: A conducting rod $PQ$ of length $l$ moves with velocity $v$ perpendicular to a uniform magnetic field $\\vec{B}$ directed into the page on a U-shaped conducting frame.\n2. Area enclosed: Let distance of rod from base be $x$. Area $A = l x$.\n3. Magnetic Flux: $\\Phi_B = B A = B l x$.\n4. By Faraday's Law:\n$$\\varepsilon = -\\frac{d\\Phi_B}{dt} = -\\frac{d}{dt}(B l x) = -B l \\frac{dx}{dt}$$5. Since velocity $v = -\\frac{dx}{dt}$ (distance $x$ is decreasing as rod moves left):\n$$\\varepsilon = B l v$$6. Direction: By Fleming's Right Hand Rule, current flows from $Q$ to $P$.",
       "formula": "\\varepsilon = B l v",
-      "telugu_hint": "chln prerit EMF formula: $\u000barepsilon = B l v$.",
+      "telugu_hint": "chln prerit EMF formula: $\\varepsilon = B l v$.",
       "source_check": "verified",
-      "tenglish_hint": "chln prerit EMF formula: $\u000barepsilon = B l v$."
+      "tenglish_hint": "chln prerit EMF formula: $\\varepsilon = B l v$."
     },
     {
       "id": "phy-ch09-q005",

@@ -768,6 +768,20 @@ window.IPE_SIMULATORS = (function() {
       if (defaultSim) switchSimulator(defaultSim);
       else switchSimulator(activeSimulator);
 
+      if (window.IPE_RENDER_MATH) {
+        window.IPE_RENDER_MATH(modal);
+      } else if (window.renderMathInElement) {
+        try {
+          window.renderMathInElement(modal, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false }
+            ],
+            throwOnError: false
+          });
+        } catch (e) {}
+      }
+
       if (!animId && typeof window !== 'undefined' && window.requestAnimationFrame) {
         animId = requestAnimationFrame(tick);
       }

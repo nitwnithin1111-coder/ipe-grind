@@ -73,9 +73,9 @@ window.IPE_DATA.chapters["chem-ch03"] = {
       "question": "State Faraday's first and second laws of electrolysis.",
       "answer": "1. First Law: The mass ($m$) of substance deposited or liberated at any electrode during electrolysis is directly proportional to the quantity of electricity ($Q = It$) passed:\n$m \\propto Q \\implies m = ZIt$.\n2. Second Law: When the same quantity of electricity is passed through different electrolytes, the masses of substances liberated are proportional to their chemical equivalent weights:\n$\\frac{m_1}{m_2} = \\frac{E_1}{E_2}$.",
       "formula": "m = Z I t, \\quad \\frac{m_1}{m_2} = \\frac{E_1}{E_2}",
-      "telugu_hint": "phaarde 1v law: m = ZIt; 2v law: m_1/m_2 = E_1/E_2.",
+      "telugu_hint": "phaarde 1v law: $m = ZIt$; 2v law: $\\frac{m_1}{m_2} = \\frac{E_1}{E_2}$.",
       "source_check": "verified",
-      "tenglish_hint": "phaarde 1v law: m = ZIt; 2v law: m_1/m_2 = E_1/E_2."
+      "tenglish_hint": "phaarde 1v law: $m = ZIt$; 2v law: $\\frac{m_1}{m_2} = \\frac{E_1}{E_2}$."
     },
     {
       "id": "chem-ch03-q003",
@@ -124,9 +124,9 @@ window.IPE_DATA.chapters["chem-ch03"] = {
       "correctOption": 2,
       "answer": "Correct Answer: C) 3 F.\n• Reaction: $Al^{3+} + 3e^- \\to Al$. Reduction of 1 mole requires 3 moles of electrons = 3 Faradays ($3 \\times 96500 \\text{ C}$).",
       "formula": "Al^{3+} + 3e^- \\to Al \\implies 3\\text{ F}",
-      "telugu_hint": "1 mol Al^{3+} kshykrnaaniki 3 electronlu (3 phaardel charge) avsrm.",
+      "telugu_hint": "1 mol $\\text{Al}^{3+}$ kshykrnaaniki 3 electronlu (3 phaardel charge) avsrm.",
       "source_check": "verified",
-      "tenglish_hint": "1 mol Al^{3+} kshykrnaaniki 3 electronlu (3 phaardel charge) avsrm."
+      "tenglish_hint": "1 mol $\\text{Al}^{3+}$ kshykrnaaniki 3 electronlu (3 phaardel charge) avsrm."
     }
   ]
 };

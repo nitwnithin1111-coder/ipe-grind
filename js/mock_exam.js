@@ -167,7 +167,9 @@ window.IPE_MOCK = (function() {
     container.innerHTML = html;
 
     // Render KaTeX math on rendered questions
-    if (window.renderMathInElement) {
+    if (window.IPE_RENDER_MATH) {
+      window.IPE_RENDER_MATH(container);
+    } else if (window.renderMathInElement) {
       try {
         window.renderMathInElement(container, {
           delimiters: [
@@ -241,16 +243,22 @@ window.IPE_MOCK = (function() {
     }
 
     // Re-render math if opened
-    if (isAnswerKeyVisible && window.renderMathInElement) {
+    if (isAnswerKeyVisible) {
       const container = document.getElementById('mock-exam-paper-container');
       if (container) {
-        window.renderMathInElement(container, {
-          delimiters: [
-            { left: '$$', right: '$$', display: true },
-            { left: '$', right: '$', display: false }
-          ],
-          throwOnError: false
-        });
+        if (window.IPE_RENDER_MATH) {
+          window.IPE_RENDER_MATH(container);
+        } else if (window.renderMathInElement) {
+          try {
+            window.renderMathInElement(container, {
+              delimiters: [
+                { left: '$$', right: '$$', display: true },
+                { left: '$', right: '$', display: false }
+              ],
+              throwOnError: false
+            });
+          } catch (e) {}
+        }
       }
     }
   }

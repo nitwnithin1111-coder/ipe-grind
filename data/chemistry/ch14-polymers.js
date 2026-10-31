@@ -13,7 +13,7 @@ window.IPE_DATA.chapters["chem-ch14"] = {
     {
       "title": "Classification of Polymers by Synthesis",
       "formula": "\\text{Addition (Chain-growth): } n CH_2=CH_2 \\xrightarrow{\\text{catalyst}} [CH_2-CH_2]_n \\text{ (Polyethylene)}",
-      "symbols": "$\\text{Condensation (Step-growth): Monomers with bifunctional groups react eliminating small molecules (} H_2O$, HCl, $NH_3 \\text{)}$",
+      "symbols": "$\\text{Condensation (Step-growth): Monomers with bifunctional groups react eliminating small molecules (}\\text{H}_2\\text{O}, \\text{HCl}, \\text{NH}_3\\text{)}$",
       "units": "",
       "tip": "Nylon-6,6: Hexamethylenediamine + Adipic acid; Dacron: Ethylene glycol + Terephthalic acid."
     },

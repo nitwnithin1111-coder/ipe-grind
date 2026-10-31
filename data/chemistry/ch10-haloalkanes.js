@@ -22,7 +22,7 @@ window.IPE_DATA.chapters["chem-ch10"] = {
       "formula": "\\text{Wurtz-Fittig: } Ar-X + 2Na + R-X \\xrightarrow{\\text{dry ether}} Ar-R + 2NaX, \\quad \\text{Finkelstein: } R-Cl/Br + NaI \\xrightarrow{\\text{acetone}} R-I + NaX",
       "symbols": "$\\text{Swarts: } R-Cl/Br + AgF/SbF_3 \\to R-F + AgX$",
       "units": "",
-      "tip": "Chloroform is stored in closed dark brown bottles filled to the brim to prevent oxidation to poisonous phosgene (COCl_2)."
+      "tip": "Chloroform is stored in closed dark brown bottles filled to the brim to prevent oxidation to poisonous phosgene ($\\text{COCl}_2$)."
     },
     {
       "title": "Finkelstein & Swarts Reactions (Halogen Exchange)",

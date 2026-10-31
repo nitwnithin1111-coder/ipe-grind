@@ -13,7 +13,7 @@ window.IPE_DATA.chapters["chem-ch07"] = {
     {
       "title": "Haber's Process for Ammonia",
       "formula": "N_2(g) + 3H_2(g) \\rightleftharpoons 2NH_3(g), \\quad \\Delta H = -92.4 \\text{ kJ/mol}",
-      "symbols": "$\\text{Optimum conditions: } P = 200\\text{ atm}$, $T = 700\\text{ K}$, $\\text{Catalyst: Iron oxide with } K_2O$, Al_2O_3",
+      "symbols": "$\\text{Optimum conditions: } P = 200\\text{ atm}$, $T = 700\\text{ K}$, $\\text{Catalyst: Iron oxide with } \\text{K}_2\\text{O}, \\text{Al}_2\\text{O}_3$",
       "units": "$\\text{atm, K}$",
       "tip": "Exothermic and decrease in volume; Le Chatelier's principle favors high pressure and moderate temperature."
     },
@@ -80,9 +80,9 @@ window.IPE_DATA.chapters["chem-ch07"] = {
       "question": "What are interhalogen compounds? Give two examples.",
       "answer": "• Definition: Binary compounds formed by the combination of two different halogen atoms with each other ($XX'_n$, where $n = 1, 3, 5, 7$).\n• Examples: $ClF_3$ (T-shaped), $IF_7$ (Pentagonal bipyramidal).",
       "formula": "XX'_n \\; (e.g. ClF_3, IF_7)",
-      "telugu_hint": "rendu ververu haalojn prmaanuvul madhya erpde smmelnaalnu amtr haalojn smmelnaalu antaru (udaa: ClF_3, IF_7).",
+      "telugu_hint": "rendu ververu haalojn prmaanuvul madhya erpde smmelnaalnu amtr haalojn smmelnaalu antaru (udaa: $\\text{ClF}_3, \\text{IF}_7$).",
       "source_check": "verified",
-      "tenglish_hint": "rendu ververu haalojn prmaanuvul madhya erpde smmelnaalnu amtr haalojn smmelnaalu antaru (udaa: ClF_3, IF_7)."
+      "tenglish_hint": "rendu ververu haalojn prmaanuvul madhya erpde smmelnaalnu amtr haalojn smmelnaalu antaru (udaa: $\\text{ClF}_3, \\text{IF}_7$)."
     },
     {
       "id": "chem-ch07-q003",

@@ -108,7 +108,7 @@ window.IPE_QUIZ = (function() {
       <div id="quiz-instant-feedback" style="margin-top: 14px; display: none;"></div>
     `;
 
-    if (window.renderMathInElement) {
+    if (window.IPE_RENDER_MATH) window.IPE_RENDER_MATH(container); else if (window.renderMathInElement) {
       window.renderMathInElement(container, {
         delimiters: [
           { left: '$$', right: '$$', display: true },
@@ -144,7 +144,7 @@ window.IPE_QUIZ = (function() {
       </button>
     `;
 
-    if (window.renderMathInElement) {
+    if (window.IPE_RENDER_MATH) window.IPE_RENDER_MATH(feedbackBox); else if (window.renderMathInElement) {
       window.renderMathInElement(feedbackBox, {
         delimiters: [
           { left: '$$', right: '$$', display: true },
@@ -196,7 +196,7 @@ window.IPE_QUIZ = (function() {
       </div>
     `;
 
-    if (window.renderMathInElement) {
+    if (window.IPE_RENDER_MATH) window.IPE_RENDER_MATH(container); else if (window.renderMathInElement) {
       window.renderMathInElement(container, {
         delimiters: [
           { left: '$$', right: '$$', display: true },

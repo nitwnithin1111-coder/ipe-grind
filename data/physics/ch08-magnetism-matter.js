@@ -118,14 +118,14 @@ window.IPE_DATA.chapters["phy-ch08"] = {
         "A) 0",
         "B) +1",
         "C) -1",
-        "D) \\infty"
+        "D) $\\infty$"
       ],
       "correctOption": 2,
       "answer": "Correct Answer: C) -1.\n• Superconductors show perfect diamagnetism (Meissner effect), where magnetic field is completely expelled ($B = 0 \\implies \\chi = -1$).",
       "formula": "\\chi = -1 \\text{ (Meissner effect)}",
-      "telugu_hint": "ativaahkaalu smpoorn diasvbhaavaanni choopistaayi: $chi = -1$.",
+      "telugu_hint": "ativaahkaalu smpoorn diasvbhaavaanni choopistaayi: $\\chi = -1$.",
       "source_check": "verified",
-      "tenglish_hint": "ativaahkaalu smpoorn diasvbhaavaanni choopistaayi: $chi = -1$."
+      "tenglish_hint": "ativaahkaalu smpoorn diasvbhaavaanni choopistaayi: $\\chi = -1$."
     }
   ]
 };

@@ -48,7 +48,7 @@ window.IPE_DATA.chapters["phy-ch07"] = {
     {
       "title": "Force between Parallel Current-Carrying Wires",
       "formula": "\\frac{F}{L} = \\frac{\\mu_0 I_1 I_2}{2\\pi d}",
-      "symbols": "I_1, $I_2 = \\text{Currents in two wires}$, $d = \\text{Separation distance}$, $L = \\text{Length of wire}$",
+      "symbols": "$I_1, I_2 = \\text{Currents in two wires}$, $d = \\text{Separation distance}$, $L = \\text{Length of wire}$",
       "units": "$\\text{N/m}$",
       "tip": "Parallel currents in the same direction attract each other; anti-parallel currents in opposite directions repel."
     }

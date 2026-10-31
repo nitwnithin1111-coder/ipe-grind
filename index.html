@@ -21,6 +21,11 @@
   <script defer src="assets/katex/katex.min.js?v=7"></script>
   <script defer src="assets/katex/auto-render.min.js?v=7"></script>
 
+  
+  <!-- Firebase Web SDK (v10 Compat) for Google Auth & Cloud Firestore Sync -->
+  <script defer src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
   <!-- Core Styles -->
   <link rel="stylesheet" href="css/style.css?v=9">
   <link rel="stylesheet" href="css/themes.css?v=9">
@@ -50,6 +55,10 @@
           <button class="header-audio-btn" id="header-audio-btn" onclick="window.IPE_AMBIENT.openModal()" title="Binaural & Focus Audio Synthesizer" aria-label="Focus Audio">
             <span class="audio-eq-icon"><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span></span>
             <span>Focus Audio</span>
+          </button>
+          
+          <button class="header-concept-btn" onclick="window.IPE_CONCEPTS.openModal()" title="Concept Masterclasses & Deep Theory" aria-label="Deep Concepts">
+            <span>💡 Concepts</span>
           </button>
           <button class="header-blueprint-btn" onclick="window.IPE_APP.openBlueprintModal()" title="Official TS Board Blueprint & PYQ Trends" aria-label="Official Blueprint">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
@@ -935,6 +944,9 @@
             <span>📲 Download Mobile App (PWA)</span>
           </button>
 
+          
+          <!-- Google One-Tap Sign In Container -->
+          <div id="auth-google-btn-container" style="margin-bottom: var(--space-3);"></div>
           <form id="auth-profile-form" onsubmit="window.IPE_APP.saveUserProfile(event)">
             <div class="auth-form-field" style="margin-bottom: var(--space-2);">
               <label for="auth-input-name" class="profile-input-label">Student Name / Nickname</label>
@@ -1246,6 +1258,40 @@
       </div>
     </div>
 
+    
+    <!-- ==========================================
+         CONCEPT MASTERCLASS & DEEP THEORY MODAL
+         ========================================== -->
+    <div class="modal-overlay" id="concept-explorer-modal">
+      <div class="modal-sheet concept-explorer-sheet">
+        <div class="modal-header">
+          <div>
+            <div class="modal-title">💡 Concept Masterclasses & Visual Explorer</div>
+            <div style="font-size: 11px; color: var(--text-tertiary); margin-top: 2px;">Deep Intuitive Understanding • Microscopic Diagrams • Real-World Physics & Chemistry</div>
+          </div>
+          <button class="close-modal-btn" onclick="window.IPE_CONCEPTS.closeModal()">✕</button>
+        </div>
+
+        <!-- Concept List View -->
+        <div id="concept-list-view">
+          <div class="concept-sub-toggle-bar">
+            <button class="concept-sub-pill active" data-subj="all" onclick="window.IPE_CONCEPTS.setSubjectFilter('all')">All Masterclasses</button>
+            <button class="concept-sub-pill" data-subj="physics" onclick="window.IPE_CONCEPTS.setSubjectFilter('physics')">⚡ Physics</button>
+            <button class="concept-sub-pill" data-subj="chemistry" onclick="window.IPE_CONCEPTS.setSubjectFilter('chemistry')">🧪 Chemistry</button>
+          </div>
+
+          <div class="concept-cards-grid" id="concept-cards-grid">
+            <!-- Rendered by js/concepts.js -->
+          </div>
+        </div>
+
+        <!-- Concept Detail View -->
+        <div id="concept-detail-view" style="display: none; overflow-y: auto; max-height: calc(85vh - 80px);">
+          <!-- Populated by showConceptDetail() -->
+        </div>
+      </div>
+    </div>
+
     <!-- AI Tutor Chat Drawer Modal (Groq Powered) -->
     <div class="modal-overlay ai-chat-modal-overlay" id="ai-chat-modal">
       <div class="modal-sheet ai-chat-sheet">
@@ -1369,6 +1415,12 @@
   <script src="js/commute.js?v=10"></script>
   <script src="js/simulators.js?v=10"></script>
   <script src="js/mock_exam.js?v=10"></script>
+  
+  <!-- Phase 3 Architecture: Firebase Auth, Cloud Firestore & Concept Engine -->
+  <script src="js/firebase-config.js?v=11"></script>
+  <script src="js/auth.js?v=11"></script>
+  <script src="js/db.js?v=11"></script>
+  <script src="js/concepts.js?v=11"></script>
   <script src="js/app.js?v=9"></script>
 </body>
 </html>

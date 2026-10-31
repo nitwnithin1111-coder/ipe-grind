@@ -22,7 +22,7 @@ window.IPE_DATA.chapters["phy-ch15"] = {
       "formula": "\\eta_{Half-wave} = \\frac{0.406 R_L}{r_f + R_L} \\le 40.6\\%, \\quad \\eta_{Full-wave} = \\frac{0.812 R_L}{r_f + R_L} \\le 81.2\\%",
       "symbols": "$R_L = \\text{Load resistance}$, $r_f = \\text{Forward diode resistance}$",
       "units": "\\%",
-      "tip": "Full-wave ripple frequency = 2f (100 Hz for 50 Hz input); Half-wave ripple frequency = f (50 Hz)."
+      "tip": "Full-wave ripple frequency = $2f$ ($100\\text{ Hz}$ for $50\\text{ Hz}$ input); Half-wave ripple frequency = $f$ ($50\\text{ Hz}$)."
     },
     {
       "title": "Zener Diode as Voltage Regulator",
@@ -34,14 +34,14 @@ window.IPE_DATA.chapters["phy-ch15"] = {
     {
       "title": "Conductivity of Semiconductors",
       "formula": "\\sigma = e (n_e \\mu_e + n_h \\mu_h)",
-      "symbols": "n_e, $n_h = \\text{Electron and hole number densities}$, $\\mu_e$, $\\mu_h = \\text{Electron and hole mobilities}$",
+      "symbols": "$n_e, n_h = \\text{Electron and hole number densities}$, $\\mu_e, \\mu_h = \\text{Electron and hole mobilities}$",
       "units": "$\\text{S/m or } \\Omega^{-1}\\text{m}^{-1}$",
       "tip": "Electron mobility $\\mu_e$ is always greater than hole mobility $\\mu_h$ because electrons move in conduction band."
     },
     {
       "title": "Transistor Current Gain Relations",
       "formula": "I_E = I_B + I_C, \\quad \\beta = \\frac{\\alpha}{1 - \\alpha}, \\quad \\alpha = \\frac{\\beta}{1 + \\beta}",
-      "symbols": "I_E, I_B, $I_C = \\text{Emitter, Base, Collector currents}$, $\\alpha = \\text{CB gain } (<1)$, $\\beta = \\text{CE gain } (20-500)$",
+      "symbols": "$I_E, I_B, I_C = \\text{Emitter, Base, Collector currents}$, $\\alpha = \\text{CB gain } (<1)$, $\\beta = \\text{CE gain } (20-500)$",
       "units": "$\\text{Dimensionless ratios}$",
       "tip": "In a transistor, base is made extremely thin ($<1\\mu\\text{m}$) and lightly doped so that base current $I_B$ is only $1-5\\%$ of $I_E$."
     }
@@ -86,7 +86,7 @@ window.IPE_DATA.chapters["phy-ch15"] = {
       "important": true,
       "pyq": "TS IPE High-Yield ⭐",
       "question": "Explain the working of a Full-Wave Rectifier with a neat circuit diagram and input/output waveforms.",
-      "answer": "1. **Definition**: A rectifier that converts both positive and negative half-cycles of AC into unidirectional pulsating DC.\n2. **Circuit**: Center-tapped step-down transformer, two p-n junction diodes $D_1, D_2$, and load resistance $R_L$.\n3. **Working**:\n• **During positive half-cycle**: Terminal $A$ is positive, $B$ is negative. Diode $D_1$ is forward biased (conducts) and $D_2$ is reverse biased (does not conduct). Current flows through $R_L$ from $X$ to $Y$.\n• **During negative half-cycle**: Terminal $A$ is negative, $B$ is positive. Diode $D_2$ is forward biased (conducts) and $D_1$ is reverse biased. Current flows through $R_L$ in the same direction from $X$ to $Y$.\n4. **Efficiency**: $\\eta_{max} = 81.2\\%$. Ripple frequency = $2f$ (100 Hz for 50 Hz input).",
+      "answer": "1. **Definition**: A rectifier that converts both positive and negative half-cycles of AC into unidirectional pulsating DC.\n2. **Circuit**: Center-tapped step-down transformer, two p-n junction diodes $D_1, D_2$, and load resistance $R_L$.\n3. **Working**:\n• **During positive half-cycle**: Terminal $A$ is positive, $B$ is negative. Diode $D_1$ is forward biased (conducts) and $D_2$ is reverse biased (does not conduct). Current flows through $R_L$ from $X$ to $Y$.\n• **During negative half-cycle**: Terminal $A$ is negative, $B$ is positive. Diode $D_2$ is forward biased (conducts) and $D_1$ is reverse biased. Current flows through $R_L$ in the same direction from $X$ to $Y$.\n4. **Efficiency**: $\\eta_{max} = 81.2\\%$. Ripple frequency = $2f$ ($100\\text{ Hz}$ for $50\\text{ Hz}$ input).",
       "formula": "\\eta_{max} = 81.2\\%, \\quad f_{ripple} = 2f",
       "telugu_hint": "poorn trmg rektiphyr rendu ardhbhaagaalnu oke directionlo DC gaa maarustumdi. maximum dksht 81.2%.",
       "source_check": "verified",

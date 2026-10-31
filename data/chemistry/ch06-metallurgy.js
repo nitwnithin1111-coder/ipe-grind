@@ -110,9 +110,9 @@ window.IPE_DATA.chapters["chem-ch06"] = {
       "correctOption": 1,
       "answer": "Correct Answer: B) $Cu_2S + FeS$.\n• Copper matte is a molten mixture of cuprous sulfide ($Cu_2S$) and ferrous sulfide ($FeS$).",
       "formula": "\\text{Copper Matte} = Cu_2S + FeS",
-      "telugu_hint": "raagi maat amte Cu_2S and FeS l mishrmm.",
+      "telugu_hint": "raagi maat amte $\\text{Cu}_2\\text{S}$ and $\\text{FeS}$ l mishrmm.",
       "source_check": "verified",
-      "tenglish_hint": "raagi maat amte Cu_2S and FeS l mishrmm."
+      "tenglish_hint": "raagi maat amte $\\text{Cu}_2\\text{S}$ and $\\text{FeS}$ l mishrmm."
     }
   ]
 };
