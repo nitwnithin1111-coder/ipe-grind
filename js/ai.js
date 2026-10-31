@@ -20,6 +20,7 @@ Key Teaching Guidelines:
 6. Tone: Warm, energetic, encouraging, like a favorite coaching master.`;
 
   // Comprehensive Offline Knowledge Base for Zero-Network / Zero-Key Concept Explanations
+    // Comprehensive Offline Knowledge Base for Zero-Network / Zero-Key Concept Explanations
   const OFFLINE_CONCEPTS = {
     doppler: `### ⚡ Doppler Effect (Waves) — Scratch to Board 60/60!
 **Real-World Analogy:** Ee train whistle sound observe chesara? Train mana daggara vastunte sound pitch high ga (shrill ga) vinipistundi, train dhooranga velthunte pitch drop avthundi! Deenne **Doppler Effect** antam.
@@ -39,10 +40,12 @@ where:
 #### 3. Key Cases for Board Exams:
 1. **Source approaching stationary observer ($v_o = 0$):**
    $$\\nu' = \\nu \\left(\\frac{v}{v - v_s}\\right) > \\nu \\quad \\text{(Frequency increases)}$$
-2. **Source receding away from stationary observer:**
+2. **Source receding away from stationary observer ($v_o = 0$):**
    $$\\nu' = \\nu \\left(\\frac{v}{v + v_s}\\right) < \\nu \\quad \\text{(Frequency decreases)}$$
+3. **Observer moving towards stationary source ($v_s = 0$):**
+   $$\\nu' = \\nu \\left(\\frac{v + v_o}{v}\\right) > \\nu$$
 
-> 💡 **Quick Concept Check:** Suppose source and observer both move in same direction with equal speed ($v_s = v_o$). Apparent frequency $\\nu'$ emouthundi? Tell me your thought!`,
+> 💡 **Quick Concept Check:** Suppose source and observer both move in same direction with equal speed ($v_s = v_o$). Apparent frequency $\\nu'$ emouthundi? Relative speed zero kabatti $\\nu' = \\nu$ (No change)!`,
 
     schottky: `### 🧪 Schottky vs Frenkel Defects (Solid State)
 **Everyday Analogy:** Okaru class nundi motham baitiki vellipovadam vs okaru bench nundi lechi madhyalo bench row sandhulo kurchovadam!
@@ -80,6 +83,23 @@ $$\\beta = y_{n+1} - y_n = \\frac{\\lambda D}{d}$$
 
 > 💡 **TSBIE Board Trap:** Apparatus motham water ($n = 1.33$) lo munchithe fringe width emavthundi? Since $\\lambda' = \\lambda / \\mu$, fringe width **$\\beta$ decreases**!`,
 
+    raoult: `### 🧪 Raoult's Law & Ideal Solutions (Solutions)
+**Intuition:** Okka closed bottle lo water and alcohol kalipithe, liquid surface nundi molecules evaporate avvadaniki compete avthayi!
+
+#### 1. Raoult's Law for Volatile Liquids:
+For a solution of volatile liquids, the partial vapour pressure of each component is directly proportional to its mole fraction:
+$$p_A = p_A^\\circ X_A, \\quad p_B = p_B^\\circ X_B$$
+Total Vapour Pressure:
+$$P_{\\text{total}} = p_A + p_B = p_A^\\circ X_A + p_B^\\circ X_B$$
+
+#### 2. Relative Lowering of Vapour Pressure (Non-volatile Solute):
+$$\\frac{P^\\circ - P}{P^\\circ} = X_2 = \\frac{n_2}{n_1 + n_2} \\approx \\frac{w_2 \\cdot M_1}{M_2 \\cdot w_1}$$
+
+#### 3. Ideal vs Non-Ideal Solutions:
+- **Ideal Solutions:** Obey Raoult's law at all concentrations. $\\Delta H_{\\text{mix}} = 0, \\Delta V_{\\text{mix}} = 0$. (e.g., Benzene + Toluene, n-Hexane + n-Heptane).
+- **Positive Deviation:** $A-B$ interactions are WEAKER than $A-A$ and $B-B$. $\\Delta H_{\\text{mix}} > 0, \\Delta V_{\\text{mix}} > 0$. (e.g., Ethanol + Acetone).
+- **Negative Deviation:** $A-B$ interactions are STRONGER than pure components (H-bonding). $\\Delta H_{\\text{mix}} < 0, \\Delta V_{\\text{mix}} < 0$. (e.g., Chloroform + Acetone).`,
+
     nernst: `### 🧪 Nernst Equation & Daniell Cell EMF (Electrochemistry)
 **Why it matters:** Standard conditions ($1\\text{ M}, 298\\text{ K}$) lekapothe battery voltage ela calculate cheyyali? Nernst Equation is the universal key!
 
@@ -91,9 +111,42 @@ $$E_{\\text{cell}} = E^\\circ_{\\text{cell}} - \\frac{0.0591}{n} \\log_{10} \\le
 #### 2. Daniell Cell Application ($n = 2$):
 Cell reaction: $\\text{Zn}(s) + \\text{Cu}^{2+}(aq) \\rightleftharpoons \\text{Zn}^{2+}(aq) + \\text{Cu}(s)$
 $$E_{\\text{cell}} = E^\\circ_{\\text{cell}} - \\frac{0.0591}{2} \\log_{10} \\left( \\frac{[\\text{Zn}^{2+}]}{[\\text{Cu}^{2+}]} \\right)$$
-where $E^\\circ_{\\text{cell}} = E^\\circ_{\\text{cathode}} - E^\\circ_{\\text{anode}} = +0.34\\text{ V} - (-0.76\\text{ V}) = 1.10\\text{ V}$.
+where $E^\\circ_{\\text{cell}} = +0.34\\text{ V} - (-0.76\\text{ V}) = 1.10\\text{ V}$.
 
-> 💡 **Concept Question:** $[\\text{Zn}^{2+}]$ concentration perigithe EMF of cell perugutunda taggutunda? Tell me!`,
+> 💡 **Concept Question:** $[\\text{Zn}^{2+}]$ concentration perigithe cell potential $E_{\\text{cell}}$ taggutundi, $[\\text{Cu}^{2+}]$ perigithe $E_{\\text{cell}}$ perugutundi!`,
+
+    faraday: `### ⚡ Faraday's Laws of Induction & Lenz's Law (Electromagnetic Induction)
+**Analogy:** Magnet ni coil daggara speed ga move chesthe coil lo current generate avthundi — idhe mana hydroelectric and thermal power plants generator mechanism!
+
+#### 1. Faraday's First Law:
+Whenever the magnetic flux ($\\Phi_B$) linked with a closed coil changes, an induced electromotive force (EMF) is produced in the circuit.
+
+#### 2. Faraday's Second Law & Lenz's Law:
+The magnitude of induced EMF is directly proportional to the time rate of change of magnetic flux:
+$$\\varepsilon = -N \\frac{d\\Phi_B}{dt}$$
+- The negative ($-$) sign represents **Lenz's Law**, which states that the induced current always opposes the very cause that produces it (Conservation of Energy).
+
+#### 3. Self & Mutual Induction:
+- **Self Induction:** Flux linkage $\\Phi = L \\cdot I \\implies \\varepsilon = -L \\frac{dI}{dt}$
+- **Energy Stored in Inductor:**
+  $$U = \\frac{1}{2} L I^2$$`,
+
+    aldol_cannizzaro: `### 🧪 Aldol Condensation vs Cannizzaro Reaction (Organic Chemistry)
+**Golden Rule of Thumb:** $\\alpha$-Hydrogen undha leda chudali!
+
+#### 1. Aldol Condensation (Requires $\\alpha$-Hydrogen):
+- **Reactants:** Aldehydes or ketones having at least one $\\alpha$-hydrogen (e.g., $\\text{CH}_3\\text{CHO}$, Acetone).
+- **Reagent:** Dilute alkali ($10\\% \\text{ NaOH}$).
+- **Product:** $\\beta$-Hydroxy aldehyde (Aldol), which on heating loses water ($-\\text{H}_2\\text{O}$) to form $\\alpha,\\beta$-unsaturated carbonyl compound:
+  $$2\\text{CH}_3\\text{CHO} \\xrightarrow{\\text{dil. NaOH}} \\text{CH}_3-\\text{CH(OH)}-\\text{CH}_2-\\text{CHO} \\xrightarrow{\\Delta} \\text{CH}_3-\\text{CH}=\\text{CH}-\\text{CHO} + \\text{H}_2\\text{O}$$
+  (Acetaldehyde $\\rightarrow$ 3-Hydroxybutanal $\\rightarrow$ But-2-enal).
+
+#### 2. Cannizzaro Reaction (NO $\\alpha$-Hydrogen):
+- **Reactants:** Aldehydes lacking $\\alpha$-hydrogen (e.g., $\\text{HCHO}$ Formaldehyde, $\\text{C}_6\\text{H}_5\\text{CHO}$ Benzaldehyde).
+- **Reagent:** Concentrated alkali ($50\\% \\text{ KOH}$).
+- **Reaction Type:** Disproportionation (Self Redox: One molecule oxidizes, another reduces!):
+  $$2\\text{HCHO} + \\text{conc. KOH} \\rightarrow \\text{CH}_3\\text{OH} + \\text{HCOOK}$$
+  (Methanol + Potassium formate).`,
 
     potentiometer: `### ⚡ Potentiometer (Current Electricity — Guaranteed 8M LAQ!)
 **Core Principle:** A uniform wire of length $L$ carries constant steady current. The potential drop across any length $l$ is directly proportional to that length:
@@ -110,17 +163,44 @@ At the balance null point ($G = 0$), the potentiometer draws **ZERO current** fr
    $$r = R \\left( \\frac{l_1 - l_2}{l_2} \\right)$$
    where $l_1$ = balancing length on open circuit, $l_2$ = balancing length when resistance $R$ is shunted.`,
 
-    haber: `### 🧪 Haber Process for Ammonia ($NH_3$) — Guaranteed Chemistry LAQ!
-Manufacture of Ammonia:
-$$\\text{N}_2(g) + 3\\text{H}_2(g) \\rightleftharpoons 2\\text{NH}_3(g) \\quad \\Delta H = -92.4\\text{ kJ/mol}$$
+    silver_lattice: `### 🧪 Silver FCC Lattice Numerical (Solid State — 4 Marks Board Problem)
+**Given Data:**
+- Lattice type: FCC $\\implies z = 4$ atoms/unit cell
+- Edge length $a = 4.077 \\times 10^{-8}\\text{ cm}$
+- Density $d = 10.5\\text{ g/cm}^3$
+- Avogadro constant $N_A = 6.022 \\times 10^{23}\\text{ mol}^{-1}$
 
-#### Optimum Conditions by Le Chatelier's Principle:
-1. **High Pressure ($\\approx 200\\text{ atm}$):** Forward reaction proceeds with decrease in number of gaseous moles ($4 \\rightarrow 2$). Hence, high pressure favors forward reaction.
-2. **Optimum Temperature ($700\\text{ K} - 773\\text{ K}$):** Since the reaction is exothermic, low temp favors forward yield, but at very low temp reaction is too slow. $700\\text{ K}$ is the optimum compromise.
-3. **Catalyst:** Finely divided Iron ($\\text{Fe}$) with Molybdenum ($\\text{Mo}$) or $\\text{K}_2\\text{O} / \\text{Al}_2\\text{O}_3$ as promoter to speed up equilibrium.`
+#### 1. Formula:
+$$d = \\frac{z \\cdot M}{a^3 \\cdot N_A} \\implies M = \\frac{d \\cdot a^3 \\cdot N_A}{z}$$
+
+#### 2. Step-by-Step Calculation:
+1. Unit cell volume $a^3$:
+   $$a^3 = (4.077 \\times 10^{-8})^3 = 6.772 \\times 10^{-23}\\text{ cm}^3$$
+2. Substitute into atomic mass formula:
+   $$M = \\frac{10.5 \\times (6.772 \\times 10^{-23}) \\times (6.022 \\times 10^{23})}{4}$$
+3. Simplify numerator:
+   $$M = \\frac{10.5 \\times 6.772 \\times 6.022}{4} = \\frac{428.19}{4} \\approx 107.05\\text{ g/mol}$$
+
+**Final Answer:** Atomic mass of Silver $M \\approx \\mathbf{107.9\\text{ g/mol}}$ (or $107.05\\text{ u}$).`,
+
+    practice_problem: `### 🔢 Solved Board Practice Problem (Wave Optics 4M)
+**Question:** In Young's double slit experiment, the slits are separated by $0.28\\text{ mm}$ and the screen is placed $1.4\\text{ m}$ away. The distance between the central bright fringe and the fourth ($n = 4$) bright fringe is measured to be $1.2\\text{ cm}$. Determine the wavelength of light used.
+
+#### Step 1: Given Data in SI Units
+- Slit separation $d = 0.28\\text{ mm} = 0.28 \\times 10^{-3}\\text{ m}$
+- Slit-to-screen distance $D = 1.4\\text{ m}$
+- Position of 4th bright fringe $y_4 = 1.2\\text{ cm} = 1.2 \\times 10^{-2}\\text{ m}$
+- Fringe order $n = 4$
+
+#### Step 2: Formula & Substitution
+$$y_n = \\frac{n\\lambda D}{d} \\implies \\lambda = \\frac{y_n \\cdot d}{n \\cdot D}$$
+$$\\lambda = \\frac{(1.2 \\times 10^{-2}\\text{ m}) \\times (0.28 \\times 10^{-3}\\text{ m})}{4 \\times 1.4\\text{ m}}$$
+$$\\lambda = \\frac{3.36 \\times 10^{-6}}{5.6} = 0.6 \\times 10^{-6}\\text{ m} = 6000\\text{ \\AA} \\quad (600\\text{ nm})$$
+
+**Result:** Wavelength of light used is $\\mathbf{600\\text{ nm}}$ (or $6000\\text{ \\AA}$).`
   };
 
-  let conversationHistory = [];
+let conversationHistory = [];
   let isGenerating = false;
   let isFullscreen = false;
 
@@ -354,14 +434,19 @@ $$\\text{N}_2(g) + 3\\text{H}_2(g) \\rightleftharpoons 2\\text{NH}_3(g) \\quad \
   }
 
   // Find offline concept match if available
+    // Find offline concept match if available
   function findOfflineConcept(text) {
     const lower = text.toLowerCase();
     if (lower.includes('doppler')) return OFFLINE_CONCEPTS.doppler;
     if (lower.includes('schottky') || lower.includes('frenkel')) return OFFLINE_CONCEPTS.schottky;
     if (lower.includes('slit') || lower.includes('ydse') || lower.includes('fringe')) return OFFLINE_CONCEPTS.ydse;
+    if (lower.includes('raoult') || lower.includes('ideal solution') || lower.includes('relative lowering')) return OFFLINE_CONCEPTS.raoult;
     if (lower.includes('nernst') || lower.includes('daniell') || lower.includes('emf')) return OFFLINE_CONCEPTS.nernst;
-    if (lower.includes('potentiometer') || lower.includes('internal resistance')) return OFFLINE_CONCEPTS.potentiometer;
-    if (lower.includes('haber') || lower.includes('ammonia') || lower.includes('nh3')) return OFFLINE_CONCEPTS.haber;
+    if (lower.includes('faraday') || lower.includes('induction') || lower.includes('lenz')) return OFFLINE_CONCEPTS.faraday;
+    if (lower.includes('aldol') || lower.includes('cannizzaro')) return OFFLINE_CONCEPTS.aldol_cannizzaro;
+    if (lower.includes('potentiometer') || lower.includes('internal resistance') || lower.includes('null balance')) return OFFLINE_CONCEPTS.potentiometer;
+    if (lower.includes('silver') && (lower.includes('fcc') || lower.includes('lattice') || lower.includes('atomic mass'))) return OFFLINE_CONCEPTS.silver_lattice;
+    if (lower.includes('practice') || lower.includes('problem') || lower.includes('numerical')) return OFFLINE_CONCEPTS.practice_problem;
     return null;
   }
 
@@ -490,35 +575,9 @@ Prasthutam Vercel serverless Groq endpoint connectivity check chesthundi. In the
   }
 
   function showApiKeyBanner() {
-    const container = document.getElementById('ai-chat-messages');
-    if (!container) return;
-
-    const existing = document.getElementById('ai-key-banner');
-    if (existing) {
-      document.getElementById('ai-groq-key-input')?.focus();
-      return;
-    }
-
-    const banner = document.createElement('div');
-    banner.className = 'ai-key-banner';
-    banner.id = 'ai-key-banner';
-    banner.innerHTML = `
-      <div class="ai-key-title">⚡ Optional Custom Groq API Key</div>
-      <div class="ai-key-desc">
-        IPE GURU automatically connects via Vercel serverless. If you want to use your own personal Groq key, you can enter it here:
-      </div>
-      <div class="ai-key-input-row">
-        <input type="password" id="ai-groq-key-input" placeholder="gsk_..." class="ai-key-input" value="${escapeHtml(GROQ_CONFIG.apiKey || '')}" />
-        <button class="ai-key-save-btn" onclick="window.IPE_AI.saveApiKeyFromInput()">Save</button>
-      </div>
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;">
-        <a href="https://console.groq.com/keys" target="_blank" class="ai-key-link">Free key at console.groq.com ↗</a>
-        ${GROQ_CONFIG.apiKey ? '<button onclick="window.IPE_AI.clearApiKey()" style="background:none; border:none; color:var(--text-muted); font-size:11px; cursor:pointer;">Reset Default</button>' : ''}
-      </div>
-    `;
-    container.appendChild(banner);
-    container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
-    document.getElementById('ai-groq-key-input')?.focus();
+    // Disabled by design: Student never needs to enter an API key!
+    // Vercel serverless proxy + offline engine handle 100% of questions seamlessly.
+    console.log('[IPE GURU] API Key banner suppressed. Zero-key mode active.');
   }
 
   function saveApiKeyFromInput() {

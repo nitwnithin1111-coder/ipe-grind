@@ -4049,3 +4049,34 @@ textarea:focus {
   gap: 8px;
   margin-top: 14px;
 }
+
+/* Formula Lab High-Precision KaTeX Formula Boxes */
+.sim-law-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #38bdf8;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.sim-law-formula {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 8px 0;
+  text-align: center;
+  overflow-x: auto;
+  color: #f8fafc;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+.sim-law-formula .katex-display {
+  margin: 4px 0 !important;
+}
+.sim-law-note {
+  font-size: 12px;
+  line-height: 1.55;
+  color: #cbd5e1;
+  margin-top: 6px;
+}

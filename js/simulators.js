@@ -744,15 +744,43 @@ window.IPE_SIMULATORS = (function() {
 
   let lastTick = 0;
 
+  function renderSimMath(targetEl) {
+    if (typeof window === 'undefined') return;
+    const el = targetEl || document.getElementById('formula-lab-modal');
+    if (!el) return;
+    if (window.requestAnimationFrame) {
+      window.requestAnimationFrame(function() {
+        if (window.IPE_RENDER_MATH) {
+          window.IPE_RENDER_MATH(el);
+        } else if (window.renderMathInElement) {
+          try {
+            window.renderMathInElement(el, {
+              delimiters: [
+                { left: '$$', right: '$$', display: true },
+                { left: '$', right: '$', display: false }
+              ],
+              throwOnError: false
+            });
+          } catch (e) {}
+        }
+      });
+    }
+  }
+
   function switchSimulator(simKey) {
     activeSimulator = simKey;
 
     const tabs = ['sonometer', 'potentiometer', 'nernst', 'kinetics'];
-    tabs.forEach(k => {
-      const btn = document.getElementById(`sim-tab-${k}`);
-      const pane = document.getElementById(`sim-pane-${k}`);
+    tabs.forEach(function(k) {
+      const btn = document.getElementById('sim-tab-' + k);
+      const pane = document.getElementById('sim-pane-' + k);
       if (btn) btn.classList.toggle('active', k === simKey);
-      if (pane) pane.style.display = k === simKey ? 'block' : 'none';
+      if (pane) {
+        pane.style.display = k === simKey ? 'block' : 'none';
+        if (k === simKey) {
+          renderSimMath(pane);
+        }
+      }
     });
 
     if (simKey === 'sonometer') updateSonometerUI();
@@ -768,19 +796,8 @@ window.IPE_SIMULATORS = (function() {
       if (defaultSim) switchSimulator(defaultSim);
       else switchSimulator(activeSimulator);
 
-      if (window.IPE_RENDER_MATH) {
-        window.IPE_RENDER_MATH(modal);
-      } else if (window.renderMathInElement) {
-        try {
-          window.renderMathInElement(modal, {
-            delimiters: [
-              { left: '$$', right: '$$', display: true },
-              { left: '$', right: '$', display: false }
-            ],
-            throwOnError: false
-          });
-        } catch (e) {}
-      }
+      renderSimMath(modal);
+      modal.querySelectorAll('.sim-law-verify-box').forEach(b => renderSimMath(b));
 
       if (!animId && typeof window !== 'undefined' && window.requestAnimationFrame) {
         animId = requestAnimationFrame(tick);
@@ -803,6 +820,10 @@ window.IPE_SIMULATORS = (function() {
       updatePotentiometerUI();
       updateNernstUI();
       updateKineticsUI();
+      if (typeof document !== 'undefined') {
+        const modal = document.getElementById('formula-lab-modal');
+        if (modal) renderSimMath(modal);
+      }
     },
     openModal: openLabModal,
     closeModal: closeLabModal,

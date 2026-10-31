@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ipe-grind-v10';
+const CACHE_NAME = 'ipe-grind-v12';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -18,6 +18,10 @@ const ASSETS_TO_CACHE = [
   './js/commute.js',
   './js/simulators.js',
   './js/mock_exam.js',
+  './js/firebase-config.js',
+  './js/auth.js',
+  './js/db.js',
+  './js/concepts.js',
   './data/manifest.js',
   './data/physics/ch01-waves.js',
   './data/physics/ch02-ray-optics.js',

@@ -27,8 +27,8 @@
   <script defer src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
   <script defer src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
   <!-- Core Styles -->
-  <link rel="stylesheet" href="css/style.css?v=9">
-  <link rel="stylesheet" href="css/themes.css?v=9">
+  <link rel="stylesheet" href="css/style.css?v=12">
+  <link rel="stylesheet" href="css/themes.css?v=12">
 </head>
 <body>
   <div id="app-root" class="app-shell">
@@ -677,8 +677,11 @@
             </div>
           </div>
           <div class="sim-law-verify-box">
-            <strong>Formula:</strong> $r = R \left(\frac{l_1 - l_2}{l_2}\right)$<br>
-            Why Potentiometer is superior to Voltmeter: Draws zero current at null balance point ($G = 0$), acting as an ideal voltmeter with infinite internal resistance.
+            <div class="sim-law-title">⚡ Internal Resistance Formula</div>
+            <div class="sim-law-formula">$r = R \left(\frac{l_1 - l_2}{l_2}\right)$</div>
+            <div class="sim-law-note">
+              <strong>Why Potentiometer is superior to Voltmeter:</strong> Draws zero current at null balance point ($G = 0$), acting as an ideal voltmeter with infinite internal resistance.
+            </div>
           </div>
         </div>
 
@@ -723,8 +726,11 @@
             </div>
           </div>
           <div class="sim-law-verify-box">
-            <strong>Nernst Equation:</strong> $E_{cell} = E^\circ_{cell} - \frac{2.303 RT}{nF}\log_{10}\frac{[Zn^{2+}]}{[Cu^{2+}]} = 1.10 - \frac{0.0591}{2}\log_{10} Q$<br>
-            Decreasing $[Zn^{2+}]$ or increasing $[Cu^{2+}]$ increases cell voltage $E_{cell}$.
+            <div class="sim-law-title">🧪 Nernst Equation & Cell EMF</div>
+            <div class="sim-law-formula">$E_{\text{cell}} = E^{\circ}_{\text{cell}} - \frac{2.303 RT}{nF}\log_{10} Q = 1.10 - \frac{0.0591}{2}\log_{10}\left(\frac{[\text{Zn}^{2+}]}{[\text{Cu}^{2+}]}\right)$</div>
+            <div class="sim-law-note">
+              Decreasing $[\text{Zn}^{2+}]$ or increasing $[\text{Cu}^{2+}]$ increases cell voltage $E_{\text{cell}}$.
+            </div>
           </div>
         </div>
 
@@ -773,8 +779,11 @@
             </div>
           </div>
           <div class="sim-law-verify-box">
-            <strong>Kinetics & Nuclear Law:</strong> $t_{1/2} = \frac{0.693}{k}$ (Half-life is independent of initial concentration $[A]_0$).<br>
-            Fraction remaining after $n$ half-lives: $\left(\frac{1}{2}\right)^n$. At $3t_{1/2}$, $12.5\%$ remains and $87.5\%$ is completed!
+            <div class="sim-law-title">⚛️ Kinetics & Nuclear Decay Law</div>
+            <div class="sim-law-formula">$t_{1/2} = \frac{0.693}{k}, \quad \text{Fraction Remaining} = \left(\frac{1}{2}\right)^n$</div>
+            <div class="sim-law-note">
+              Half-life is independent of initial concentration $[A]_0$. At $3t_{1/2}$, 12.5% remains and 87.5% is completed!
+            </div>
           </div>
         </div>
 
@@ -1309,7 +1318,7 @@
             </div>
           </div>
           <div class="ai-header-controls">
-            <button class="ai-tool-btn" onclick="window.IPE_AI.showApiKeyBanner()" title="Groq API Key Settings">🔑 Key</button>
+            
             <button class="ai-tool-btn" onclick="window.IPE_AI.clearChat()" title="Reset Chat">🔄 Reset</button>
             <button class="ai-tool-btn" id="ai-fullscreen-btn" onclick="window.IPE_AI.toggleFullscreen()" title="Fullscreen / Expand">⛶</button>
             <button class="close-modal-btn" onclick="window.IPE_AI.closeChat()">✕</button>
@@ -1403,24 +1412,24 @@
   <script src="data/chemistry/ch15-everyday-life.js"></script>
 
   <!-- App Architecture Scripts -->
-  <script src="js/storage.js?v=9"></script>
-  <script src="js/speech.js?v=9"></script>
-  <script src="js/gamification.js?v=9"></script>
-  <script src="js/quiz.js?v=9"></script>
-  <script src="js/feed.js?v=9"></script>
-  <script src="js/flashcards.js?v=9"></script>
-  <script src="js/ai.js?v=9"></script>
-  <script src="js/countdown.js?v=10"></script>
-  <script src="js/ambient_audio.js?v=10"></script>
-  <script src="js/commute.js?v=10"></script>
-  <script src="js/simulators.js?v=10"></script>
-  <script src="js/mock_exam.js?v=10"></script>
+  <script src="js/storage.js?v=12"></script>
+  <script src="js/speech.js?v=12"></script>
+  <script src="js/gamification.js?v=12"></script>
+  <script src="js/quiz.js?v=12"></script>
+  <script src="js/feed.js?v=12"></script>
+  <script src="js/flashcards.js?v=12"></script>
+  <script src="js/ai.js?v=12"></script>
+  <script src="js/countdown.js?v=12"></script>
+  <script src="js/ambient_audio.js?v=12"></script>
+  <script src="js/commute.js?v=12"></script>
+  <script src="js/simulators.js?v=12"></script>
+  <script src="js/mock_exam.js?v=12"></script>
   
   <!-- Phase 3 Architecture: Firebase Auth, Cloud Firestore & Concept Engine -->
-  <script src="js/firebase-config.js?v=11"></script>
-  <script src="js/auth.js?v=11"></script>
-  <script src="js/db.js?v=11"></script>
-  <script src="js/concepts.js?v=11"></script>
-  <script src="js/app.js?v=9"></script>
+  <script src="js/firebase-config.js?v=12"></script>
+  <script src="js/auth.js?v=12"></script>
+  <script src="js/db.js?v=12"></script>
+  <script src="js/concepts.js?v=12"></script>
+  <script src="js/app.js?v=12"></script>
 </body>
 </html>
