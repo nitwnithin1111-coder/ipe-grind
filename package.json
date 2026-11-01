@@ -1,0 +1,10 @@
+{
+  "name": "ipe-grind",
+  "version": "1.2.0",
+  "description": "IPE Grind - PWA & Interactive Exam Engine for TS Board Intermediate 2nd Year",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node scripts/deep_scan_katex.js"
+  }
+}
